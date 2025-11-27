@@ -9,19 +9,19 @@ const UseCases = () => {
   const useCases = [
     {
       key: 'hunting',
-      image: 'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80',
     },
     {
       key: 'camping',
-      image: 'https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&q=80',
     },
     {
       key: 'mountains',
-      image: 'https://images.unsplash.com/photo-1464822759844-d150ad849687?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
     },
     {
       key: 'streaming',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
     },
     {
       key: 'construction',
@@ -29,35 +29,35 @@ const UseCases = () => {
     },
     {
       key: 'farming',
-      image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80',
     },
     {
       key: 'events',
-      image: 'https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
     },
     {
       key: 'tourism',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80',
     },
     {
       key: 'freelance',
-      image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
+      image: 'https://i.pinimg.com/originals/31/6b/70/316b70bbd7178410f8bb3ba42f9f3562.jpg',
     },
   ]
 
   return (
-    <section id="usecases" ref={ref} className="py-12 md:py-20 bg-black pt-24 md:pt-32">
+    <section id="usecases" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-12 md:mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 md:mb-12 lg:mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
         >
           {t('useCases.title')}
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {useCases.map((useCase, index) => (
             <motion.div
               key={useCase.key}

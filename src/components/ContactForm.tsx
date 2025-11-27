@@ -55,14 +55,14 @@ const ContactForm = () => {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-12 md:py-20 bg-black pt-24 md:pt-32">
+    <section id="contact" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
       <Toaster position="top-right" />
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-10 lg:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t('contact.title')}
@@ -80,12 +80,12 @@ const ContactForm = () => {
         >
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.name')}
               </label>
               <input
                 {...register('name', { required: true })}
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
                 placeholder={t('contact.name')}
               />
               {errors.name && (
@@ -94,13 +94,13 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.phone')}
               </label>
               <input
                 {...register('phone', { required: true })}
                 type="tel"
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
                 placeholder="+7 700 000 0000"
               />
               {errors.phone && (
@@ -109,7 +109,7 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.email')}
               </label>
               <input
@@ -118,7 +118,7 @@ const ContactForm = () => {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 })}
                 type="email"
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
                 placeholder="example@email.com"
               />
               {errors.email && (
@@ -131,12 +131,12 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.serviceType')}
               </label>
               <select
                 {...register('serviceType', { required: true })}
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
               >
                 <option value="">{t('contact.selectServiceType')}</option>
                 <option value="rental">{t('contact.rental')}</option>
@@ -148,12 +148,12 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.equipment')}
               </label>
               <select
                 {...register('equipment', { required: true })}
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
               >
                 <option value="">{t('contact.selectEquipment')}</option>
                 <option value="mini">Starlink Mini</option>
@@ -165,13 +165,13 @@ const ContactForm = () => {
             </div>
 
             <div>
-              <label className="block text-white mb-2">
+              <label className="block text-white mb-2 text-sm md:text-base">
                 {t('contact.message')}
               </label>
               <textarea
                 {...register('message')}
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all resize-none"
+                className="w-full px-4 py-3 text-sm md:text-base bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all resize-none"
                 placeholder={t('contact.message')}
               />
             </div>
@@ -179,7 +179,7 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-8 py-4 bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent disabled:opacity-50 disabled:cursor-not-allowed text-white text-lg font-semibold rounded-lg transition-all flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-accent/50"
+              className="w-full px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent disabled:opacity-50 disabled:cursor-not-allowed text-white text-base md:text-lg font-semibold rounded-lg transition-all flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-accent/50"
             >
               {isSubmitting ? (
                 <>

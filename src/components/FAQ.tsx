@@ -37,13 +37,13 @@ const FAQ = () => {
   ]
 
   return (
-    <section id="faq" ref={ref} className="py-12 md:py-20 bg-gray-900 pt-24 md:pt-32">
+    <section id="faq" ref={ref} className="py-12 md:py-16 lg:py-20 bg-gray-900 pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t('faq.title')}
@@ -62,11 +62,11 @@ const FAQ = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left"
+                className="w-full px-4 md:px-6 py-4 flex items-center justify-between text-left gap-4"
               >
-                <span className="text-white font-semibold text-lg">{faq.question}</span>
+                <span className="text-white font-semibold text-base md:text-lg flex-1">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-accent transition-transform ${
+                  className={`w-5 h-5 text-accent transition-transform flex-shrink-0 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
@@ -80,7 +80,7 @@ const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4 text-gray-400">{faq.answer}</div>
+                    <div className="px-4 md:px-6 pb-4 text-gray-400 text-sm md:text-base">{faq.answer}</div>
                   </motion.div>
                 )}
               </AnimatePresence>

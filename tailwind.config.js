@@ -10,7 +10,7 @@ export default {
         accent: '#ff6b35',
       },
       fontFamily: {
-        sans: ['Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+        sans: ['DIN', 'DIN Alternate', 'DIN Condensed', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Verdana', 'sans-serif'],
       },
       fontWeight: {
         light: '300',

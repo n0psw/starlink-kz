@@ -20,24 +20,23 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+  const openWhatsApp = () => {
+    window.open('https://wa.me/77007006613', '_blank')
   }
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-16 md:pt-20 overflow-hidden"
       style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1920&q=80)',
+        backgroundImage: 'url(https://starlink.com/public-files/roam_b_weather_d.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 lg:h-48 bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
       
       <motion.div
         className="relative z-10 container mx-auto px-4 text-center"
@@ -65,7 +64,7 @@ const Hero = () => {
           {t('hero.subtitle')}
         </motion.p>
         <motion.button
-          onClick={scrollToContact}
+          onClick={openWhatsApp}
           className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white text-base md:text-lg font-semibold rounded-lg transition-all transform hover:scale-105 shadow-xl shadow-accent/50 hover:shadow-2xl hover:shadow-accent/70"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

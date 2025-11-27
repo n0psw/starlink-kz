@@ -48,13 +48,13 @@ const Pricing = () => {
   ]
 
   return (
-    <section id="pricing" ref={ref} className="py-12 md:py-20 bg-black pt-24 md:pt-32">
+    <section id="pricing" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t('pricing.title')}
@@ -62,14 +62,14 @@ const Pricing = () => {
           <p className="text-base md:text-xl text-gray-400">{t('pricing.subtitle')}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.equipment}
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-gradient-to-br from-gray-900 via-black to-gray-900 p-6 md:p-8 rounded-xl border border-gray-800/50 hover:border-accent/50 transition-all relative hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+              className="bg-gradient-to-br from-gray-900 via-black to-gray-900 p-5 md:p-6 lg:p-8 rounded-xl border border-gray-800/50 hover:border-accent/50 transition-all relative hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl"></div>
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4 relative z-10">{plan.name}</h3>
@@ -81,10 +81,10 @@ const Pricing = () => {
                 <p className="text-gray-400 text-sm">/{t('pricing.day')}</p>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                  <li key={i} className="flex items-center gap-2 text-gray-300 text-sm md:text-base">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
