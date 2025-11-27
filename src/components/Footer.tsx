@@ -4,7 +4,6 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-10 md:py-16">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="text-2xl font-bold text-white mb-2">SPACE X KZ</div>
             <p className="text-gray-500 text-sm max-w-md mx-auto md:mx-0">
               Аренда и покупка высокоскоростного интернета Starlink по всему Казахстану
             </p>

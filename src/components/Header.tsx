@@ -56,10 +56,6 @@ const Header = () => {
       <ScrollProgress />
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-xl md:text-2xl font-bold text-white">
-            SPACE X KZ
-          </div>
-          
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
