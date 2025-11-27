@@ -5,6 +5,17 @@ import { useState, useEffect } from 'react'
 const Hero = () => {
   const { t } = useTranslation()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,7 +40,9 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-16 md:pt-20 overflow-hidden"
       style={{
-        backgroundImage: 'url(https://starlink.com/public-files/roam_b_weather_d.webp)',
+        backgroundImage: isMobile 
+          ? 'url(https://i.pinimg.com/736x/34/fd/63/34fd63f6ca8340ae3838135748067965.jpg)'
+          : 'url(https://starlink.com/public-files/roam_b_weather_d.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
