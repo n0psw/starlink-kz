@@ -4,9 +4,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-10 md:py-16">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="text-2xl font-bold text-white mb-2">STARLINK</div>
+            <div className="text-2xl font-bold text-white mb-2">SPACE X KZ</div>
             <p className="text-gray-500 text-sm max-w-md mx-auto md:mx-0">
-              Аренда высокоскоростного интернета по всему Казахстану
+              Аренда и покупка высокоскоростного интернета Starlink по всему Казахстану
             </p>
           </div>
 
@@ -14,13 +14,13 @@ const Footer = () => {
             <div>
               <p className="text-gray-400 text-xs uppercase tracking-wider mb-3">Контакты</p>
               <a
-                href="tel:+77019444441"
+                href="tel:+77007006613"
                 className="block text-white hover:text-accent transition-colors mb-2"
               >
-                +7 701 944 4441
+                +7 700 700 6613
               </a>
               <a
-                href="https://wa.me/77019444441"
+                href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-white hover:text-accent transition-colors"

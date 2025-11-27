@@ -11,6 +11,7 @@ interface FormData {
   phone: string
   email: string
   equipment: string
+  serviceType: string
   message: string
 }
 
@@ -29,9 +30,22 @@ const ContactForm = () => {
     setIsSubmitting(true)
     
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      console.log('Form submitted:', data)
-      toast.success('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.')
+      const equipmentText = data.equipment === 'mini' ? 'Starlink Mini' : data.equipment === 'v4' ? 'Starlink V4' : 'Не выбрано'
+      const serviceTypeText = data.serviceType === 'rental' ? 'Аренда' : data.serviceType === 'purchase' ? 'Покупка' : 'Не выбрано'
+      
+      const message = `Новая заявка от ${data.name}
+
+📞 Телефон: ${data.phone}
+📧 Email: ${data.email}
+🎯 Тип услуги: ${serviceTypeText}
+📡 Оборудование: ${equipmentText}
+💬 Сообщение: ${data.message || 'Нет сообщения'}`
+
+      const whatsappUrl = `https://wa.me/77007006613?text=${encodeURIComponent(message)}`
+      
+      window.open(whatsappUrl, '_blank')
+      
+      toast.success('Открывается WhatsApp для отправки заявки')
       reset()
     } catch (error) {
       toast.error('Произошла ошибка. Пожалуйста, попробуйте еще раз.')
@@ -50,9 +64,12 @@ const ContactForm = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 md:mb-12 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             {t('contact.title')}
           </h2>
+          <p className="text-gray-400 text-base md:text-lg">
+            {t('contact.subtitle')}
+          </p>
         </motion.div>
 
         <motion.div
@@ -110,6 +127,23 @@ const ContactForm = () => {
                     ? 'Обязательное поле'
                     : 'Неверный email'}
                 </p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-white mb-2">
+                {t('contact.serviceType')}
+              </label>
+              <select
+                {...register('serviceType', { required: true })}
+                className="w-full px-4 py-3 bg-gray-900/80 border border-gray-800/50 rounded-lg text-white focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all"
+              >
+                <option value="">{t('contact.selectServiceType')}</option>
+                <option value="rental">{t('contact.rental')}</option>
+                <option value="purchase">{t('contact.purchase')}</option>
+              </select>
+              {errors.serviceType && (
+                <p className="text-red-500 text-sm mt-1">Обязательное поле</p>
               )}
             </div>
 

@@ -91,10 +91,17 @@ const Pricing = () => {
               </ul>
 
               <div className="mb-6 p-3 md:p-4 bg-gradient-to-br from-gray-900/80 to-black/80 rounded-lg border border-gray-800/30 relative z-10">
+                <div className="text-xs text-gray-500 uppercase tracking-wider mb-3">{t('pricing.rental')}</div>
                 <div className="text-sm text-gray-400 mb-2">{t('pricing.week')}:</div>
                 <div className="text-lg md:text-xl font-semibold text-white">{plan.prices.week} 〒</div>
                 <div className="text-sm text-gray-400 mt-2 mb-2">{t('pricing.month')}:</div>
                 <div className="text-lg md:text-xl font-semibold text-white">{plan.prices.month} 〒</div>
+                <div className="mt-4 pt-4 border-t border-gray-800/50">
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">{t('pricing.purchase')}</div>
+                  <div className="text-lg md:text-xl font-semibold text-accent">
+                    {plan.equipment === 'mini' ? 'Уточняйте' : 'Уточняйте'}
+                  </div>
+                </div>
               </div>
 
               <button
