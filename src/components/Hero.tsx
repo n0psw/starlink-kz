@@ -38,7 +38,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-16 md:pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black pt-28 md:pt-32 overflow-hidden"
       style={{
         backgroundImage: isMobile 
           ? 'url(https://i.pinimg.com/736x/34/fd/63/34fd63f6ca8340ae3838135748067965.jpg)'

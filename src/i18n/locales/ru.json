@@ -1,4 +1,7 @@
 {
+  "topBanner": {
+    "orderLink": "Заказать STARLINK для дома"
+  },
   "nav": {
     "home": "Главная",
     "useCases": "Кому подойдет",

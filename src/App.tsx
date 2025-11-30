@@ -1,3 +1,4 @@
+import TopBanner from './components/TopBanner'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import UseCases from './components/UseCases'
@@ -17,6 +18,7 @@ import ScrollToTop from './components/ScrollToTop'
 function App() {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden max-w-full">
+      <TopBanner />
       <Header />
       <Hero />
       <UseCases />
