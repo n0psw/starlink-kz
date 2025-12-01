@@ -58,9 +58,9 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-[32px] md:top-[40px] left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-900 w-full overflow-x-hidden">
+    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-900 w-full overflow-x-hidden">
       <ScrollProgress />
-      <div className="container mx-auto px-3 md:px-4 py-2.5 md:py-3 lg:py-4 max-w-full">
+      <div className="container mx-auto px-3 md:px-4 py-1.5 md:py-2 lg:py-3 max-w-full">
         <div className="flex items-center justify-between relative">
           <div className="flex-1 hidden md:block"></div>
           
