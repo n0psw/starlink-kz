@@ -6,6 +6,7 @@ const Hero = () => {
   const { t } = useTranslation()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isMobile, setIsMobile] = useState(false)
+  const baseUrl = import.meta.env.BASE_URL || '/'
 
   useEffect(() => {
     const checkMobile = () => {
