@@ -42,7 +42,7 @@ const Hero = () => {
       style={{
         backgroundImage: isMobile 
           ? 'url(https://i.pinimg.com/736x/34/fd/63/34fd63f6ca8340ae3838135748067965.jpg)'
-          : 'url(https://starlink.com/public-files/roam_b_weather_d.webp)',
+          : 'url(public/heroo.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

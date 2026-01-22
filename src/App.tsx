@@ -29,7 +29,7 @@ function App() {
       <Setup />
       <Testimonials />
       <Pricing />
-      <Guarantees />
+      {/* <Guarantees /> */}
       <FAQ />
       <ContactForm />
       <Footer />

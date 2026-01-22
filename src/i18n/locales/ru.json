@@ -105,7 +105,7 @@
   },
   "contact": {
     "title": "Связаться с нами",
-    "subtitle": "Оформите заявку на аренду или покупку Starlink",
+    "subtitle": "",
     "name": "Имя",
     "phone": "Телефон",
     "email": "Email",
@@ -121,11 +121,10 @@
   "footer": {
     "contacts": "Контакты",
     "city": "Оскемен, Риддер, Алтай",
-    "copyright": "© 2025 Все права защищены"
+    "copyright": "© 2026"
   },
   "testimonials": {
-    "title": "Нам доверяют",
-    "subtitle": "Отзывы наших клиентов"
+    "title": "Отзывы о Starlink"
   },
   "pricing": {
     "title": "Тарифы и цены",

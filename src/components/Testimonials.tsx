@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+﻿import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
@@ -74,4 +74,6 @@ const Testimonials = () => {
 }
 
 export default Testimonials
+
+
 

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 const Features = () => {
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
+  const baseUrl = import.meta.env.BASE_URL || '/'
 
   return (
     <section id="features" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
@@ -76,14 +77,10 @@ const Features = () => {
             </p>
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden relative flex items-center justify-center">
               <img
-                src="https://www.starlink.com/public-files/starlink_mini_hero.jpg"
+                src={`${baseUrl}1.jpg`}
                 alt="Starlink Mini"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = 'https://cdn.shopify.com/s/files/1/0173/8194/7843/files/starlink-mini_1024x1024.jpg'
-                }}
               />
             </div>
           </motion.div>
@@ -103,14 +100,10 @@ const Features = () => {
             </p>
             <div className="w-full h-48 bg-gray-800 rounded-lg overflow-hidden relative flex items-center justify-center">
               <img
-                src="https://www.starlink.com/public-files/starlink_standard_hero.jpg"
+                src={`${baseUrl}2.jpg`}
                 alt="Starlink V4"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.src = 'https://www.starlink.com/public-files/starlink_standard_kit.jpg'
-                }}
               />
             </div>
           </motion.div>

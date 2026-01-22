@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1219"/>
+      <stop offset="1" stop-color="#1a2433"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00d4ff"/>
+      <stop offset="1" stop-color="#7fe7ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="24" fill="url(#panel)"/>
+  <rect x="60" y="80" width="520" height="160" rx="20" fill="#0a0f15" stroke="#1f2a37"/>
+  <rect x="110" y="130" width="420" height="22" rx="11" fill="url(#accent)" opacity="0.6"/>
+  <rect x="110" y="170" width="320" height="18" rx="9" fill="#223042"/>
+  <g>
+    <rect x="140" y="270" width="360" height="80" rx="16" fill="#0a0f15" stroke="#1f2a37"/>
+    <rect x="180" y="295" width="200" height="18" rx="9" fill="#223042"/>
+  </g>
+</svg>

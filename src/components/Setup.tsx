@@ -61,24 +61,7 @@ const Setup = () => {
           </motion.div>
         </motion.div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.starlink.mobile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-gray-800/50"
-          >
-            {t('setup.downloadAndroid')}
-          </a>
-          <a
-            href="https://apps.apple.com/app/starlink/id1537177988"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-gray-800/50"
-          >
-            {t('setup.downloadIOS')}
-          </a>
-        </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center"></div>
       </div>
     </section>
   )

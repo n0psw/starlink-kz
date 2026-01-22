@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 lg:gap-12">
           <div className="flex-1 text-center md:text-left">
             <p className="text-gray-500 text-xs md:text-sm max-w-md mx-auto md:mx-0">
-              Аренда и покупка высокоскоростного интернета Starlink по всему Казахстану
+            Мы не являемся компанией Starlink/SpaceX. Официальный заказ оформляется на сайте Starlink.
             </p>
           </div>
 
