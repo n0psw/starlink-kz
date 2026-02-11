@@ -2,14 +2,8 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-gray-900/50">
       <div className="container mx-auto px-4 py-8 md:py-10 lg:py-16">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 lg:gap-12">
-          <div className="flex-1 text-center md:text-left">
-            <p className="text-gray-500 text-xs md:text-sm max-w-md mx-auto md:mx-0">
-            Мы не являемся компанией Starlink/SpaceX. Официальный заказ оформляется на сайте Starlink.
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 lg:gap-12 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 lg:gap-12">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-12 text-center">
             <div>
               <p className="text-gray-400 text-xs uppercase tracking-wider mb-3">Контакты</p>
               <a
@@ -30,7 +24,17 @@ const Footer = () => {
 
             <div>
               <p className="text-gray-400 text-xs uppercase tracking-wider mb-3">Локация</p>
-              <p className="text-white">Оскемен, Риддер, Алтай</p>
+              <p className="text-white">Оскемен, Риддер, Алтай, Алматы, Кокшетау</p>
+              <a
+                href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center mt-2 transition-opacity hover:opacity-80"
+                aria-label="2ГИС"
+                title="2ГИС"
+              >
+                <img src="/2gis.svg" alt="2ГИС" className="h-6 w-6" />
+              </a>
             </div>
           </div>
         </div>

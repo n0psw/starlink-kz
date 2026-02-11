@@ -5,6 +5,8 @@ import UseCases from './components/UseCases'
 import Benefits from './components/Benefits'
 import Features from './components/Features'
 import Setup from './components/Setup'
+import Installation from './components/Installation'
+import CoverageMap from './components/CoverageMap'
 import Stats from './components/Stats'
 import WhyUs from './components/WhyUs'
 import Testimonials from './components/Testimonials'
@@ -26,6 +28,8 @@ function App() {
       <Stats />
       <WhyUs />
       <Setup />
+      <Installation />
+      <CoverageMap />
       <Testimonials />
       <Pricing />
       {/* <Guarantees /> */}
