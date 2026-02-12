@@ -35,13 +35,13 @@ const Benefits = () => {
   ]
 
   return (
-    <section id="benefits" ref={ref} className="py-12 md:py-16 lg:py-20 bg-gray-900 pt-20 md:pt-24 lg:pt-32">
+    <section id="benefits" ref={ref} className="py-12 md:py-16 lg:py-20 bg-[color:var(--surface-2)] pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 md:mb-12 lg:mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 text-center mb-8 md:mb-12 lg:mb-16 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent"
         >
           {t('benefits.title')}
         </motion.h2>
@@ -55,15 +55,15 @@ const Benefits = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-black via-gray-900/50 to-black p-5 md:p-6 lg:p-8 rounded-xl border border-gray-800/50 hover:border-accent/50 transition-all hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+                className="premium-card p-5 md:p-6 lg:p-8 hover:border-accent/50 transition-all hover:shadow-xl hover:shadow-slate-200/70 hover:-translate-y-1"
               >
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-accent/30 to-accent/10 rounded-lg flex items-center justify-center mb-4 shadow-lg shadow-accent/20">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <Icon className="w-5 h-5 md:w-6 md:h-6 text-accent drop-shadow-lg" />
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3">
                   {t(`benefits.${benefit.key}.title`)}
                 </h3>
-                <p className="text-sm md:text-base text-gray-400">
+                <p className="text-sm md:text-base text-slate-600">
                   {t(`benefits.${benefit.key}.description`)}
                 </p>
               </motion.div>

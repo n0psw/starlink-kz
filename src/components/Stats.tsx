@@ -14,10 +14,10 @@ const StatCard = ({ value, label, delay }: { value: string; label: string; delay
       initial={{ opacity: 0, scale: 0.5 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay }}
-      className="text-center"
+      className="text-center premium-card py-4 md:py-6"
     >
       <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-2">{value}</div>
-      <div className="text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg">{label}</div>
+      <div className="text-slate-500 text-xs sm:text-sm md:text-base lg:text-lg">{label}</div>
     </motion.div>
   )
 }
@@ -34,7 +34,7 @@ const Stats = () => {
   ]
 
   return (
-    <section id="stats" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
+    <section id="stats" ref={ref} className="py-12 md:py-16 lg:py-20 bg-[color:var(--surface-2)] pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -42,7 +42,7 @@ const Stats = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 md:mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-8 md:mb-16 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             {t('stats.title')}
           </h2>
         </motion.div>

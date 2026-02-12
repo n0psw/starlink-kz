@@ -18,7 +18,7 @@ import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden max-w-full">
+    <div className="min-h-screen bg-transparent overflow-x-hidden max-w-full">
       <TopBanner />
       <Header />
       <Hero />

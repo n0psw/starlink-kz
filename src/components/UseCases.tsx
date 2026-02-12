@@ -46,13 +46,13 @@ const UseCases = () => {
   ]
 
   return (
-    <section id="usecases" ref={ref} className="py-12 md:py-16 lg:py-20 bg-black pt-20 md:pt-24 lg:pt-32">
+    <section id="usecases" ref={ref} className="py-12 md:py-16 lg:py-20 bg-white pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 md:mb-12 lg:mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 text-center mb-8 md:mb-12 lg:mb-16 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent"
         >
           {t('useCases.title')}
         </motion.h2>
@@ -64,10 +64,10 @@ const UseCases = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 transition-all transform hover:scale-[1.02] border border-gray-800/50 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+              className="group relative overflow-hidden premium-card transition-all transform hover:scale-[1.02] hover:border-accent/50 hover:shadow-xl hover:shadow-slate-200/70 hover:-translate-y-1"
             >
-              <div className="aspect-video overflow-hidden relative bg-gray-900">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10"></div>
+              <div className="aspect-video overflow-hidden relative bg-slate-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-transparent z-10"></div>
                 <img
                   src={useCase.image}
                   alt={t(`useCases.${useCase.key}.title`)}
@@ -80,10 +80,10 @@ const UseCases = () => {
                 />
               </div>
               <div className="p-4 md:p-6 relative z-20">
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-2 drop-shadow-lg">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2">
                   {t(`useCases.${useCase.key}.title`)}
                 </h3>
-                <p className="text-gray-300 text-sm md:text-base">
+                <p className="text-slate-600 text-sm md:text-base">
                   {t(`useCases.${useCase.key}.description`)}
                 </p>
               </div>

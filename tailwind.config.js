@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: '#ff6b35',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['DIN', 'DIN Alternate', 'DIN Condensed', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Verdana', 'sans-serif'],
+        sans: ['Sora', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Verdana', 'sans-serif'],
       },
       fontWeight: {
         light: '300',

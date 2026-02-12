@@ -60,9 +60,9 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-900 w-full overflow-x-hidden">
+    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-slate-200 w-full overflow-x-hidden">
       <ScrollProgress />
-      <div className="container mx-auto px-3 md:px-4 py-1.5 md:py-2 lg:py-3 max-w-full">
+      <div className="container mx-auto px-3 md:px-4 py-1 md:py-1.5 lg:py-2 max-w-full">
         <div className="flex items-center justify-between relative">
           <div className="flex-1 hidden md:block"></div>
           
@@ -78,7 +78,7 @@ const Header = () => {
                 className={`transition-colors whitespace-nowrap text-xs sm:text-sm lg:text-base ${
                   activeSection === link.id
                     ? 'text-accent border-b-2 border-accent'
-                    : 'text-white hover:text-accent'
+                    : 'text-slate-700 hover:text-accent'
                 }`}
               >
                 {t(`nav.${link.key}`)}
@@ -91,7 +91,7 @@ const Header = () => {
               href="https://wa.me/77007006613"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-accent transition-colors hidden md:block"
+              className="text-slate-700 hover:text-accent transition-colors hidden md:block"
               aria-label="WhatsApp"
             >
               <WhatsAppIcon />
@@ -99,21 +99,21 @@ const Header = () => {
 
             <a
               href={loginUrl}
-              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-gray-700 hover:border-gray-600 text-white text-sm md:text-base rounded transition-colors bg-transparent hover:bg-gray-900/50"
+              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-slate-200 hover:border-slate-300 text-slate-700 text-sm md:text-base rounded-full transition-colors bg-white/80 hover:bg-white"
             >
               Вход
             </a>
             
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1.5 md:px-4 md:py-2 border border-gray-700 hover:border-gray-600 text-white text-sm md:text-base rounded transition-colors bg-transparent hover:bg-gray-900/50"
+              className="px-3 py-1.5 md:px-4 md:py-2 border border-slate-200 hover:border-slate-300 text-slate-700 text-sm md:text-base rounded-full transition-colors bg-white/80 hover:bg-white"
             >
               {currentLanguage === 'ru' ? 'ҚАЗ' : 'РУС'}
             </button>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white"
+              className="md:hidden text-slate-700"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -121,7 +121,7 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <nav className="md:hidden mt-3 pb-3 border-t border-gray-800">
+          <nav className="md:hidden mt-3 pb-3 border-t border-slate-200">
             <div className="flex flex-col gap-3 pt-3">
               {navLinks.map((link) => (
                 <a
@@ -131,7 +131,7 @@ const Header = () => {
                     e.preventDefault()
                     scrollToSection(link.id)
                   }}
-                  className="text-white hover:text-accent transition-colors"
+                  className="text-slate-700 hover:text-accent transition-colors"
                 >
                   {t(`nav.${link.key}`)}
                 </a>
@@ -140,14 +140,14 @@ const Header = () => {
                 href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-accent transition-colors pt-2 border-t border-gray-800"
+                className="flex items-center gap-2 text-slate-700 hover:text-accent transition-colors pt-2 border-t border-slate-200"
               >
                 <WhatsAppIcon />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={loginUrl}
-                className="text-white hover:text-accent transition-colors pt-2 border-t border-gray-800"
+                className="text-slate-700 hover:text-accent transition-colors pt-2 border-t border-slate-200"
               >
                 Вход
               </a>

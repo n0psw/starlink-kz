@@ -8,7 +8,7 @@ const Setup = () => {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section id="setup" ref={ref} className="py-12 md:py-16 lg:py-20 bg-gray-900 pt-20 md:pt-24 lg:pt-32">
+    <section id="setup" ref={ref} className="py-12 md:py-16 lg:py-20 bg-[color:var(--surface-2)] pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -16,10 +16,10 @@ const Setup = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             {t('setup.title')}
           </h2>
-          <p className="text-base md:text-xl text-gray-400 mb-8">
+          <p className="text-base md:text-xl text-slate-600 mb-8">
             {t('setup.description')}
           </p>
         </motion.div>
@@ -34,13 +34,13 @@ const Setup = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-black via-gray-900/50 to-black p-6 md:p-7 lg:p-8 rounded-xl border border-gray-800/50 hover:border-accent/50 text-center transition-all hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+            className="premium-card p-6 md:p-7 lg:p-8 hover:border-accent/50 text-center transition-all hover:shadow-xl hover:shadow-slate-200/70 hover:-translate-y-1"
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-accent/20">
+            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
               <Plug className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-accent drop-shadow-lg" />
             </div>
-            <div className="text-5xl md:text-6xl font-bold text-white mb-2">1</div>
-            <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
+            <div className="text-5xl md:text-6xl font-bold text-slate-900 mb-2">1</div>
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-2">
               {t('setup.step1')}
             </h3>
           </motion.div>
@@ -49,13 +49,13 @@ const Setup = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-black via-gray-900/50 to-black p-6 md:p-7 lg:p-8 rounded-xl border border-gray-800/50 hover:border-accent/50 text-center transition-all hover:shadow-2xl hover:shadow-accent/30 hover:-translate-y-1"
+            className="premium-card p-6 md:p-7 lg:p-8 hover:border-accent/50 text-center transition-all hover:shadow-xl hover:shadow-slate-200/70 hover:-translate-y-1"
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-accent/30 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-accent/20">
+            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
               <Satellite className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-accent drop-shadow-lg" />
             </div>
-            <div className="text-5xl md:text-6xl font-bold text-white mb-2">2</div>
-            <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
+            <div className="text-5xl md:text-6xl font-bold text-slate-900 mb-2">2</div>
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-2">
               {t('setup.step2')}
             </h3>
           </motion.div>
