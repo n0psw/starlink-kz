@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { Shield, Wifi } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 
