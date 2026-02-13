@@ -42,13 +42,14 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-slate-50 to-white pt-28 md:pt-32 overflow-hidden"
       style={{
         backgroundImage: isMobile 
+          // ? 'url(https://i.pinimg.com/736x/34/fd/63/34fd63f6ca8340ae3838135748067965.jpg)'
           ? 'url(https://i.pinimg.com/736x/34/fd/63/34fd63f6ca8340ae3838135748067965.jpg)'
-          : `url(${baseUrl}heroo.png)`,
+          : `url(${baseUrl}bg.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/70 to-white/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/40 to-white/55"></div>
       
       <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 lg:h-48 bg-gradient-to-t from-white via-white/80 to-transparent z-10"></div>
       

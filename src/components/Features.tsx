@@ -11,7 +11,7 @@ const Features = () => {
   return (
     <section id="features" ref={ref} className="py-12 md:py-16 lg:py-20 bg-white pt-20 md:pt-24 lg:pt-32">
       <div className="container mx-auto px-4">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -54,7 +54,7 @@ const Features = () => {
               {t('benefits.weather.description')}
             </p>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -81,6 +81,7 @@ const Features = () => {
                 alt="Starlink Mini"
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>
@@ -104,6 +105,7 @@ const Features = () => {
                 alt="Starlink V4"
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>
@@ -114,4 +116,3 @@ const Features = () => {
 }
 
 export default Features
-

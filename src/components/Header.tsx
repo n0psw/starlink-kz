@@ -17,10 +17,11 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('hero')
   const loginUrl =
     'https://starlink.com/auth/login?ReturnUrl=https%3A%2F%2Fstarlink.com%2Fapi%2Fauth%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DauthRelyingPartyId%26redirect_uri%3Dhttps%253A%252F%252Fstarlink.com%252Fauth-rp%252Fauth%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520profile%26code_challenge%3DPYXN3CRQo0BlsM71ry2QakJDTIUYeNUuSec6OcKptgU%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639060383978383194.YzQ5YjAzMGUtNjlkZi00OWU2LThhMTYtYWJhNzdkOTEwYmU4MWVkMWRlN2QtMWYzZi00ZmU1LWJhM2EtNjkyOTcwNTM1ZmM5%26view%3Dcustomer%26sxLoginReturnUrl%3Dhttps%253A%252F%252Fstarlink.com%252Faccount%26state%3DCfDJ8BrmZteN5jdLoWYoVZAk1aSXBUaGSeAochtZ1iuv7fyXUyMA4CjlsIKSb3ZDUbW6vna0kLZ8r0mzFjkPLbH-dRsOURueX1HHnGiy3DxbRjcSD_7CsGPosFES-fdXLDDObAiLqhF3tMNftsLhcJYl5TT2Aq9w5nfuL-b16oE8bqrcjxT6S9u-mwEFtKB2h0ZErCHHngFBfDyhGDP3mnY1HNygR_MeKzbWwAgG9c1wav8xUtFupC3g5CZJSmYlL_HkgqZGTKNZpliFDPpslKzqz7PsM1GQ_rvuasoNH-UT98Gdw7PAEBQvUjG6u_qHalj8dWJByoueJtrUVz4LWGaGsV3HZPpMhjFxdZAt0V-UxQV4NVfxD4zT7CLUiAtrqOOUKwtKMgohJUTmPnWyzJ95A9yPpVoQrO5-YV784un-GLdMGaQSXyF76y-SIV1bV0MAxSo8WtSz5LDmZP5QeHt20DI%26x-client-SKU%3DID_NET9_0%26x-client-ver%3D8.0.1.0'
+  const baseUrl = import.meta.env.BASE_URL || '/'
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'usecases', 'benefits', 'features', 'setup', 'testimonials', 'pricing', 'faq', 'contact']
+      const sections = ['hero', 'usecases', 'pricing', 'footer']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -50,13 +51,8 @@ const Header = () => {
   const navLinks = [
     { id: 'hero', key: 'home' },
     { id: 'usecases', key: 'useCases' },
-    { id: 'benefits', key: 'benefits' },
-    { id: 'features', key: 'features' },
-    { id: 'setup', key: 'setup' },
-    { id: 'testimonials', key: 'testimonials' },
     { id: 'pricing', key: 'pricing' },
-    { id: 'faq', key: 'faq' },
-    { id: 'contact', key: 'contact' },
+    { id: 'footer', key: 'contact' },
   ]
 
   return (
@@ -87,6 +83,31 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3 flex-1 justify-end">
+            <div className="hidden md:flex items-center gap-3 lg:gap-4">
+              <div className="flex flex-col items-end text-[11px] lg:text-sm leading-tight">
+                <a
+                  href="tel:+77007006613"
+                  className="font-semibold text-slate-900 hover:text-accent transition-colors"
+                >
+                  +7 700 700 6613
+                </a>
+                <a
+                  href="tel:+77019444441"
+                  className="text-slate-700 hover:text-accent transition-colors"
+                >
+                  +7 701 944 4441
+                </a>
+              </div>
+              <a
+                href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center text-slate-700 hover:text-accent transition-colors"
+                aria-label="2GIS"
+              >
+                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5" />
+              </a>
+            </div>
             <a
               href="https://wa.me/77007006613"
               target="_blank"
@@ -123,6 +144,30 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-3 pb-3 border-t border-slate-200">
             <div className="flex flex-col gap-3 pt-3">
+              <div className="flex flex-col gap-2 pb-2 border-b border-slate-200 text-sm">
+                <a
+                  href="tel:+77007006613"
+                  className="text-slate-700 hover:text-accent transition-colors"
+                >
+                  +7 700 700 6613
+                </a>
+                <a
+                  href="tel:+77019444441"
+                  className="text-slate-700 hover:text-accent transition-colors"
+                >
+                  +7 701 944 4441
+                </a>
+                <a
+                  href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-slate-700 hover:text-accent transition-colors"
+                  aria-label="2GIS"
+                >
+                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4" />
+                  <span>2GIS</span>
+                </a>
+              </div>
               {navLinks.map((link) => (
                 <a
                   key={link.id}

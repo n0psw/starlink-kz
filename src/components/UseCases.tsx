@@ -73,6 +73,7 @@ const UseCases = () => {
                   alt={t(`useCases.${useCase.key}.title`)}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     target.src = `https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80`

@@ -23,18 +23,34 @@ function App() {
       <Header />
       <Hero />
       <UseCases />
-      <Benefits />
+      <div className="hidden" aria-hidden="true">
+        <Benefits />
+      </div>
       <Features />
-      <Stats />
-      <WhyUs />
-      <Setup />
+      <div className="hidden" aria-hidden="true">
+        <Stats />
+      </div>
+      <div className="hidden" aria-hidden="true">
+        <WhyUs />
+      </div>
+      <div className="hidden" aria-hidden="true">
+        <Setup />
+      </div>
       <Installation />
-      <CoverageMap />
-      <Testimonials />
+      <div className="hidden" aria-hidden="true">
+        <CoverageMap />
+      </div>
+      <div className="hidden" aria-hidden="true">
+        <Testimonials />
+      </div>
       <Pricing />
       {/* <Guarantees /> */}
-      <FAQ />
-      <ContactForm />
+      <div className="hidden" aria-hidden="true">
+        <FAQ />
+      </div>
+      <div className="hidden" aria-hidden="true">
+        <ContactForm />
+      </div>
       <Footer />
       <ScrollToTop />
     </div>

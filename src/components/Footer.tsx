@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-slate-200">
+    <footer id="footer" className="bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 py-8 md:py-10 lg:py-16">
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 lg:gap-12">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-12 text-center">
@@ -30,7 +30,7 @@ const Footer = () => {
 
             <div>
               <p className="text-slate-500 text-xs uppercase tracking-wider mb-3">Локация</p>
-              <p className="text-slate-700">Оскемен, Риддер, Алтай, Алматы, Кокшетау</p>
+              <p className="text-slate-700">Оскемен, Риддер, Алтай, Алматы, <br/>Алматинская область, Талдыкорган, Кокшетау</p>
               <a
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                 target="_blank"
@@ -50,4 +50,3 @@ const Footer = () => {
 }
 
 export default Footer
-
