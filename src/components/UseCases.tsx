@@ -6,42 +6,43 @@ const UseCases = () => {
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
+  const baseUrl = import.meta.env.BASE_URL || '/'
   const useCases = [
     {
       key: 'hunting',
-      image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-1.jpg`,
     },
     {
       key: 'camping',
-      image: 'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-2.jpg`,
     },
     {
       key: 'mountains',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-3.jpg`,
     },
     {
       key: 'streaming',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-4.jpg`,
     },
     {
       key: 'construction',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-5.jpg`,
     },
     {
       key: 'farming',
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-6.jpg`,
     },
     {
       key: 'events',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-7.jpg`,
     },
     {
       key: 'tourism',
-      image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80',
+      image: `${baseUrl}usecases/usecase-8.jpg`,
     },
     {
       key: 'freelance',
-      image: 'https://i.pinimg.com/originals/31/6b/70/316b70bbd7178410f8bb3ba42f9f3562.jpg',
+      image: `${baseUrl}usecases/usecase-9.jpg`,
     },
   ]
 
@@ -76,7 +77,7 @@ const UseCases = () => {
                   decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
-                    target.src = `https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&q=80`
+                    target.src = `${baseUrl}usecases/usecase-9.jpg`
                   }}
                 />
               </div>

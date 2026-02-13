@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
+import { Play } from 'lucide-react'
 
 const Installation = () => {
   const { t } = useTranslation()
@@ -59,10 +60,16 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
   const videoRef = useRef<HTMLVideoElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     const element = wrapperRef.current
     if (!element) return
+
+    if (!('IntersectionObserver' in window)) {
+      setIsInView(true)
+      return
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -91,6 +98,7 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
     }
 
     video.pause()
+    setIsPlaying(false)
   }, [isInView])
 
   return (
@@ -109,10 +117,31 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           aria-label={label}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent"></div>
+        {!isPlaying && (
+          <button
+            type="button"
+            onClick={() => {
+              const video = videoRef.current
+              if (!video) return
+              const playPromise = video.play()
+              if (playPromise !== undefined) {
+                playPromise.catch(() => undefined)
+              }
+            }}
+            aria-label={`Смотреть видео: ${label}`}
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/35 via-black/10 to-transparent transition-opacity"
+          >
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg shadow-black/20 ring-1 ring-white/70">
+              <Play className="h-6 w-6 translate-x-[1px]" />
+            </span>
+          </button>
+        )}
       </div>
     </motion.div>
   )
