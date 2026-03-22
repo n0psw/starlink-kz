@@ -14,6 +14,9 @@ const Installation = () => {
     { key: 'visit', src: `${baseUrl}video1.mp4`, label: t('installation.visit.title'), poster },
     { key: 'mount', src: `${baseUrl}video2.mp4`, label: t('installation.mount.title'), poster },
     { key: 'setup', src: `${baseUrl}video3.mp4`, label: t('installation.setup.title'), poster },
+    { key: 'extra1', src: `${baseUrl}video4.mp4`, label: t('installation.extra1.title'), poster },
+    { key: 'extra2', src: `${baseUrl}video5.mp4`, label: t('installation.extra2.title'), poster },
+    { key: 'extra3', src: `${baseUrl}video6.mp4`, label: t('installation.extra3.title'), poster },
   ]
 
   return (

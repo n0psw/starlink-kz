@@ -91,12 +91,6 @@ const Header = () => {
                 >
                   +7 700 700 6613
                 </a>
-                <a
-                  href="tel:+77019444441"
-                  className="text-slate-700 hover:text-accent transition-colors"
-                >
-                  +7 701 944 4441
-                </a>
               </div>
               <a
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
@@ -152,12 +146,6 @@ const Header = () => {
                   +7 700 700 6613
                 </a>
                 <a
-                  href="tel:+77019444441"
-                  className="text-slate-700 hover:text-accent transition-colors"
-                >
-                  +7 701 944 4441
-                </a>
-                <a
                   href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -205,4 +193,3 @@ const Header = () => {
 }
 
 export default Header
-
