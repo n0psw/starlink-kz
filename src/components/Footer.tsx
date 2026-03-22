@@ -33,6 +33,7 @@ const Footer = () => {
               <p className="text-slate-700">Оскемен, Риддер, Алтай, Алматы, <br/>Алматинская область, Талдыкорган, Кокшетау</p>
               <a
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center mt-2 transition-opacity hover:opacity-80"
