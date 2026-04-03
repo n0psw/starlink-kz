@@ -6,6 +6,7 @@ import Benefits from './components/Benefits'
 import Features from './components/Features'
 import Setup from './components/Setup'
 import Installation from './components/Installation'
+import Services from './components/Services'
 import CoverageMap from './components/CoverageMap'
 import Stats from './components/Stats'
 import WhyUs from './components/WhyUs'
@@ -22,6 +23,8 @@ function App() {
       <TopBanner />
       <Header />
       <Hero />
+      <Installation />
+      <Services />
       <UseCases />
       <div className="hidden" aria-hidden="true">
         <Benefits />
@@ -36,14 +39,15 @@ function App() {
       <div className="hidden" aria-hidden="true">
         <Setup />
       </div>
-      <Installation />
       <div className="hidden" aria-hidden="true">
         <CoverageMap />
       </div>
       <div className="hidden" aria-hidden="true">
         <Testimonials />
       </div>
-      <Pricing />
+      <div className="hidden" aria-hidden="true">
+        <Pricing />
+      </div>
       {/* <Guarantees /> */}
       <div className="hidden" aria-hidden="true">
         <FAQ />
@@ -58,4 +62,3 @@ function App() {
 }
 
 export default App
-

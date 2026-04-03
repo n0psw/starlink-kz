@@ -11,30 +11,60 @@ const Installation = () => {
 
   const poster = `${baseUrl}bg.jpg`
   const videos = [
-    { key: 'visit', src: `${baseUrl}video1.mp4`, label: t('installation.visit.title'), poster },
-    { key: 'mount', src: `${baseUrl}video2.mp4`, label: t('installation.mount.title'), poster },
-    { key: 'setup', src: `${baseUrl}video3.mp4`, label: t('installation.setup.title'), poster },
-    { key: 'extra1', src: `${baseUrl}video4.mp4`, label: t('installation.extra1.title'), poster },
-    { key: 'extra2', src: `${baseUrl}video5.mp4`, label: t('installation.extra2.title'), poster },
-    { key: 'extra3', src: `${baseUrl}video6.mp4`, label: t('installation.extra3.title'), poster },
+    {
+      key: 'visit',
+      src: `${baseUrl}video1.mp4`,
+      label: t('installation.visit.title'),
+      poster,
+    },
+    {
+      key: 'mount',
+      src: `${baseUrl}video2.mp4`,
+      label: t('installation.mount.title'),
+      poster,
+    },
+    {
+      key: 'setup',
+      src: `${baseUrl}video3.mp4`,
+      label: t('installation.setup.title'),
+      poster,
+    },
+    {
+      key: 'extra1',
+      src: `${baseUrl}video4.mp4`,
+      label: t('installation.extra1.title'),
+      poster,
+    },
+    {
+      key: 'extra2',
+      src: `${baseUrl}video5.mp4`,
+      label: t('installation.extra2.title'),
+      poster,
+    },
+    {
+      key: 'extra3',
+      src: `${baseUrl}video6.mp4`,
+      label: t('installation.extra3.title'),
+      poster,
+    },
   ]
 
   return (
-    <section id="installation" ref={ref} className="py-12 md:py-16 lg:py-20 bg-white pt-20 md:pt-24 lg:pt-32">
+    <section id="installation" ref={ref} className="bg-white py-8 md:py-10 lg:py-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8 md:mb-12 lg:mb-16"
+          className="mb-5 text-center md:mb-6 lg:mb-7"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+          <h2 className="mb-3 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
             {t('installation.title')}
           </h2>
-          <p className="text-base md:text-xl text-slate-600">{t('installation.subtitle')}</p>
+          <p className="mx-auto max-w-3xl text-sm text-slate-600 md:text-base">{t('installation.subtitle')}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
           {videos.map((video, index) => (
             <VideoCard
               key={video.key}
@@ -109,9 +139,9 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
       initial={{ opacity: 0, y: 50 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70"
+      className="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70"
     >
-      <div ref={wrapperRef} className="relative aspect-[9/16] w-full overflow-hidden bg-slate-100">
+      <div ref={wrapperRef} className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
@@ -145,6 +175,10 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
             </span>
           </button>
         )}
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent p-3">
+          <h3 className="text-sm font-semibold text-white md:text-[15px]">{label}</h3>
+        </div>
       </div>
     </motion.div>
   )
