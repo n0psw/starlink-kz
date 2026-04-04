@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { ArrowRight, Check, CheckCircle2, ChevronRight } from 'lucide-react'
+import { ArrowRight, Check, CheckCircle2 } from 'lucide-react'
 
 const Hero = () => {
   const { t } = useTranslation()
@@ -33,13 +33,6 @@ const Hero = () => {
 
   const openWhatsApp = () => {
     window.open('https://wa.me/77007006613', '_blank')
-  }
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
   }
 
   const leftPoints = [
@@ -215,19 +208,6 @@ const Hero = () => {
                   >
                     {t('hero.cta')}
                     <ArrowRight size={17} />
-                  </motion.button>
-                  {/* Secondary CTA */}
-                  <motion.button
-                    onClick={() => scrollToSection('pricing')}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-300/90 bg-white/70 px-6 py-3.5 text-[15px] font-semibold text-slate-700 backdrop-blur-sm transition-all hover:border-slate-400 hover:bg-white md:px-8 md:py-4 md:text-[17px]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.55, delay: 0.92 }}
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {t('hero.ctaSecondary')}
-                    <ChevronRight size={16} />
                   </motion.button>
                 </div>
                 {/* Trust micro-text */}
