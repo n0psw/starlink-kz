@@ -50,7 +50,7 @@ const Installation = () => {
   ]
 
   return (
-    <section id="installation" ref={ref} className="bg-white py-8 md:py-10 lg:py-12">
+    <section id="installation" ref={ref} className="bg-[var(--surface)] py-8 md:py-10 lg:py-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -58,10 +58,10 @@ const Installation = () => {
           transition={{ duration: 0.6 }}
           className="mb-5 text-center md:mb-6 lg:mb-7"
         >
-          <h2 className="mb-3 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
+          <h2 className="mb-3 bg-gradient-to-r from-[#E4EEFA] to-[#8AAED8] bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
             {t('installation.title')}
           </h2>
-          <p className="mx-auto max-w-3xl text-sm text-slate-600 md:text-base">{t('installation.subtitle')}</p>
+          <p className="mx-auto max-w-3xl text-sm text-[var(--muted)] md:text-base">{t('installation.subtitle')}</p>
         </motion.div>
 
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
@@ -139,9 +139,9 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
       initial={{ opacity: 0, y: 50 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
-      className="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70"
+      className="group relative overflow-hidden rounded-2xl border border-white/[0.09] bg-[#0F1928] shadow-none transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 hover:border-accent/[0.25]"
     >
-      <div ref={wrapperRef} className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100">
+      <div ref={wrapperRef} className="relative aspect-[3/4] w-full overflow-hidden bg-[#0B1121]">
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
@@ -168,15 +168,15 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
               }
             }}
             aria-label={`Смотреть видео: ${label}`}
-            className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/35 via-black/10 to-transparent transition-opacity"
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-opacity"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg shadow-black/20 ring-1 ring-white/70">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/[0.10] text-white shadow-lg shadow-black/30 ring-1 ring-white/[0.20] backdrop-blur-sm">
               <Play className="h-6 w-6 translate-x-[1px]" />
             </span>
           </button>
         )}
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent p-3">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
           <h3 className="text-sm font-semibold text-white md:text-[15px]">{label}</h3>
         </div>
       </div>

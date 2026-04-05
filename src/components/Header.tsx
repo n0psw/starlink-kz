@@ -56,12 +56,12 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-white/65 backdrop-blur-xl border-b border-slate-200/50 shadow-[0_1px_3px_rgba(15,23,42,0.04)] w-full overflow-x-hidden">
+    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-[#06080E]/80 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_1px_20px_rgba(0,0,0,0.5)] w-full overflow-x-hidden">
       <ScrollProgress />
       <div className="container mx-auto px-3 md:px-4 py-1.5 md:py-2 lg:py-2.5 max-w-full">
         <div className="flex items-center justify-between relative">
           <div className="flex-1 hidden md:block"></div>
-          
+
           <nav className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-8 flex-1 justify-center">
             {navLinks.map((link) => (
               <a
@@ -73,8 +73,8 @@ const Header = () => {
                 }}
                 className={`relative transition-colors whitespace-nowrap text-xs sm:text-sm lg:text-base pb-0.5 ${
                   activeSection === link.id
-                    ? 'text-slate-900 font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[3px] after:w-5 after:rounded-full after:bg-emerald-500'
-                    : 'text-slate-500 hover:text-slate-800'
+                    ? 'text-[#E4EEFA] font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-5 after:rounded-full after:bg-accent'
+                    : 'text-[var(--muted)] hover:text-[var(--text)]'
                 }`}
               >
                 {t(`nav.${link.key}`)}
@@ -87,7 +87,7 @@ const Header = () => {
               <div className="flex flex-col items-end text-[11px] lg:text-sm leading-tight">
                 <a
                   href="tel:+77007006613"
-                  className="font-semibold text-slate-900 hover:text-accent transition-colors"
+                  className="font-semibold text-[var(--text)] hover:text-accent transition-colors"
                 >
                   +7 700 700 6613
                 </a>
@@ -96,17 +96,17 @@ const Header = () => {
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-slate-700 hover:text-accent transition-colors"
+                className="inline-flex items-center justify-center text-[var(--muted)] hover:text-accent transition-colors"
                 aria-label="2GIS"
               >
-                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5" />
+                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5 opacity-70 hover:opacity-100 transition-opacity" />
               </a>
             </div>
             <a
               href="https://wa.me/77007006613"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-700 hover:text-accent transition-colors hidden md:block"
+              className="text-[var(--muted)] hover:text-accent transition-colors hidden md:block"
               aria-label="WhatsApp"
             >
               <WhatsAppIcon />
@@ -114,21 +114,21 @@ const Header = () => {
 
             <a
               href={loginUrl}
-              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-slate-200/70 hover:border-slate-300 text-slate-500 hover:text-slate-700 text-xs md:text-sm rounded-full transition-colors bg-white/50 hover:bg-white/80"
+              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-white/[0.10] hover:border-white/[0.20] text-[var(--muted)] hover:text-[var(--text)] text-xs md:text-sm rounded-full transition-colors bg-white/[0.03] hover:bg-white/[0.07]"
             >
               Вход
             </a>
-            
+
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1.5 md:px-4 md:py-2 border border-slate-200 hover:border-slate-300 text-slate-700 text-sm md:text-base rounded-full transition-colors bg-white/80 hover:bg-white"
+              className="px-3 py-1.5 md:px-4 md:py-2 border border-white/[0.12] hover:border-white/[0.22] text-[var(--text)] text-sm md:text-base rounded-full transition-colors bg-white/[0.05] hover:bg-white/[0.09]"
             >
               {currentLanguage === 'ru' ? 'ҚАЗ' : 'РУС'}
             </button>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-slate-700"
+              className="md:hidden text-[var(--text)]"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -136,12 +136,12 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <nav className="md:hidden mt-3 pb-3 border-t border-slate-200">
+          <nav className="md:hidden mt-3 pb-3 border-t border-white/[0.08]">
             <div className="flex flex-col gap-3 pt-3">
-              <div className="flex flex-col gap-2 pb-2 border-b border-slate-200 text-sm">
+              <div className="flex flex-col gap-2 pb-2 border-b border-white/[0.08] text-sm">
                 <a
                   href="tel:+77007006613"
-                  className="text-slate-700 hover:text-accent transition-colors"
+                  className="text-[var(--text)] hover:text-accent transition-colors"
                 >
                   +7 700 700 6613
                 </a>
@@ -149,10 +149,10 @@ const Header = () => {
                   href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-slate-700 hover:text-accent transition-colors"
+                  className="inline-flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors"
                   aria-label="2GIS"
                 >
-                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4" />
+                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-70" />
                   <span>2GIS</span>
                 </a>
               </div>
@@ -164,7 +164,7 @@ const Header = () => {
                     e.preventDefault()
                     scrollToSection(link.id)
                   }}
-                  className="text-slate-700 hover:text-accent transition-colors"
+                  className="text-[var(--text)] hover:text-accent transition-colors"
                 >
                   {t(`nav.${link.key}`)}
                 </a>
@@ -173,14 +173,14 @@ const Header = () => {
                 href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-slate-700 hover:text-accent transition-colors pt-2 border-t border-slate-200"
+                className="flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-white/[0.08]"
               >
                 <WhatsAppIcon />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={loginUrl}
-                className="text-slate-700 hover:text-accent transition-colors pt-2 border-t border-slate-200"
+                className="text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-white/[0.08]"
               >
                 Вход
               </a>

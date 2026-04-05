@@ -97,10 +97,10 @@ const Services = () => {
           transition={{ duration: 0.55 }}
           className="mx-auto mb-6 max-w-3xl text-center md:mb-8"
         >
-          <h2 className="mb-3 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:text-4xl">
+          <h2 className="mb-3 bg-gradient-to-r from-[#E4EEFA] to-[#8AAED8] bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:text-4xl">
             Услуги под ключ
           </h2>
-          <p className="text-sm text-slate-600 md:text-base">
+          <p className="text-sm text-[var(--muted)] md:text-base">
             Закрываем весь цикл работ: от установки Starlink до сетевой инфраструктуры, транспорта и B2B-задач.
           </p>
         </motion.div>
@@ -114,13 +114,13 @@ const Services = () => {
                 initial={{ opacity: 0, y: 28 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sky-300/70 hover:shadow-md"
+                className="rounded-2xl border border-white/[0.08] bg-[#0B1121]/80 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/[0.30] hover:shadow-lg hover:shadow-black/40"
               >
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent/[0.12] text-accent">
                   <Icon size={20} />
                 </div>
-                <h3 className="mb-1.5 text-base font-semibold text-slate-900 md:text-lg">{service.title}</h3>
-                <p className="text-sm leading-snug text-slate-600">{service.description}</p>
+                <h3 className="mb-1.5 text-base font-semibold text-[var(--text)] md:text-lg">{service.title}</h3>
+                <p className="text-sm leading-snug text-[var(--muted)]">{service.description}</p>
               </motion.article>
             )
           })}
@@ -136,21 +136,21 @@ const Services = () => {
             <button
               type="button"
               onClick={() => setShowAll((prev) => !prev)}
-              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400"
+              className="inline-flex items-center justify-center rounded-xl border border-white/[0.12] bg-white/[0.04] px-4 py-2 text-sm font-semibold text-[var(--text)] transition-colors hover:border-white/[0.22] hover:bg-white/[0.08]"
             >
               {showAll ? 'Скрыть часть услуг' : 'Показать все услуги'}
             </button>
           )}
 
-          <div className="w-full rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm md:p-5">
-            <p className="text-sm font-semibold text-slate-900 md:text-base">
+          <div className="w-full rounded-2xl border border-white/[0.09] bg-[#0B1121]/80 p-4 text-center md:p-5">
+            <p className="text-sm font-semibold text-[var(--text)] md:text-base">
               Не нашли нужную услугу? Соберем персональное решение под ваш объект за 15 минут.
             </p>
             <a
               href="https://wa.me/77007006613"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex rounded-xl bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+              className="mt-3 inline-flex rounded-xl bg-accent/[0.15] border border-accent/[0.30] px-4 py-2 text-sm font-semibold text-accent transition-all hover:bg-accent/[0.25] hover:border-accent/[0.50]"
             >
               Обсудить проект в WhatsApp
             </a>

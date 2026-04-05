@@ -54,19 +54,21 @@ const Hero = () => {
     { top: '72%', left: '18%', delay: 0.9 },
     { top: '76%', left: '74%', delay: 0.35 },
     { top: '48%', left: '56%', delay: 0.8 },
+    { top: '35%', left: '42%', delay: 1.1 },
+    { top: '60%', left: '92%', delay: 0.65 },
   ]
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-[#eef1f5]">
-      {/* Background gradients — softened for less visual noise */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.97),rgba(240,243,247,0.95)_40%,rgba(231,235,241,0.90)_75%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.78),rgba(236,240,246,0.72)_50%,rgba(228,233,239,0.82))]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/74 to-transparent" />
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-[#06080E]">
+      {/* Deep space gradient layers */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_60%_at_70%_25%,rgba(0,200,168,0.06),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_20%_80%,rgba(10,60,200,0.08),transparent_65%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(6,8,14,0.95),rgba(8,14,28,0.82)_50%,rgba(6,8,14,0.70))]" />
 
-      {/* STARLINK watermark — opacity reduced to push it further back */}
+      {/* STARLINK watermark */}
       <motion.div
         aria-hidden="true"
-        className="absolute -left-[4%] top-[28%] hidden text-[160px] font-bold tracking-tight text-slate-900/[0.022] select-none lg:block"
+        className="absolute -left-[4%] top-[28%] hidden text-[160px] font-bold tracking-tight text-white/[0.025] select-none lg:block"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.9, delay: 0.25 }}
@@ -74,36 +76,36 @@ const Hero = () => {
         STARLINK
       </motion.div>
 
-      {/* Ambient glow — softer, more diffuse */}
+      {/* Ambient teal glow */}
       <motion.div
         aria-hidden="true"
-        className="absolute right-[12%] top-[18%] hidden h-80 w-80 rounded-full bg-white/55 blur-[110px] lg:block"
-        animate={{ y: [0, 12, 0], opacity: [0.3, 0.55, 0.3] }}
+        className="absolute right-[12%] top-[18%] hidden h-96 w-96 rounded-full bg-accent/[0.10] blur-[120px] lg:block"
+        animate={{ y: [0, 14, 0], opacity: [0.25, 0.45, 0.25] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Subtle radial glow behind dish area for depth */}
+      {/* Blue depth glow */}
       <div
         aria-hidden="true"
-        className="absolute right-[5%] top-[15%] hidden h-[500px] w-[500px] rounded-full bg-gradient-to-br from-slate-200/30 to-transparent blur-[80px] lg:block"
+        className="absolute right-[5%] top-[15%] hidden h-[520px] w-[520px] rounded-full bg-[radial-gradient(ellipse,rgba(30,80,220,0.08),transparent_70%)] blur-[60px] lg:block"
       />
 
-      {/* Decorative stars — softer */}
+      {/* Star field */}
       {stars.map((star, idx) => (
         <motion.span
           key={idx}
           aria-hidden="true"
-          className="absolute h-1 w-1 rounded-full bg-slate-600/18"
+          className="absolute h-1 w-1 rounded-full bg-accent/50"
           style={{ top: star.top, left: star.left }}
-          animate={{ opacity: [0.12, 0.55, 0.12], scale: [1, 1.3, 1] }}
+          animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.4, 1] }}
           transition={{ duration: 4, delay: star.delay, repeat: Infinity }}
         />
       ))}
 
-      {/* Dish visual — shifted right, slightly dimmer to not compete with content */}
+      {/* Dish visual */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute left-[54%] top-[14%] z-[1] h-[62vh] w-[110vw] max-w-[1350px] -translate-x-1/2 md:top-[10%] md:h-[72vh] lg:top-[4%] lg:h-[86vh]"
+        className="pointer-events-none absolute left-[57%] top-[14%] z-[1] h-[62vh] w-[110vw] max-w-[1350px] -translate-x-1/2 md:left-[60%] md:top-[10%] md:h-[72vh] lg:left-[62%] lg:top-[4%] lg:h-[86vh]"
         initial={{ opacity: 0, x: 80, scale: 0.96 }}
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.86, delay: 0.2, ease: 'easeOut' }}
@@ -118,18 +120,22 @@ const Hero = () => {
         >
           {/* Ground shadow under dish */}
           <motion.div
-            className="absolute left-1/2 top-[70%] h-16 w-[42%] -translate-x-1/2 rounded-full bg-slate-900/12 blur-[38px] sm:h-20 md:h-24 lg:h-28"
-            animate={{ scale: [1, 1.08, 1], opacity: [0.1, 0.2, 0.1] }}
+            className="absolute left-1/2 top-[70%] h-16 w-[42%] -translate-x-1/2 rounded-full bg-accent/[0.08] blur-[50px] sm:h-20 md:h-24 lg:h-28"
+            animate={{ scale: [1, 1.08, 1], opacity: [0.08, 0.18, 0.08] }}
             transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut' }}
           />
-          {/* Dish image — pulled back visually */}
+          {/* Dish image */}
           <motion.img
             src={`${baseUrl}starlinkcrop.png`}
             alt=""
-            className="absolute inset-0 h-full w-full object-contain object-center opacity-[0.46] drop-shadow-[0_40px_80px_rgba(71,85,105,0.18)] sm:opacity-[0.52] md:opacity-[0.60]"
+            className="absolute inset-0 h-full w-full object-contain object-center opacity-[0.64] drop-shadow-[0_40px_80px_rgba(0,200,168,0.12)] sm:opacity-[0.70] md:opacity-[0.76]"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.82, delay: 0.3 }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,8,14,0.78)_0%,rgba(6,8,14,0.48)_32%,rgba(6,8,14,0.16)_56%,rgba(6,8,14,0)_74%)]"
           />
         </div>
       </motion.div>
@@ -142,7 +148,7 @@ const Hero = () => {
         transition={{ duration: 0.7 }}
       >
         <div className="grid items-start gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:gap-16">
-          {/* ─── LEFT COLUMN — primary reading path ─── */}
+          {/* ─── LEFT COLUMN ─── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -157,7 +163,7 @@ const Hero = () => {
             >
               {/* Eyebrow badge */}
               <motion.span
-                className="mb-5 inline-flex rounded-full border border-slate-300/65 bg-white/60 px-4 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-slate-500 backdrop-blur-sm md:mb-6 md:text-[11.5px]"
+                className="mb-5 inline-flex rounded-full border border-accent/[0.25] bg-accent/[0.07] px-4 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-accent backdrop-blur-sm md:mb-6 md:text-[11.5px]"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -165,27 +171,27 @@ const Hero = () => {
                 {t('hero.leftBadge')}
               </motion.span>
 
-              {/* Headline — tighter line-height, narrower max-width for elegant line breaks */}
-              <h1 className="max-w-[560px] text-[33px] font-bold leading-[1.06] tracking-[-0.025em] text-slate-900 sm:text-[42px] md:text-[52px] lg:text-[62px]">
+              {/* Headline */}
+              <h1 className="max-w-[560px] text-[33px] font-bold leading-[1.06] tracking-[-0.025em] text-[#E4EEFA] drop-shadow-[0_12px_28px_rgba(2,6,14,0.78)] sm:text-[42px] md:text-[52px] lg:text-[62px]">
                 {t('hero.title')}
               </h1>
 
-              {/* Subtitle — stronger contrast than before, deliberate max-width */}
-              <p className="mt-4 max-w-[480px] text-[15px] leading-[1.65] text-slate-600 md:mt-5 md:text-[17px] md:leading-[1.6]">
+              {/* Subtitle */}
+              <p className="mt-4 max-w-[480px] text-[15px] leading-[1.65] text-[var(--muted)] md:mt-5 md:text-[17px] md:leading-[1.6]">
                 {t('hero.subtitle')}
               </p>
 
-              {/* Benefit bullets — compact, consistent sizing */}
+              {/* Benefit bullets */}
               <ul className="mt-7 space-y-2.5 md:mt-9">
                 {leftPoints.map((point, idx) => (
                   <motion.li
                     key={point}
-                    className="flex items-center gap-2.5 text-[14px] font-medium text-slate-800 md:text-[16px]"
+                    className="flex items-center gap-2.5 text-[14px] font-medium text-[var(--text)] md:text-[16px]"
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.46 + idx * 0.1 }}
                   >
-                    <span className="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald-500/12 text-emerald-600 md:h-6 md:w-6">
+                    <span className="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-accent/[0.14] text-accent md:h-6 md:w-6">
                       <Check size={13} strokeWidth={2.5} />
                     </span>
                     <span>{point}</span>
@@ -193,13 +199,13 @@ const Hero = () => {
                 ))}
               </ul>
 
-              {/* ─── CTA zone — two buttons + trust micro-text ─── */}
+              {/* ─── CTA zone ─── */}
               <div className="mt-8 flex flex-col items-start gap-4 md:mt-10">
                 <div className="flex flex-wrap items-center gap-3">
                   {/* Primary CTA */}
                   <motion.button
                     onClick={openWhatsApp}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1fbf63] to-[#159b50] px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_18px_36px_-18px_rgba(31,191,99,0.65)] transition-all hover:shadow-[0_22px_44px_-18px_rgba(31,191,99,0.78)] hover:brightness-105 md:px-10 md:py-4 md:text-[17px]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1fbf63] to-[#159b50] px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_18px_40px_-14px_rgba(31,191,99,0.55)] transition-all hover:shadow-[0_22px_48px_-14px_rgba(31,191,99,0.70)] hover:brightness-110 md:px-10 md:py-4 md:text-[17px]"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.55, delay: 0.82 }}
@@ -212,7 +218,7 @@ const Hero = () => {
                 </div>
                 {/* Trust micro-text */}
                 <motion.p
-                  className="flex items-center gap-2 text-[12.5px] text-slate-500 md:text-[13.5px]"
+                  className="flex items-center gap-2 text-[12.5px] text-[var(--muted)] md:text-[13.5px]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 1.02 }}
@@ -224,7 +230,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* ─── RIGHT COLUMN — compact service card ─── */}
+          {/* ─── RIGHT COLUMN — service card ─── */}
           <motion.div
             className="w-full max-w-[440px] pt-2 md:pt-6 lg:justify-self-end lg:pt-[200px]"
             initial={{ opacity: 0, x: 40 }}
@@ -238,39 +244,39 @@ const Hero = () => {
                   : `translate3d(${mousePosition.x * -0.42}px, ${mousePosition.y * -0.34}px, 0)`,
               }}
             >
-              <div className="rounded-[20px] border border-slate-200/75 bg-white/78 p-5 shadow-[0_20px_44px_-28px_rgba(15,23,42,0.28)] backdrop-blur-xl md:p-7">
-                {/* Card title — smaller than before, doesn't compete with h1 */}
-                <h2 className="text-[18px] font-bold leading-tight text-slate-900 md:text-[20px]">
+              <div className="rounded-[20px] border border-white/[0.10] bg-[#0B1121]/85 p-5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.70)] backdrop-blur-xl md:p-7">
+                {/* Card title */}
+                <h2 className="text-[18px] font-bold leading-tight text-[#E4EEFA] md:text-[20px]">
                   {t('hero.rightTitle')}
                 </h2>
-                {/* Service list — 4 specific items */}
+                {/* Service list */}
                 <ul className="mt-4 space-y-3 md:mt-5 md:space-y-3.5">
                   {rightPoints.map((point, idx) => (
                     <motion.li
                       key={point}
-                      className="flex items-start gap-2.5 text-[13px] leading-snug text-slate-600 md:text-[14.5px]"
+                      className="flex items-start gap-2.5 text-[13px] leading-snug text-[var(--muted)] md:text-[14.5px]"
                       initial={{ opacity: 0, x: 18 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.6 + idx * 0.08 }}
                     >
-                      <CheckCircle2 className="mt-0.5 h-[18px] w-[18px] flex-none text-emerald-500" />
+                      <CheckCircle2 className="mt-0.5 h-[18px] w-[18px] flex-none text-accent" />
                       <span>{point}</span>
                     </motion.li>
                   ))}
                 </ul>
-                {/* Card footer — trust badges + mini CTA */}
-                <div className="mt-5 border-t border-slate-100 pt-4">
+                {/* Card footer */}
+                <div className="mt-5 border-t border-white/[0.07] pt-4">
                   <div className="mb-3 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-slate-50 px-3 py-1 text-[11.5px] font-medium text-slate-500 md:text-[12.5px]">
+                    <span className="rounded-full bg-white/[0.06] px-3 py-1 text-[11.5px] font-medium text-[var(--muted)] md:text-[12.5px]">
                       {t('hero.rightFooter1')}
                     </span>
-                    <span className="rounded-full bg-slate-50 px-3 py-1 text-[11.5px] font-medium text-slate-500 md:text-[12.5px]">
+                    <span className="rounded-full bg-white/[0.06] px-3 py-1 text-[11.5px] font-medium text-[var(--muted)] md:text-[12.5px]">
                       {t('hero.rightFooter2')}
                     </span>
                   </div>
                   <motion.button
                     onClick={openWhatsApp}
-                    className="w-full rounded-xl bg-slate-900 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-slate-800 md:py-3 md:text-[14px]"
+                    className="w-full rounded-xl bg-accent/[0.15] border border-accent/[0.30] py-2.5 text-[13px] font-semibold text-accent transition-all hover:bg-accent/[0.25] hover:border-accent/[0.50] md:py-3 md:text-[14px]"
                     whileHover={{ scale: 1.015 }}
                     whileTap={{ scale: 0.99 }}
                   >
@@ -284,7 +290,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#e8ecf2] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#06080E] to-transparent" />
     </section>
   )
 }

@@ -10,7 +10,7 @@ export default {
         accent: 'rgb(var(--accent) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Sora', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Verdana', 'sans-serif'],
+        sans: ['Golos Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
       fontWeight: {
         light: '300',
@@ -28,4 +28,3 @@ export default {
   },
   plugins: [],
 }
-
