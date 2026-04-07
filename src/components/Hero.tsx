@@ -32,7 +32,7 @@ const Hero = () => {
   }, [])
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/77007006613', '_blank')
+    window.open('https://wa.me/77007006613', '_blank', 'noopener,noreferrer')
   }
 
   const leftPoints = [
@@ -63,9 +63,14 @@ const Hero = () => {
     <section id="hero" className="relative min-h-[100svh] overflow-hidden bg-[var(--bg)]">
       <div className="absolute inset-0">
         <img
-          src={`${baseUrl}bgmountains1.png`}
+          src={`${baseUrl}bgmountains1-1280.jpg`}
+          srcSet={`${baseUrl}bgmountains1-768.jpg 768w, ${baseUrl}bgmountains1-1024.jpg 1024w, ${baseUrl}bgmountains1-1280.jpg 1280w, ${baseUrl}bgmountains1.jpg 1536w`}
+          sizes="100vw"
           alt=""
+          width={1536}
+          height={1024}
           className="h-full w-full object-cover object-center"
+          loading="eager"
           fetchPriority="high"
           decoding="async"
         />

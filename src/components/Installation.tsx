@@ -9,7 +9,7 @@ const Installation = () => {
   const { ref, isVisible } = useScrollAnimation()
   const baseUrl = import.meta.env.BASE_URL || '/'
 
-  const poster = `${baseUrl}bg.jpg`
+  const poster = `${baseUrl}bg-poster-960.jpg`
   const videos = [
     {
       key: 'visit',
@@ -200,7 +200,7 @@ const VideoCard = ({ src, label, poster, isVisible, delay }: VideoCardProps) => 
           muted
           loop
           playsInline
-          preload={shouldAutoplay ? 'metadata' : 'none'}
+          preload="none"
           aria-label={label}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}

@@ -73,9 +73,9 @@ const UseCases = () => {
                   src={useCase.image}
                   alt={t(`useCases.${useCase.key}.title`)}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-95"
-                  loading={index < 2 ? 'eager' : 'lazy'}
-                  decoding={index < 2 ? 'sync' : 'async'}
-                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="auto"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     target.src = `${baseUrl}usecases/usecase-9.jpg`

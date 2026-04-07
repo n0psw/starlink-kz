@@ -43,7 +43,7 @@ const ContactForm = () => {
 
       const whatsappUrl = `https://wa.me/77007006613?text=${encodeURIComponent(message)}`
       
-      window.open(whatsappUrl, '_blank')
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
       
       toast.success('Открывается WhatsApp для отправки заявки')
       reset()
@@ -198,4 +198,3 @@ const ContactForm = () => {
 }
 
 export default ContactForm
-
