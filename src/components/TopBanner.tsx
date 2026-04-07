@@ -4,13 +4,16 @@ const TopBanner = () => {
   const { t } = useTranslation()
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] w-full h-[36px] md:h-[40px] bg-[#06080E]/95 border-b border-white/[0.07] flex items-center backdrop-blur">
+    <div
+      data-top-banner="true"
+      className="fixed top-0 left-0 right-0 z-[60] w-full h-[30px] md:h-[36px] bg-white/88 border-b border-slate-200/80 flex items-center backdrop-blur"
+    >
       <div className="container mx-auto px-3 md:px-4 text-center">
         <a
           href="https://starlink.com/residential?referral=RC-DF-11159619-27577-7"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--text)] text-xs sm:text-sm md:text-base font-semibold hover:text-accent transition-colors inline-block leading-tight"
+          className="text-[11px] sm:text-xs md:text-sm text-slate-700 font-semibold hover:text-accent transition-colors inline-block leading-tight"
         >
           {t('topBanner.orderLink')}
         </a>

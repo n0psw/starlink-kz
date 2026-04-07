@@ -1,15 +1,14 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap");
 
 @layer base {
   :root {
-    --bg: #06080E;
-    --surface: #0B1121;
-    --surface-2: #0F1928;
-    --border: rgba(110, 155, 255, 0.09);
-    --text: #C8D8F0;
-    --muted: #576880;
-    --accent: 0 200 168;
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --surface-2: #eef3f8;
+    --border: rgba(15, 23, 42, 0.08);
+    --text: #0f172a;
+    --muted: #5a667c;
+    --accent: 27 145 186;
   }
 
   * {
@@ -25,6 +24,16 @@
     overflow-x: hidden;
   }
 
+  section[id] {
+    scroll-margin-top: 86px;
+  }
+
+  @media (min-width: 768px) {
+    section[id] {
+      scroll-margin-top: 102px;
+    }
+  }
+
   body {
     color: var(--text);
     font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -36,9 +45,9 @@
     overflow-x: hidden;
     max-width: 100vw;
     background:
-      radial-gradient(ellipse 140% 55% at 50% -8%, rgba(0, 200, 168, 0.08), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 95% 95%, rgba(10, 80, 255, 0.07), transparent 65%),
-      var(--bg);
+      radial-gradient(ellipse 120% 70% at 12% -10%, rgba(27, 145, 186, 0.18), transparent 56%),
+      radial-gradient(ellipse 90% 58% at 92% -12%, rgba(14, 116, 144, 0.15), transparent 58%),
+      linear-gradient(180deg, #fcfdff 0%, #f5f7fb 52%, #edf2f8 100%);
   }
 
   * {
@@ -48,7 +57,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: #E4EEFA;
+    color: #0f172a;
   }
 
   button {
@@ -59,20 +68,20 @@
 
 @layer components {
   .premium-card {
-    background: rgba(11, 17, 33, 0.85);
-    border: 1px solid rgba(110, 155, 255, 0.10);
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 20px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25), 0 24px 64px -16px rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.25), 0 1px 0 rgba(255, 255, 255, 0.85) inset;
   }
 
   .premium-panel {
-    background: rgba(11, 17, 33, 0.88);
-    border: 1px solid rgba(110, 155, 255, 0.10);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 24px;
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    box-shadow: 0 16px 48px -24px rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 20px 44px -26px rgba(15, 23, 42, 0.26), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
   }
 }

@@ -1,6 +1,8 @@
 const Footer = () => {
+  const baseUrl = import.meta.env.BASE_URL || '/'
+
   return (
-    <footer id="footer" className="bg-[var(--bg)] border-t border-white/[0.07]">
+    <footer id="footer" className="bg-[var(--surface)] border-t border-slate-200/80">
       <div className="container mx-auto px-4 py-8 md:py-10 lg:py-16">
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 lg:gap-12">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-12 text-center">
@@ -33,7 +35,11 @@ const Footer = () => {
                 aria-label="2ГИС"
                 title="2ГИС"
               >
-                <img src="/2gis.svg" alt="2ГИС" className="h-6 w-6 opacity-60 hover:opacity-90 transition-opacity" />
+                <img
+                  src={`${baseUrl}2gis.svg`}
+                  alt="2ГИС"
+                  className="h-6 w-6 opacity-60 hover:opacity-90 transition-opacity"
+                />
               </a>
             </div>
           </div>

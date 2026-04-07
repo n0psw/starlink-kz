@@ -47,13 +47,13 @@ const UseCases = () => {
   ]
 
   return (
-    <section id="usecases" ref={ref} className="bg-[var(--bg)] py-8 md:py-10 lg:py-12">
+    <section id="usecases" ref={ref} className="bg-[var(--surface-2)] py-8 md:py-10 lg:py-12">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-5 bg-gradient-to-r from-[#E4EEFA] to-[#8AAED8] bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl md:mb-6 md:text-4xl lg:mb-8 lg:text-5xl"
+          className="mb-5 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600 bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl md:mb-6 md:text-4xl lg:mb-8 lg:text-5xl"
         >
           {t('useCases.title')}
         </motion.h2>
@@ -65,16 +65,17 @@ const UseCases = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0B1121]/80 transition-all hover:-translate-y-1 hover:border-accent/[0.35] hover:shadow-xl hover:shadow-black/50"
+              className="group premium-card relative overflow-hidden rounded-2xl transition-all hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_26px_42px_-26px_rgba(15,23,42,0.38)]"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[#0B1121]">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1121]/85 via-[#0B1121]/15 to-transparent z-10"></div>
+              <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/15 to-transparent z-10"></div>
                 <img
                   src={useCase.image}
                   alt={t(`useCases.${useCase.key}.title`)}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
-                  loading="lazy"
-                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-95"
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  decoding={index < 2 ? 'sync' : 'async'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
                     target.src = `${baseUrl}usecases/usecase-9.jpg`

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../hooks/useLanguage'
 import { Menu, X } from 'lucide-react'
@@ -15,13 +15,14 @@ const Header = () => {
   const { currentLanguage, toggleLanguage } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const headerRef = useRef<HTMLElement>(null)
   const loginUrl =
     'https://starlink.com/auth/login?ReturnUrl=https%3A%2F%2Fstarlink.com%2Fapi%2Fauth%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DauthRelyingPartyId%26redirect_uri%3Dhttps%253A%252F%252Fstarlink.com%252Fauth-rp%252Fauth%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520profile%26code_challenge%3DPYXN3CRQo0BlsM71ry2QakJDTIUYeNUuSec6OcKptgU%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639060383978383194.YzQ5YjAzMGUtNjlkZi00OWU2LThhMTYtYWJhNzdkOTEwYmU4MWVkMWRlN2QtMWYzZi00ZmU1LWJhM2EtNjkyOTcwNTM1ZmM5%26view%3Dcustomer%26sxLoginReturnUrl%3Dhttps%253A%252F%252Fstarlink.com%252Faccount%26state%3DCfDJ8BrmZteN5jdLoWYoVZAk1aSXBUaGSeAochtZ1iuv7fyXUyMA4CjlsIKSb3ZDUbW6vna0kLZ8r0mzFjkPLbH-dRsOURueX1HHnGiy3DxbRjcSD_7CsGPosFES-fdXLDDObAiLqhF3tMNftsLhcJYl5TT2Aq9w5nfuL-b16oE8bqrcjxT6S9u-mwEFtKB2h0ZErCHHngFBfDyhGDP3mnY1HNygR_MeKzbWwAgG9c1wav8xUtFupC3g5CZJSmYlL_HkgqZGTKNZpliFDPpslKzqz7PsM1GQ_rvuasoNH-UT98Gdw7PAEBQvUjG6u_qHalj8dWJByoueJtrUVz4LWGaGsV3HZPpMhjFxdZAt0V-UxQV4NVfxD4zT7CLUiAtrqOOUKwtKMgohJUTmPnWyzJ95A9yPpVoQrO5-YV784un-GLdMGaQSXyF76y-SIV1bV0MAxSo8WtSz5LDmZP5QeHt20DI%26x-client-SKU%3DID_NET9_0%26x-client-ver%3D8.0.1.0'
   const baseUrl = import.meta.env.BASE_URL || '/'
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'usecases', 'pricing', 'footer']
+      const sections = ['hero', 'usecases', 'services', 'footer']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -37,13 +38,51 @@ const Header = () => {
     }
 
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node
+      if (headerRef.current && !headerRef.current.contains(target)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('pointerdown', onPointerDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('pointerdown', onPointerDown)
+    }
+  }, [isMenuOpen])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const topBanner = document.querySelector<HTMLElement>('[data-top-banner="true"]')
+      const topBannerHeight = topBanner?.offsetHeight ?? 0
+      const headerHeight = headerRef.current?.offsetHeight ?? 0
+      const offset = topBannerHeight + headerHeight + 8
+      const targetTop = element.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior: 'smooth',
+      })
     }
     setIsMenuOpen(false)
   }
@@ -51,14 +90,17 @@ const Header = () => {
   const navLinks = [
     { id: 'hero', key: 'home' },
     { id: 'usecases', key: 'useCases' },
-    { id: 'pricing', key: 'pricing' },
+    { id: 'services', key: 'services' },
     { id: 'footer', key: 'contact' },
   ]
 
   return (
-    <header className="fixed top-[36px] md:top-[40px] left-0 right-0 z-50 bg-[#06080E]/80 backdrop-blur-xl border-b border-white/[0.07] shadow-[0_1px_20px_rgba(0,0,0,0.5)] w-full overflow-x-hidden">
+    <header
+      ref={headerRef}
+      className="fixed top-[30px] md:top-[36px] left-0 right-0 z-50 bg-white/84 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.32)] w-full overflow-x-hidden"
+    >
       <ScrollProgress />
-      <div className="container mx-auto px-3 md:px-4 py-1.5 md:py-2 lg:py-2.5 max-w-full">
+      <div className="container mx-auto px-3 md:px-4 py-1 md:py-2 lg:py-2.5 max-w-full">
         <div className="flex items-center justify-between relative">
           <div className="flex-1 hidden md:block"></div>
 
@@ -73,7 +115,7 @@ const Header = () => {
                 }}
                 className={`relative transition-colors whitespace-nowrap text-xs sm:text-sm lg:text-base pb-0.5 ${
                   activeSection === link.id
-                    ? 'text-[#E4EEFA] font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-5 after:rounded-full after:bg-accent'
+                    ? 'text-slate-900 font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-5 after:rounded-full after:bg-accent'
                     : 'text-[var(--muted)] hover:text-[var(--text)]'
                 }`}
               >
@@ -114,21 +156,24 @@ const Header = () => {
 
             <a
               href={loginUrl}
-              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-white/[0.10] hover:border-white/[0.20] text-[var(--muted)] hover:text-[var(--text)] text-xs md:text-sm rounded-full transition-colors bg-white/[0.03] hover:bg-white/[0.07]"
+              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-slate-300/80 hover:border-slate-400/80 text-slate-600 hover:text-slate-900 text-xs md:text-sm rounded-full transition-colors bg-white/70 hover:bg-white"
             >
               Вход
             </a>
 
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1.5 md:px-4 md:py-2 border border-white/[0.12] hover:border-white/[0.22] text-[var(--text)] text-sm md:text-base rounded-full transition-colors bg-white/[0.05] hover:bg-white/[0.09]"
+              className="inline-flex h-11 min-w-11 items-center justify-center px-3.5 md:px-4 md:h-auto md:min-w-0 md:py-2 border border-slate-300/80 hover:border-slate-400/80 text-slate-800 text-sm md:text-base rounded-full transition-colors bg-white/70 hover:bg-white"
             >
               {currentLanguage === 'ru' ? 'ҚАЗ' : 'РУС'}
             </button>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-[var(--text)]"
+              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/80 bg-white/75 text-slate-800"
+              aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -136,12 +181,12 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <nav className="md:hidden mt-3 pb-3 border-t border-white/[0.08]">
+          <nav id="mobile-nav" className="md:hidden mt-3 pb-3 border-t border-slate-200/80">
             <div className="flex flex-col gap-3 pt-3">
-              <div className="flex flex-col gap-2 pb-2 border-b border-white/[0.08] text-sm">
+              <div className="flex flex-col gap-2 pb-2 border-b border-slate-200/80 text-sm">
                 <a
                   href="tel:+77007006613"
-                  className="text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors"
                 >
                   +7 700 700 6613
                 </a>
@@ -149,7 +194,7 @@ const Header = () => {
                   href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors"
                   aria-label="2GIS"
                 >
                   <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-70" />
@@ -164,7 +209,7 @@ const Header = () => {
                     e.preventDefault()
                     scrollToSection(link.id)
                   }}
-                  className="text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors"
                 >
                   {t(`nav.${link.key}`)}
                 </a>
@@ -173,14 +218,14 @@ const Header = () => {
                 href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-white/[0.08]"
+                className="min-h-11 flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-slate-200/80"
               >
                 <WhatsAppIcon />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={loginUrl}
-                className="text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-white/[0.08]"
+                className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-slate-200/80"
               >
                 Вход
               </a>

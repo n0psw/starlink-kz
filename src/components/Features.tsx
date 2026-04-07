@@ -20,16 +20,16 @@ const Features = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="premium-card p-8 hover:border-accent/[0.30] transition-all hover:shadow-[0_24px_64px_-16px_rgba(0,0,0,0.70)] hover:-translate-y-1 relative"
+            className="premium-card p-8 hover:border-accent/[0.30] transition-all hover:shadow-[0_24px_64px_-26px_rgba(15,23,42,0.38)] hover:-translate-y-1 relative"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/[0.07] rounded-full blur-3xl"></div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#E4EEFA] mb-4 relative z-10">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 relative z-10">
               {t('features.mini.title')}
             </h3>
             <p className="text-[var(--muted)] mb-4 text-sm md:text-base">
               {t('features.mini.description')}
             </p>
-            <div className="w-full h-48 bg-[#0B1121] rounded-lg overflow-hidden relative flex items-center justify-center">
+            <div className="w-full h-48 bg-slate-100 rounded-lg overflow-hidden relative flex items-center justify-center">
               <img
                 src={`${baseUrl}1.jpg`}
                 alt="Starlink Mini"
@@ -44,16 +44,16 @@ const Features = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="premium-card p-8 hover:border-accent/[0.30] transition-all hover:shadow-[0_24px_64px_-16px_rgba(0,0,0,0.70)] hover:-translate-y-1 relative"
+            className="premium-card p-8 hover:border-accent/[0.30] transition-all hover:shadow-[0_24px_64px_-26px_rgba(15,23,42,0.38)] hover:-translate-y-1 relative"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/[0.07] rounded-full blur-3xl"></div>
-            <h3 className="text-xl md:text-2xl font-bold text-[#E4EEFA] mb-4 relative z-10">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 relative z-10">
               {t('features.v4.title')}
             </h3>
             <p className="text-[var(--muted)] mb-4 text-sm md:text-base">
               {t('features.v4.description')}
             </p>
-            <div className="w-full h-48 bg-[#0B1121] rounded-lg overflow-hidden relative flex items-center justify-center">
+            <div className="w-full h-48 bg-slate-100 rounded-lg overflow-hidden relative flex items-center justify-center">
               <img
                 src={`${baseUrl}2.jpg`}
                 alt="Starlink V4"
