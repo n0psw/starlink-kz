@@ -24,7 +24,11 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<FormData>()
+  } = useForm<FormData>({
+    defaultValues: {
+      serviceType: 'purchase'
+    }
+  })
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true)
@@ -138,9 +142,8 @@ const ContactForm = () => {
                 {...register('serviceType', { required: true })}
                 className="w-full px-4 py-3 text-sm md:text-base bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all shadow-sm"
               >
-                <option value="">{t('contact.selectServiceType')}</option>
-                <option value="rental">{t('contact.rental')}</option>
                 <option value="purchase">{t('contact.purchase')}</option>
+                <option value="rental">{t('contact.rental')}</option>
               </select>
               {errors.serviceType && (
                 <p className="text-red-500 text-sm mt-1">Обязательное поле</p>

@@ -25,6 +25,7 @@ const Pricing = () => {
         'Wi-Fi роутер встроен',
       ],
       prices: {
+        purchase: '450 000',
         day: '15 000',
         week: '90 000',
         month: '300 000',
@@ -40,6 +41,7 @@ const Pricing = () => {
         'Высокая производительность',
       ],
       prices: {
+        purchase: '550 000',
         day: '25 000',
         week: '150 000',
         month: '500 000',
@@ -75,10 +77,14 @@ const Pricing = () => {
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 relative z-10">{plan.name}</h3>
               
               <div className="mb-6 relative z-10">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-2 drop-shadow-lg">
-                  {t('pricing.from')} {plan.prices.day} 〒
+                <div className="text-xs text-slate-500 uppercase tracking-wider mb-1 font-semibold">{t('pricing.purchase')}</div>
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-1 drop-shadow-lg">
+                  {plan.prices.purchase} 〒
                 </div>
-                <p className="text-slate-500 text-sm">/{t('pricing.day')}</p>
+                <p className="text-emerald-600 text-xs font-semibold flex items-center gap-1">
+                  <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  В наличии со склада
+                </p>
               </div>
 
               <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
@@ -90,16 +96,20 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <div className="mb-6 p-3 md:p-4 bg-[color:var(--surface-2)] rounded-2xl border border-slate-200/70 relative z-10">
-                <div className="text-xs text-slate-500 uppercase tracking-wider mb-3">{t('pricing.rental')}</div>
-                <div className="text-sm text-slate-600 mb-2">{t('pricing.week')}:</div>
-                <div className="text-lg md:text-xl font-semibold text-slate-900">{plan.prices.week} 〒</div>
-                <div className="text-sm text-slate-600 mt-2 mb-2">{t('pricing.month')}:</div>
-                <div className="text-lg md:text-xl font-semibold text-slate-900">{plan.prices.month} 〒</div>
-                <div className="mt-4 pt-4 border-t border-slate-200">
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">{t('pricing.purchase')}</div>
-                  <div className="text-lg md:text-xl font-semibold text-accent">
-                    {plan.equipment === 'mini' ? 'Уточняйте' : 'Уточняйте'}
+              <div className="mb-6 p-4 bg-[color:var(--surface-2)] rounded-2xl border border-slate-200/70 relative z-10">
+                <div className="text-xs text-slate-500 uppercase tracking-wider mb-3 font-semibold">{t('pricing.rental')}</div>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="p-2 bg-white/60 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div className="text-[10px] text-slate-400 font-semibold uppercase mb-0.5">{t('pricing.day')}</div>
+                    <div className="text-xs md:text-sm font-bold text-slate-800">{plan.prices.day} 〒</div>
+                  </div>
+                  <div className="p-2 bg-white/60 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div className="text-[10px] text-slate-400 font-semibold uppercase mb-0.5">{t('pricing.week')}</div>
+                    <div className="text-xs md:text-sm font-bold text-slate-800">{plan.prices.week} 〒</div>
+                  </div>
+                  <div className="p-2 bg-white/60 rounded-xl border border-slate-200/60 shadow-sm">
+                    <div className="text-[10px] text-slate-400 font-semibold uppercase mb-0.5">{t('pricing.month')}</div>
+                    <div className="text-xs md:text-sm font-bold text-slate-800">{plan.prices.month} 〒</div>
                   </div>
                 </div>
               </div>
