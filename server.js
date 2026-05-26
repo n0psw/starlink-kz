@@ -6,7 +6,7 @@ import fs from 'fs'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const PUBLIC_DIR = path.join(__dirname, 'public')
+const PUBLIC_DIR = process.env.PUBLIC_DIR || path.join(__dirname, 'public')
 const VIDEOS_JSON = path.join(PUBLIC_DIR, 'videos.json')
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'starlink2025'
 const PORT = process.env.UPLOAD_PORT || 3001
