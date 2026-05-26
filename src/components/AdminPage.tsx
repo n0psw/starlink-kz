@@ -29,11 +29,13 @@ const Login = ({ onLogin }: { onLogin: (pwd: string) => void }) => {
       })
       if (r.ok) {
         onLogin(pwd)
-      } else {
+      } else if (r.status === 401) {
         setError('Неверный пароль')
+      } else {
+        setError(`Ошибка сервера (${r.status}). Возможно, бэкенд не запущен.`)
       }
     } catch {
-      setError('Сервер недоступен. Убедитесь что запущен: npm run server')
+      setError('Сервер недоступен. Убедитесь, что запущен бэкенд.')
     }
     setLoading(false)
   }
