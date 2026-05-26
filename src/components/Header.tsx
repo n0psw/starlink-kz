@@ -31,8 +31,8 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'usecases', 'services', 'footer']
-      const scrollPosition = window.scrollY + 200
+      const sections = ['hero', 'features', 'installation', 'satellite-map', 'services', 'footer']
+      const scrollPosition = window.scrollY + 220
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -112,7 +112,9 @@ const Header = () => {
 
   const navLinks = [
     { id: 'hero', key: 'home' },
-    // { id: 'usecases', key: 'useCases' },
+    { id: 'features', key: 'features' },
+    { id: 'installation', key: 'installation' },
+    { id: 'satellite-map', key: 'satelliteMap' },
     { id: 'services', key: 'services' },
     { id: 'footer', key: 'contact' },
   ]

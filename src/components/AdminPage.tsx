@@ -111,31 +111,38 @@ const VideoSlot = ({
     setProgress(0)
     try {
       const form = new FormData()
-      form.append('video', file)
       form.append('slot', `video${video.id}`)
       form.append('password', password)
+      form.append('video', file)
 
       // XHR for progress
-      await new Promise<void>((resolve, reject) => {
+      const uploadResult = await new Promise<{ filename: string }>((resolve, reject) => {
         const xhr = new XMLHttpRequest()
-        xhr.open('POST', `${API}/api/upload`)
+        xhr.open('POST', `${API}/api/upload?slot=video${video.id}`)
         xhr.setRequestHeader('x-admin-password', password)
         xhr.upload.onprogress = (e) => {
           if (e.lengthComputable) setProgress(Math.round((e.loaded / e.total) * 100))
         }
         xhr.onload = () => {
-          if (xhr.status === 200) resolve()
-          else reject(new Error(xhr.responseText))
+          if (xhr.status === 200) {
+            try {
+              resolve(JSON.parse(xhr.responseText))
+            } catch {
+              reject(new Error('Ошибка разбора ответа сервера'))
+            }
+          } else {
+            reject(new Error(xhr.responseText || `Ошибка: ${xhr.status}`))
+          }
         }
         xhr.onerror = () => reject(new Error('Ошибка сети'))
         xhr.send(form)
       })
 
-      // Enable slot in JSON
+      // Enable slot in JSON using actual saved filename
       await fetch(`${API}/api/videos/${video.id}`, {
         method: 'PATCH',
         headers: { ...headers, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ enabled: true, file: `video${video.id}.mp4` }),
+        body: JSON.stringify({ enabled: true, file: uploadResult.filename }),
       })
 
       onToast(`Видео ${video.id} загружено`, 'ok')

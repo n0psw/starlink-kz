@@ -102,16 +102,21 @@ const KazakhstanMap = ({ language, isMobile }: KazakhstanMapProps) => {
       style={{ perspective: '1200px' }}
     >
       <div
-        className="relative w-full transition-all duration-700 ease-out"
+        className="relative w-full transition-all duration-1000 ease-out"
         style={{
-          transform: isMobile
-            ? undefined
-            : `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-          transformStyle: 'preserve-3d',
           opacity: isVisible ? 1 : 0,
           filter: isVisible ? 'none' : 'blur(8px)',
         }}
       >
+        <div
+          className="relative w-full transition-transform duration-200 ease-out"
+          style={{
+            transform: isMobile
+              ? undefined
+              : `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+            transformStyle: 'preserve-3d',
+          }}
+        >
         <svg
           viewBox="0 0 900 450"
           className="w-full h-auto"
@@ -319,6 +324,7 @@ const KazakhstanMap = ({ language, isMobile }: KazakhstanMapProps) => {
             )
           })}
         </svg>
+        </div>
       </div>
     </div>
   )

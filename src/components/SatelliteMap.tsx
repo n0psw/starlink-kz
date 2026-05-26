@@ -44,9 +44,16 @@ const GlobeCanvas = () => {
 
     const SAT_COLOR = '#38bdf8'
 
+    let isIntersecting = false
+
     const draw = () => {
+      if (!isIntersecting) return
       const W = canvas.offsetWidth
       const H = canvas.offsetHeight
+      if (W === 0 || H === 0) {
+        animRef.current = requestAnimationFrame(draw)
+        return
+      }
       const cx = W / 2
       const cy = H / 2
 
@@ -145,9 +152,27 @@ const GlobeCanvas = () => {
       animRef.current = requestAnimationFrame(draw)
     }
 
-    draw()
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting
+        if (isIntersecting) {
+          if (!animRef.current) {
+            animRef.current = requestAnimationFrame(draw)
+          }
+        } else {
+          if (animRef.current) {
+            cancelAnimationFrame(animRef.current)
+            animRef.current = 0
+          }
+        }
+      },
+      { threshold: 0.05 }
+    )
+    observer.observe(canvas)
+
     return () => {
-      cancelAnimationFrame(animRef.current)
+      observer.disconnect()
+      if (animRef.current) cancelAnimationFrame(animRef.current)
       window.removeEventListener('resize', resize)
     }
   }, [])

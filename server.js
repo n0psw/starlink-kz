@@ -14,6 +14,7 @@ const PORT = process.env.UPLOAD_PORT || 3001
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(express.static(PUBLIC_DIR))
 
 // ─── Auth middleware ──────────────────────────────────────────────────────────
 const auth = (req, res, next) => {
@@ -29,7 +30,7 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, PUBLIC_DIR),
   filename: (req, file, cb) => {
     // Keep original name OR use slot id: video1.mp4, video2.mp4 ...
-    const slot = req.body.slot // e.g. "video3"
+    const slot = req.query.slot || req.body.slot // e.g. "video3"
     const ext = path.extname(file.originalname).toLowerCase() || '.mp4'
     cb(null, slot ? `${slot}${ext}` : file.originalname)
   },

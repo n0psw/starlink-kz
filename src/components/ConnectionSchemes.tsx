@@ -97,18 +97,20 @@ const ConnectionSchemes = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.45, delay: index * 0.05 }}
-                  className="flex items-start gap-4 p-5 bg-white border border-slate-200/50 rounded-2xl hover:shadow-lg hover:border-sky-500/30 transition-all duration-300 group"
+                  className="w-full"
                 >
-                  <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
-                    <Icon size={20} />
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-base font-bold text-slate-900 leading-snug">
-                      {t(`services.items.${service.key}.title`)}
-                    </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">
-                      {t(`services.items.${service.key}.description`)}
-                    </p>
+                  <div className="flex items-start gap-4 p-5 bg-white border border-slate-200/50 rounded-2xl hover:shadow-lg hover:border-sky-500/30 transition-all duration-300 group w-full h-full">
+                    <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                      <Icon size={20} />
+                    </div>
+                    <div>
+                      <h3 className="mb-1 text-base font-bold text-slate-900 leading-snug">
+                        {t(`services.items.${service.key}.title`)}
+                      </h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">
+                        {t(`services.items.${service.key}.description`)}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )
