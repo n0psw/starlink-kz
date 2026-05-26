@@ -26,6 +26,13 @@ const CITIES: City[] = [
   { id: 'pavlodar', nameRu: 'Павлодар', nameKk: 'Павлодар', x: 661, y: 106.3, isWarehouse: false },
   { id: 'semey', nameRu: 'Семей', nameKk: 'Семей', x: 730, y: 158.5, isWarehouse: false },
   { id: 'taraz', nameRu: 'Тараз', nameKk: 'Тараз', x: 543.7, y: 367.7, isWarehouse: false },
+  { id: 'uralsk', nameRu: 'Уральск', nameKk: 'Орал', x: 82.0, y: 135.0, isWarehouse: false },
+  { id: 'kyzylorda', nameRu: 'Кызылорда', nameKk: 'Қызылорда', x: 395.0, y: 320.0, isWarehouse: false },
+  { id: 'kokshetau', nameRu: 'Кокшетау', nameKk: 'Көкшетау', x: 495.0, y: 92.0, isWarehouse: false },
+  { id: 'petropavl', nameRu: 'Петропавловск', nameKk: 'Петропавл', x: 508.0, y: 48.0, isWarehouse: false },
+  { id: 'taldykorgan', nameRu: 'Талдыкорган', nameKk: 'Талдықорған', x: 692.0, y: 308.0, isWarehouse: false },
+  { id: 'zhezkazgan', nameRu: 'Жезказган', nameKk: 'Жезқазған', x: 432.0, y: 218.0, isWarehouse: false },
+  { id: 'turkistan', nameRu: 'Туркестан', nameKk: 'Түркістан', x: 468.0, y: 362.0, isWarehouse: false },
 ]
 
 // Connection lines between warehouse cities
@@ -41,6 +48,14 @@ const CONNECTIONS = [
   { from: 'almaty', to: 'taraz' },
   { from: 'aktobe', to: 'atyrau' },
   { from: 'atyrau', to: 'aktau' },
+  { from: 'astana', to: 'kokshetau' },
+  { from: 'kokshetau', to: 'petropavl' },
+  { from: 'astana', to: 'zhezkazgan' },
+  { from: 'zhezkazgan', to: 'kyzylorda' },
+  { from: 'kyzylorda', to: 'turkistan' },
+  { from: 'turkistan', to: 'shymkent' },
+  { from: 'almaty', to: 'taldykorgan' },
+  { from: 'aktobe', to: 'uralsk' },
 ]
 
 interface KazakhstanMapProps {
@@ -282,26 +297,24 @@ const KazakhstanMap = ({ language, isMobile }: KazakhstanMapProps) => {
                   onMouseEnter={() => setHoveredCity(city.id)}
                   onMouseLeave={() => setHoveredCity(null)}
                 />
-
                 {/* City label */}
-                {(isHovered || city.isWarehouse) && (
-                  <text
-                    x={city.x}
-                    y={city.y - (city.isWarehouse ? 14 : 10)}
-                    textAnchor="middle"
-                    fill={isHovered ? '#0ea5e9' : 'rgba(14,165,233,0.7)'}
-                    fontSize={isHovered ? '12' : '10'}
-                    fontWeight="600"
-                    fontFamily="'Golos Text', sans-serif"
-                    style={{
-                      pointerEvents: 'none',
-                      transition: 'all 0.2s ease',
-                      textShadow: '0 1px 3px rgba(255,255,255,0.9)',
-                    }}
-                  >
-                    {language === 'kk' ? city.nameKk : city.nameRu}
-                  </text>
-                )}
+                <text
+                  x={city.x}
+                  y={city.y - (city.isWarehouse ? 14 : 10)}
+                  textAnchor="middle"
+                  fill={isHovered || city.isWarehouse ? '#38bdf8' : 'rgba(226,232,240,0.85)'}
+                  fontSize={isHovered ? '12' : city.isWarehouse ? '10' : '8.5'}
+                  fontWeight="600"
+                  fontFamily="'Golos Text', sans-serif"
+                  style={{
+                    pointerEvents: 'none',
+                    transition: 'all 0.2s ease',
+                    textShadow: '0 2px 5px rgba(5,8,16,0.95), 0 0 10px rgba(56,189,248,0.3)',
+                    opacity: isHovered ? 1 : city.isWarehouse ? 0.95 : 0.55,
+                  }}
+                >
+                  {language === 'kk' ? city.nameKk : city.nameRu}
+                </text>
               </g>
             )
           })}

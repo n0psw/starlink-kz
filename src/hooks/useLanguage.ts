@@ -14,12 +14,18 @@ export const useLanguage = () => {
   }, [i18n])
 
   const toggleLanguage = () => {
-    const newLanguage = currentLanguage === 'ru' ? 'kk' : 'ru'
+    const newLanguage = currentLanguage === 'ru' ? 'kk' : currentLanguage === 'kk' ? 'en' : 'ru'
     i18n.changeLanguage(newLanguage)
     setCurrentLanguage(newLanguage)
     localStorage.setItem('language', newLanguage)
   }
 
-  return { currentLanguage, toggleLanguage }
+  const setLanguage = (lang: string) => {
+    i18n.changeLanguage(lang)
+    setCurrentLanguage(lang)
+    localStorage.setItem('language', lang)
+  }
+
+  return { currentLanguage, toggleLanguage, setLanguage }
 }
 

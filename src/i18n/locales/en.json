@@ -1,0 +1,359 @@
+{
+  "topBanner": {
+    "orderLink": "Order STARLINK for Home"
+  },
+  "orderOptions": {
+    "title": "Equipment in Stock in Kazakhstan",
+    "subtitle": "Fast same-day express delivery from our branches",
+    "desc": "No more waiting weeks for international shipping. Original Starlink Mini and Starlink V4 kits are already custom cleared and ready in our warehouses in the largest cities of Kazakhstan. We will ship the device to your city on the day of order via InDrive or courier.",
+    "warehousesTitle": "Our Warehouses and Offices:",
+    "warehouseAlmatyName": "Almaty",
+    "warehouseAlmatyTime": "Delivery from 1 hour",
+    "warehouseAlmatyDesc": "Main warehouse. Instant delivery via InDrive or self-pickup in the city center.",
+    "warehouseAstanaName": "Astana",
+    "warehouseAstanaTime": "Delivery from 1 hour",
+    "warehouseAstanaDesc": "Regional warehouse. Express delivery around the city and prompt dispatch to the region.",
+    "warehouseOskemenName": "Oskemen",
+    "warehouseOskemenTime": "Delivery from 1 hour",
+    "warehouseOskemenDesc": "Regional warehouse in East Kazakhstan Region. Self-pickup in the city center or courier delivery.",
+    "feature1Title": "Fast Shipment",
+    "feature1Desc": "Equipment is already in warehouses in Kazakhstan and ready for pickup or dispatch on the day of order.",
+    "feature2Title": "Convenient Delivery",
+    "feature2Desc": "We will ship via InDrive or trusted courier services. Delivery within the city from 1 hour.",
+    "feature3Title": "Turnkey Setup",
+    "feature3Desc": "We will help you register your account, activate the device, and configure high-speed internet free of charge.",
+    "cta": "Order Express Delivery via WhatsApp",
+    "inStock": "In Stock",
+    "deliveryMethods": "Self-pickup / InDrive",
+    "badge": "Express Delivery Across Kazakhstan",
+    "panelTitle": "Get Starlink Without Long Wait Times",
+    "panelDesc": "We purchase only official equipment directly, handle all custom clearance, and import to Kazakhstan. You only need to pick it up or receive the courier."
+  },
+  "nav": {
+    "home": "Home",
+    "useCases": "Who It's For",
+    "services": "Services",
+    "benefits": "Your Benefits",
+    "features": "Equipment",
+    "setup": "Instructions",
+    "testimonials": "Reviews",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Satellite Internet Wherever You Are",
+    "subtitle": "We connect your home, business, or remote site turnkey — from equipment selection to on-site setup",
+    "cta": "Submit Request",
+    "ctaSecondary": "View Rates",
+    "leftBadge": "STARLINK IN KAZAKHSTAN AND CIS COUNTRIES",
+    "leftPointSpeed": "Up to 350 Mbps without interruptions",
+    "leftPointCoverage": "Across Kazakhstan and CIS countries",
+    "leftPointInstall": "Connection from 1 day",
+    "rightTitle": "What's Included in Connection",
+    "rightLine1": "Equipment selection for your site",
+    "rightLine2": "On-site installation and configuration",
+    "rightLine3": "Signal and speed testing",
+    "rightLine4": "Post-launch support",
+    "rightFooter1": "From 1 day",
+    "rightFooter2": "Across Kazakhstan and CIS",
+    "rightCta": "Get Consultation",
+    "ctaHint": "We reply in WhatsApp in 5 minutes · Free consultation"
+  },
+  "useCases": {
+    "title": "Who It's For",
+    "hunting": {
+      "title": "Hunting and Fishing",
+      "description": "Reliable internet far from civilization — for orientation, weather forecasting, and staying in touch in any conditions."
+    },
+    "camping": {
+      "title": "Camping and Outdoor Trips",
+      "description": "Create comfortable conditions at the campsite — STARLINK will provide internet for music, movies, communication, and shared Wi-Fi for the entire group."
+    },
+    "mountains": {
+      "title": "Mountain Trips",
+      "description": "Uninterrupted connection in the mountains — STARLINK ensures safety and stable internet in any journey."
+    },
+    "streaming": {
+      "title": "Live Broadcasts and Outdoor Streams",
+      "description": "Stream without lags — a stable signal for bloggers, journalists, and content creators."
+    },
+    "construction": {
+      "title": "Construction Companies (Shifts, Sites)",
+      "description": "Internet on the construction site or shift camp — quick setup and stable communication for the team."
+    },
+    "farming": {
+      "title": "Farmers (Fields, Pastures)",
+      "description": "Control processes, machinery, and cameras in the fields — STARLINK provides internet access anywhere."
+    },
+    "events": {
+      "title": "Outdoor Events (Festivals, Weddings, Corporates)",
+      "description": "Organize Wi-Fi for guests, staff, and payments — stable internet in locations without mobile coverage."
+    },
+    "tourism": {
+      "title": "Travel Agencies (Tours to Charyn, Balkhash, Mountains)",
+      "description": "Provide clients with internet during the tour — as a bonus for comfort and safety."
+    },
+    "freelance": {
+      "title": "Perfect for Freelancers and Remote Work",
+      "description": "Combine remote work and outdoor recreation: stay connected, hold online meetings, and complete projects even by the campfire."
+    }
+  },
+  "benefits": {
+    "title": "Your Benefits",
+    "simplicity": {
+      "title": "Simple and Convenient Connection",
+      "description": "Installation takes only a few minutes — no specialists, no complex settings. Turn it on — and you are online."
+    },
+    "speed": {
+      "title": "High Speed and Stability",
+      "description": "Download speeds up to 250-350 Mbps and upload up to 40 Mbps with minimal latency, even in the most remote corners of the country."
+    },
+    "flexibility": {
+      "title": "Favorable Purchase Conditions",
+      "description": "Equipment quickly pays off with constant use. Flexible rental options are also available if needed."
+    },
+    "everywhere": {
+      "title": "Works Everywhere Without Cellular Signal",
+      "description": "Mountains, fields, forests, shift camps — forget about 'no signal' zones. STARLINK connects directly to satellites."
+    },
+    "weather": {
+      "title": "Weather Resistant",
+      "description": "The satellite dish automatically melts snow, withstands rain, wind, and dirt. Reliable connection all year round."
+    },
+    "versatility": {
+      "title": "Versatility of Use",
+      "description": "For work, online conferences, streams, events, hunting, fishing, and camping — STARLINK fits any task."
+    }
+  },
+  "features": {
+    "title": "Additional Advantages",
+    "mini": {
+      "title": "STARLINK Mini",
+      "description": "A compact, portable kit that easily fits in a backpack, providing high-speed internet on the go."
+    },
+    "v4": {
+      "title": "STARLINK V4",
+      "description": "Standard equipment for stationary use with maximum performance."
+    }
+  },
+  "setup": {
+    "title": "Start Using the Internet Almost Instantly",
+    "description": "For stable operation, the device needs an open view of the sky. The STARLINK app will help determine the best installation location.",
+    "step1": "Connect",
+    "step2": "Point to the Sky",
+    "downloadAndroid": "Download for Android",
+    "downloadIOS": "Download for iOS"
+  },
+  "installation": {
+    "title": "Real Cases",
+    "subtitle": "We do everything turnkey — from site selection to internet launch.",
+    "visit": {
+      "title": "Site Visit and Selection",
+      "description": "We evaluate the location and select the optimal installation point."
+    },
+    "mount": {
+      "title": "Professional Installation",
+      "description": "We securely mount the equipment and neatly route the cable."
+    },
+    "setup": {
+      "title": "Configuration and Test",
+      "description": "We connect, configure, and verify the connection quality."
+    },
+    "extra1": {
+      "title": "Signal Diagnostics on Site",
+      "description": "We check the signal level and eliminate potential interference before the final launch."
+    },
+    "extra2": {
+      "title": "Wi-Fi Coverage Optimization",
+      "description": "We configure the router and coverage area according to the layout of your site."
+    },
+    "extra3": {
+      "title": "Final Check and Briefing",
+      "description": "We demonstrate how to use the system and hand over the site in fully working condition."
+    }
+  },
+  "services": {
+    "title": "Turnkey Services",
+    "subtitle": "We cover the full cycle: from Starlink installation to network infrastructure, vehicle setups, and B2B tasks.",
+    "showAll": "Show All Services",
+    "hide": "Hide Services",
+    "customText": "Didn't find the required service? We will prepare a customized solution for your site in 15 minutes.",
+    "customCta": "Discuss Project on WhatsApp",
+    "items": {
+      "installation": {
+        "title": "Starlink Mounting & Activation",
+        "description": "Full turnkey launch: installation, setup, signal test, and delivery of a ready-to-use solution."
+      },
+      "wifi": {
+        "title": "Wi-Fi Network for Home & Office",
+        "description": "We configure stable coverage indoors and connect all work devices."
+      },
+      "mesh": {
+        "title": "Mesh Wi-Fi for 2-3 Floors",
+        "description": "We extend coverage to large areas without connection drops or gaps."
+      },
+      "mobile": {
+        "title": "Mobile Starlink for Transport",
+        "description": "Solutions for buses, specialized machinery, and mobile teams with stable connection in motion."
+      },
+      "b2b": {
+        "title": "Corporate and B2B Solutions",
+        "description": "Networks for branches, warehouses, construction sites, and remote facilities of any scale."
+      },
+      "ptp": {
+        "title": "PtP Radio Bridge Between Buildings",
+        "description": "We organize point-to-point connection to merge remote buildings into a single network."
+      },
+      "cameras": {
+        "title": "IP Cameras Connection",
+        "description": "We integrate video surveillance into the network and configure remote access on request."
+      },
+      "routers": {
+        "title": "Router and Repeater Configuration",
+        "description": "We optimize routing, Wi-Fi, and roaming to ensure the network runs smoothly."
+      },
+      "remote": {
+        "title": "Remote Activation & Launch",
+        "description": "We perform remote equipment launch and assist at every step of connection."
+      },
+      "events": {
+        "title": "Starlink Rental for Events",
+        "description": "Fast deployment of internet for events, exhibitions, filming, and streams."
+      },
+      "expeditions": {
+        "title": "Rental for Tours and Expeditions",
+        "description": "Reliable connection for field teams, mountain trips, fishing, and remote routes."
+      },
+      "custom": {
+        "title": "Individual Projects for Specific Tasks",
+        "description": "If your case is non-standard, we design a personal scheme to fit your site and budget."
+      }
+    }
+  },
+  "satelliteMap": {
+    "liveBadge": "LIVE — REAL TIME",
+    "title": "Starlink Satellites Over Kazakhstan",
+    "subtitle": "Watch Starlink satellites moving in real time on an interactive 3D map.",
+    "stat1Label": "Starlink satellites",
+    "stat2Label": "orbital altitude",
+    "stat3Label": "one orbit around Earth",
+    "stat4Label": "signal latency",
+    "description": "Every satellite in orbit ensures even coverage across Kazakhstan. On the interactive 3D map you can see each satellite's position, trajectory, and orbital parameters.",
+    "cta": "Open Live Satellite Map",
+    "ctaNote": "Opens on satellitemap.space in a new tab"
+  },
+  "coverage": {
+    "title": "Coverage Map",
+    "subtitle": "Check STARLINK availability in your location on the official coverage map.",
+    "cta": "Open Map",
+    "note": "The map will open on the Starlink website."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Leave a request for purchase or rental of Starlink equipment",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "equipment": "Equipment",
+    "serviceType": "Service Type",
+    "message": "Message",
+    "submit": "Send to WhatsApp",
+    "selectEquipment": "Select equipment",
+    "selectServiceType": "Select service type",
+    "rental": "Rental",
+    "purchase": "Purchase"
+  },
+  "footer": {
+    "contacts": "Contacts",
+    "city": "Oskemen, Ridder, Altay",
+    "copyright": "© 2026"
+  },
+  "testimonials": {
+    "title": "Starlink Reviews",
+    "subtitle": "What our clients say"
+  },
+  "pricing": {
+    "title": "Tariffs and Prices",
+    "subtitle": "Select a suitable purchase or rental option",
+    "day": "day",
+    "week": "week",
+    "month": "month",
+    "mini": "Starlink Mini",
+    "v4": "Starlink V4",
+    "from": "from",
+    "rental": "Rental",
+    "purchase": "Purchase",
+    "contactUs": "Contact Us"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to popular questions"
+  },
+  "whyUs": {
+    "title": "Why Choose Us",
+    "subtitle": "Advantages of working with us",
+    "experience": {
+      "title": "Experience",
+      "description": "Years of experience with Starlink equipment"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Round-the-clock technical support"
+    },
+    "quality": {
+      "title": "Quality",
+      "description": "Only original Starlink equipment"
+    },
+    "flexibility": {
+      "title": "Flexibility",
+      "description": "Individual conditions for each client"
+    }
+  },
+  "guarantees": {
+    "title": "Guarantees and Conditions",
+    "subtitle": "We guarantee",
+    "equipment": {
+      "title": "Quality Equipment",
+      "description": "Only original Starlink equipment in excellent condition"
+    },
+    "setup": {
+      "title": "Setup Assistance",
+      "description": "Consultation and assistance in equipment configuration"
+    },
+    "support": {
+      "title": "Technical Support",
+      "description": "Round-the-clock support in case of problems"
+    },
+    "refund": {
+      "title": "Refunds",
+      "description": "Possibility of a refund upon order cancellation"
+    }
+  },
+  "stats": {
+    "title": "Our Statistics",
+    "clients": "Happy Clients",
+    "locations": "Locations in Kazakhstan",
+    "speed": "Mbps Average Speed",
+    "uptime": "% Uptime"
+  },
+  "schemes": {
+    "title": "Ready-Made Connection Schemes",
+    "subtitle": "Typical projects for organizing networks for various tasks: from country houses to commercial facilities",
+    "tab1": "Scheme for 5 houses",
+    "tab2": "Five-story building",
+    "tab3": "Two-story house",
+    "tab4": "Starlink on a bus",
+    "desc1": "Network organization using Tenda radio bridges to combine up to 5 detached houses from a single Starlink source.",
+    "desc2": "Distribution of high-speed satellite internet to all apartments of a five-story residential building through a network switch.",
+    "desc3": "Coverage scheme for a 200 m² two-story house using the main router and an additional repeater.",
+    "desc4": "Connecting Starlink Mini to organize stable Wi-Fi internet on the road for bus passengers.",
+    "zoom": "Enlarge scheme",
+    "equipment": "Used equipment:",
+    "eqHouses": "Starlink antenna, Starlink router, Tenda O6/O8 radio bridges, Tenda AC10 / AC1200 routers, LAN cables",
+    "eqFiveStory": "Starlink antenna on the roof, Starlink router, gigabit network switch, Cat5e/Cat6 UTP cables, Wi-Fi routers in apartments",
+    "eqTwoStory": "Starlink antenna on the roof, main Starlink V4 router, UTP cable, additional router",
+    "eqBus": "Starlink Mini kit on the roof, sealed entry, MikroTik router (hAP ax³), passenger Wi-Fi devices",
+    "cta": "Discuss this project in WhatsApp"
+  }
+}

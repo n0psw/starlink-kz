@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "file": "video1.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Выезд и подбор места",
+    "titleKk": "Жетіп бару және орын таңдау",
+    "titleEn": "Site Visit & Selection",
+    "enabled": true
+  },
+  {
+    "id": 2,
+    "file": "video2.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Профессиональный монтаж",
+    "titleKk": "Кәсіби монтаж",
+    "titleEn": "Professional Installation",
+    "enabled": true
+  },
+  {
+    "id": 3,
+    "file": "video3.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Настройка и тест",
+    "titleKk": "Баптау және тексеру",
+    "titleEn": "Setup & Testing",
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "file": "video4.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Диагностика сигнала",
+    "titleKk": "Сигналды диагностикалау",
+    "titleEn": "Signal Diagnostics",
+    "enabled": true
+  },
+  {
+    "id": 5,
+    "file": "video5.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Оптимизация Wi-Fi",
+    "titleKk": "Wi-Fi оңтайландыру",
+    "titleEn": "Wi-Fi Optimization",
+    "enabled": true
+  },
+  {
+    "id": 6,
+    "file": "video6.mp4",
+    "poster": "bg-poster-960.jpg",
+    "title": "Финальная проверка",
+    "titleKk": "Соңғы тексеріс",
+    "titleEn": "Final Check",
+    "enabled": true
+  }
+]

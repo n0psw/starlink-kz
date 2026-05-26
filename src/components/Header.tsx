@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../hooks/useLanguage'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import ScrollProgress from './ScrollProgress'
 
 const WhatsAppIcon = () => (
@@ -12,10 +12,19 @@ const WhatsAppIcon = () => (
 
 const Header = () => {
   const { t } = useTranslation()
-  const { currentLanguage, toggleLanguage } = useLanguage()
+  const { currentLanguage, setLanguage } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLangOpen, setIsLangOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const headerRef = useRef<HTMLElement>(null)
+  const langRef = useRef<HTMLDivElement>(null)
+
+  const languages = [
+    { code: 'ru', label: 'Русский', short: 'RU' },
+    { code: 'kk', label: 'Қазақша', short: 'KK' },
+    { code: 'en', label: 'English', short: 'EN' },
+  ]
+  const selectedLang = languages.find((l) => l.code === currentLanguage) || languages[0]
   const loginUrl =
     'https://starlink.com/auth/login?ReturnUrl=https%3A%2F%2Fstarlink.com%2Fapi%2Fauth%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DauthRelyingPartyId%26redirect_uri%3Dhttps%253A%252F%252Fstarlink.com%252Fauth-rp%252Fauth%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520profile%26code_challenge%3DPYXN3CRQo0BlsM71ry2QakJDTIUYeNUuSec6OcKptgU%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639060383978383194.YzQ5YjAzMGUtNjlkZi00OWU2LThhMTYtYWJhNzdkOTEwYmU4MWVkMWRlN2QtMWYzZi00ZmU1LWJhM2EtNjkyOTcwNTM1ZmM5%26view%3Dcustomer%26sxLoginReturnUrl%3Dhttps%253A%252F%252Fstarlink.com%252Faccount%26state%3DCfDJ8BrmZteN5jdLoWYoVZAk1aSXBUaGSeAochtZ1iuv7fyXUyMA4CjlsIKSb3ZDUbW6vna0kLZ8r0mzFjkPLbH-dRsOURueX1HHnGiy3DxbRjcSD_7CsGPosFES-fdXLDDObAiLqhF3tMNftsLhcJYl5TT2Aq9w5nfuL-b16oE8bqrcjxT6S9u-mwEFtKB2h0ZErCHHngFBfDyhGDP3mnY1HNygR_MeKzbWwAgG9c1wav8xUtFupC3g5CZJSmYlL_HkgqZGTKNZpliFDPpslKzqz7PsM1GQ_rvuasoNH-UT98Gdw7PAEBQvUjG6u_qHalj8dWJByoueJtrUVz4LWGaGsV3HZPpMhjFxdZAt0V-UxQV4NVfxD4zT7CLUiAtrqOOUKwtKMgohJUTmPnWyzJ95A9yPpVoQrO5-YV784un-GLdMGaQSXyF76y-SIV1bV0MAxSo8WtSz5LDmZP5QeHt20DI%26x-client-SKU%3DID_NET9_0%26x-client-ver%3D8.0.1.0'
   const baseUrl = import.meta.env.BASE_URL || '/'
@@ -41,6 +50,20 @@ const Header = () => {
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isLangOpen) return
+
+    const handleOutsideClick = (e: PointerEvent) => {
+      const target = e.target as Node
+      if (langRef.current && !langRef.current.contains(target)) {
+        setIsLangOpen(false)
+      }
+    }
+
+    document.addEventListener('pointerdown', handleOutsideClick)
+    return () => document.removeEventListener('pointerdown', handleOutsideClick)
+  }, [isLangOpen])
 
   useEffect(() => {
     if (!isMenuOpen) return
@@ -89,7 +112,7 @@ const Header = () => {
 
   const navLinks = [
     { id: 'hero', key: 'home' },
-    { id: 'usecases', key: 'useCases' },
+    // { id: 'usecases', key: 'useCases' },
     { id: 'services', key: 'services' },
     { id: 'footer', key: 'contact' },
   ]
@@ -97,7 +120,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-[30px] md:top-[36px] left-0 right-0 z-50 bg-white/84 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.32)] w-full overflow-x-hidden"
+      className="fixed top-[30px] md:top-[36px] left-0 right-0 z-50 bg-white/84 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.32)] w-full"
     >
       <ScrollProgress />
       <div className="container mx-auto px-3 md:px-4 py-1 md:py-2 lg:py-2.5 max-w-full">
@@ -160,12 +183,46 @@ const Header = () => {
               Вход
             </a>
 
-            <button
-              onClick={toggleLanguage}
-              className="inline-flex h-11 min-w-11 items-center justify-center px-3.5 md:px-4 md:h-auto md:min-w-0 md:py-2 border border-slate-300/80 hover:border-slate-400/80 text-slate-800 text-sm md:text-base rounded-full transition-colors bg-white/70 hover:bg-white"
-            >
-              {currentLanguage === 'ru' ? 'ҚАЗ' : 'РУС'}
-            </button>
+            {/* Language Selector Dropdown */}
+            <div ref={langRef} className="relative z-50">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="inline-flex h-11 items-center justify-center gap-1.5 px-3 md:px-4 md:h-10 border border-slate-300/80 hover:border-slate-400/80 text-slate-800 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 bg-white/70 hover:bg-white shadow-sm active:scale-95 focus:outline-none"
+                aria-label="Select language"
+                aria-expanded={isLangOpen}
+              >
+                <Globe className="w-4 h-4 text-slate-500" />
+                <span className="uppercase tracking-wider text-slate-700">{selectedLang.short}</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Dropdown Menu */}
+              <div
+                className={`absolute right-0 mt-2 w-36 origin-top-right rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-xl p-1 shadow-lg transition-all duration-200 ${
+                  isLangOpen 
+                    ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
+                    : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
+                }`}
+              >
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code)
+                      setIsLangOpen(false)
+                    }}
+                    className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs sm:text-sm font-medium transition-colors ${
+                      currentLanguage === lang.code
+                        ? 'bg-accent/10 text-accent font-semibold'
+                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                    }`}
+                  >
+                    <span>{lang.label}</span>
+                    <span className="text-[10px] text-slate-400 uppercase font-mono tracking-wider">{lang.short}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

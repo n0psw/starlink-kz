@@ -2,7 +2,18 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, ZoomIn, Check, X } from 'lucide-react'
+import { 
+  MessageCircle, 
+  ZoomIn, 
+  Check, 
+  X, 
+  SatelliteDish, 
+  Wifi, 
+  Network, 
+  Bus, 
+  Signal, 
+  Building2 
+} from 'lucide-react'
 
 const ConnectionSchemes = () => {
   const { t } = useTranslation()
@@ -10,6 +21,15 @@ const ConnectionSchemes = () => {
   const [activeTab, setActiveTab] = useState(0)
   const [isZoomed, setIsZoomed] = useState(false)
   const baseUrl = import.meta.env.BASE_URL || '/'
+
+  const services = [
+    { key: 'installation', icon: SatelliteDish },
+    { key: 'wifi', icon: Wifi },
+    { key: 'mesh', icon: Network },
+    { key: 'mobile', icon: Bus },
+    { key: 'ptp', icon: Signal },
+    { key: 'b2b', icon: Building2 },
+  ]
 
   const schemes = [
     {
@@ -45,27 +65,77 @@ const ConnectionSchemes = () => {
   const activeScheme = schemes[activeTab]
 
   return (
-    <section id="connection-schemes" ref={ref} className="py-20 md:py-28 bg-[#f8fafc] border-t border-slate-100 relative overflow-hidden">
+    <section id="services" ref={ref} className="py-20 md:py-28 bg-[#f8fafc] border-t border-slate-100 relative overflow-hidden">
       {/* Decorative gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(14,116,144,0.05),transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-5 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
-            {t('schemes.title')}
-          </h2>
-          
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
-            {t('schemes.subtitle')}
-          </p>
-        </motion.div>
+        {/* ─── Sub-section 1: Turnkey Services ─── */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-5 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+              {t('services.title')}
+            </h2>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+              {t('services.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {services.map((service, index) => {
+              const Icon = service.icon
+              return (
+                <motion.div
+                  key={service.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.45, delay: index * 0.05 }}
+                  className="flex items-start gap-4 p-5 bg-white border border-slate-200/50 rounded-2xl hover:shadow-lg hover:border-sky-500/30 transition-all duration-300 group"
+                >
+                  <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <h3 className="mb-1 text-base font-bold text-slate-900 leading-snug">
+                      {t(`services.items.${service.key}.title`)}
+                    </h3>
+                    <p className="text-sm text-slate-500 leading-relaxed">
+                      {t(`services.items.${service.key}.description`)}
+                    </p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            className="text-center text-sm sm:text-base text-slate-500 max-w-2xl mx-auto"
+          >
+            {t('services.customText')}{' '}
+            <a
+              href="https://wa.me/77007006613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sky-600 font-semibold hover:text-sky-800 underline transition-colors"
+            >
+              {t('services.customCta')}
+            </a>
+          </motion.p>
+        </div>
+
+        <hr className="border-slate-200/60 my-16" />
+
+
 
         {/* Dynamic Tab Switcher */}
         <div className="flex justify-center mb-10 md:mb-12">

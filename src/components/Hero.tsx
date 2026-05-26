@@ -21,6 +21,7 @@ const STAR_DATA = generateStars(70)
 const Hero = () => {
   const { t, i18n } = useTranslation()
   const [isMobile, setIsMobile] = useState(false)
+  const baseUrl = import.meta.env.BASE_URL || '/'
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -47,6 +48,27 @@ const Hero = () => {
         background: 'linear-gradient(160deg, #050810 0%, #0a1020 30%, #0c1428 55%, #081020 80%, #050810 100%)',
       }}
     >
+      {/* ─── Background Mountains Image ─── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src={`${baseUrl}bgmountains1-1280.jpg`}
+          srcSet={`${baseUrl}bgmountains1-768.jpg 768w, ${baseUrl}bgmountains1-1024.jpg 1024w, ${baseUrl}bgmountains1-1280.jpg 1280w, ${baseUrl}bgmountains1.jpg 1536w`}
+          sizes="100vw"
+          alt=""
+          className="h-full w-full object-cover object-center opacity-[0.38] mix-blend-overlay"
+          style={{
+            filter: 'brightness(0.58) contrast(1.1)',
+          }}
+        />
+        {/* Overlay gradient to fade the image at the top/bottom */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, rgba(5,8,16,0.45) 0%, rgba(5,8,16,0.1) 30%, rgba(5,8,16,0.4) 70%, #050810 100%)',
+          }}
+        />
+      </div>
+
       {/* ─── Starfield ─── */}
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         {STAR_DATA.map((star) => (
@@ -96,18 +118,19 @@ const Hero = () => {
       />
 
       {/* ─── Main content ─── */}
-      <div className="relative z-20 container mx-auto px-4 pb-16 pt-[110px] md:pb-24 md:pt-[150px] lg:pb-28 lg:pt-[180px]">
-        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12 xl:gap-16">
+      <div className="relative z-20 container mx-auto px-4 pb-16 pt-[110px] md:pb-24 md:pt-[150px] lg:pb-28 lg:pt-[180px] max-w-full lg:max-w-[1440px] xl:max-w-[1600px]">
+        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.7fr] lg:gap-12 xl:gap-16">
 
           {/* ─── LEFT COLUMN — Content ─── */}
           <motion.div
+            className="pl-4 md:pl-12 lg:pl-24 xl:pl-36 2xl:pl-44 max-w-[440px] lg:max-w-[480px]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             {/* Badge */}
             <motion.span
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/[0.07] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-400 md:mb-6 md:text-[11px]"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/[0.07] px-4 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.18em] text-sky-400 md:mb-6 md:text-[10px]"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -118,7 +141,7 @@ const Hero = () => {
 
             {/* Headline */}
             <h1
-              className="max-w-[540px] text-[32px] font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-[40px] md:text-[48px] lg:text-[56px]"
+              className="max-w-[540px] text-[28px] font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-[35px] md:text-[42px] lg:text-[48px]"
               style={{
                 textShadow: '0 0 60px rgba(56,189,248,0.1)',
               }}
@@ -127,7 +150,7 @@ const Hero = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-4 max-w-[460px] text-[14px] leading-[1.7] text-slate-400 md:mt-5 md:text-[16px]">
+            <p className="mt-4 max-w-[460px] text-[13px] leading-[1.7] text-slate-400 md:mt-5 md:text-[15px]">
               {t('hero.subtitle')}
             </p>
 
@@ -136,7 +159,7 @@ const Hero = () => {
               {leftPoints.map((point, idx) => (
                 <motion.li
                   key={idx}
-                  className="flex items-center gap-3 text-[13px] font-medium text-slate-300 md:text-[15px]"
+                  className="flex items-center gap-3 text-[12px] font-medium text-slate-300 md:text-[14px]"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.45, delay: 0.5 + idx * 0.1 }}
@@ -158,7 +181,7 @@ const Hero = () => {
             >
               <motion.button
                 onClick={openWhatsApp}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[14px] font-bold text-white md:px-10 md:py-4 md:text-[16px]"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[13.5px] font-bold text-white md:px-10 md:py-4 md:text-[15px]"
                 style={{
                   background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 60%, #0369a1 100%)',
                   boxShadow: '0 0 30px -5px rgba(14,165,233,0.35), 0 8px 20px -8px rgba(0,0,0,0.3)',
@@ -173,7 +196,7 @@ const Hero = () => {
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
               </motion.button>
 
-              <p className="flex items-center gap-2 text-[12px] text-slate-500 md:text-[13px]">
+              <p className="flex items-center gap-2 text-[11px] text-slate-500 md:text-[12px]">
                 <span className="inline-block h-1.5 w-1.5 flex-none rounded-full bg-emerald-500 animate-pulse" />
                 {t('hero.ctaHint')}
               </p>
@@ -182,7 +205,7 @@ const Hero = () => {
 
           {/* ─── RIGHT COLUMN — Map (no card wrapper) ─── */}
           <motion.div
-            className="relative w-full lg:pt-0"
+            className="relative w-full lg:pt-0 lg:scale-125 xl:scale-135 origin-center lg:origin-right"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.25, ease: 'easeOut' }}
@@ -201,13 +224,24 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ─── Bottom gradient transition dark → light ─── */}
+      {/* ─── Bottom gradient transition and wave divider ─── */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-44 pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none z-10"
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, #050810 40%, var(--surface-2) 100%)',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(5,8,16,0.85) 50%, #050810 100%)',
         }}
       />
+
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none overflow-hidden h-16 w-full">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-16 text-[#f8fafc] fill-current"
+          viewBox="0 0 1440 64"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" />
+        </svg>
+      </div>
     </section>
   )
 }

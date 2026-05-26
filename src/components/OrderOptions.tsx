@@ -1,29 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
-import { MessageCircle, MapPin, Clock, ShieldCheck, Zap } from 'lucide-react'
+import { MessageCircle, Clock, ShieldCheck, Zap } from 'lucide-react'
 
 const OrderOptions = () => {
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation(0.05)
-
-  const cities = [
-    {
-      name: t('orderOptions.warehouseAlmatyName'),
-      desc: t('orderOptions.warehouseAlmatyDesc'),
-      tag: 'warehouseAlmaty'
-    },
-    {
-      name: t('orderOptions.warehouseAstanaName'),
-      desc: t('orderOptions.warehouseAstanaDesc'),
-      tag: 'warehouseAstana'
-    },
-    {
-      name: t('orderOptions.warehouseOskemenName'),
-      desc: t('orderOptions.warehouseOskemenDesc'),
-      tag: 'warehouseOskemen'
-    }
-  ]
 
   const features = [
     {
@@ -55,62 +37,7 @@ const OrderOptions = () => {
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         
-        {/* Header Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20 max-w-3xl mx-auto"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 text-sky-700 border border-sky-100/80 text-xs font-semibold uppercase tracking-wider mb-5 shadow-sm relative">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
-            </span>
-            {t('orderOptions.badge')}
-          </div>
-          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-5 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
-            {t('orderOptions.title')}
-          </h2>
-          
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            {t('orderOptions.subtitle')}
-          </p>
-        </motion.div>
 
-        {/* Cities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-20">
-          {cities.map((city, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="premium-card p-8 hover:border-sky-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-sky-100/60 transition-all duration-300 relative overflow-hidden bg-white/90"
-            >
-              {/* Soft decorative background circles */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/5 rounded-full blur-3xl -z-10" />
-              
-              <div className="flex justify-between items-start mb-8">
-                <div className="p-3.5 bg-gradient-to-br from-sky-50 to-indigo-50 border border-sky-100/80 text-sky-600 rounded-2xl shadow-sm">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-100/80 shadow-sm">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                  </span>
-                  {t('orderOptions.inStock')}
-                </span>
-              </div>
-
-              <h3 className="text-2xl font-bold text-slate-900 mb-2.5">{city.name}</h3>
-              
-              <p className="text-slate-500 text-sm leading-relaxed">{city.desc}</p>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Benefits Panel */}
         <motion.div
