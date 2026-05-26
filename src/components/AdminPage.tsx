@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { Upload, Trash2, Eye, EyeOff, CheckCircle, AlertCircle, Lock, LogOut, Film, RefreshCw } from 'lucide-react'
 
-const API = 'http://localhost:3001'
+const API = import.meta.env.DEV ? 'http://localhost:3001' : window.location.origin
 
 interface VideoConfig {
   id: number
