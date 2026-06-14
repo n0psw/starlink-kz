@@ -18,7 +18,7 @@ const Footer = () => {
                 href="tel:+77019444441"
                 className="block text-[var(--text)] hover:text-accent transition-colors mb-2"
               >
-                +7 701 944 4441 (Астана)
+                +7 701 944 4441
               </a>
               <a
                 href="https://wa.me/77007006613"
@@ -32,7 +32,7 @@ const Footer = () => {
 
             <div>
               <p className="text-[var(--muted)] text-xs uppercase tracking-wider mb-3">Локация</p>
-              <p className="text-[var(--muted)]">Оскемен, Риддер, Алтай, Алматы, <br/>Алматинская область, Талдыкорган, Кокшетау</p>
+              <p className="text-[var(--muted)]">Оскемен, Риддер, Алтай, Алматы, <br />Алматинская область, Талдыкорган, Кокшетау</p>
               <a
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                 target="_blank"
