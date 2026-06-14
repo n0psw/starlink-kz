@@ -15,6 +15,12 @@ const Footer = () => {
                 +7 700 700 6613
               </a>
               <a
+                href="tel:+77019444441"
+                className="block text-[var(--text)] hover:text-accent transition-colors mb-2"
+              >
+                +7 701 944 4441 (Астана)
+              </a>
+              <a
                 href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
