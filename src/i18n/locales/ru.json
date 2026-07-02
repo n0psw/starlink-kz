@@ -1,4 +1,8 @@
 {
+  "accountBanner": {
+    "text": "Уже есть аккаунт Starlink? Забыли пароль?",
+    "cta": "Войти / Сбросить пароль"
+  },
   "topBanner": {
     "orderLink": "Заказать STARLINK для дома"
   },

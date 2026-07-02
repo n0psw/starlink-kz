@@ -1,4 +1,8 @@
 {
+  "accountBanner": {
+    "text": "Already have a Starlink account? Forgot your password?",
+    "cta": "Sign in / Reset password"
+  },
   "topBanner": {
     "orderLink": "Order STARLINK for Home"
   },
@@ -271,7 +275,7 @@
   },
   "footer": {
     "contacts": "Contacts",
-    "city": "Oskemen, Ridder, Altay",
+    "city": "Oskemen, Ridder, Altay, Almaty, Taldykorgan, Astana, Atyrau, Temirtau",
     "copyright": "© 2026"
   },
   "testimonials": {

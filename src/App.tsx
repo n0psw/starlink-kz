@@ -9,6 +9,7 @@ import SatelliteMap from './components/SatelliteMap'
 import ConnectionSchemes from './components/ConnectionSchemes'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import StarlinkAccountBanner from './components/StarlinkAccountBanner'
 
 const AdminPage = lazy(() => import('./components/AdminPage'))
 
@@ -30,6 +31,7 @@ function App() {
       <Features />
       <OrderOptions />
       <Installation />
+      <StarlinkAccountBanner />
       <SatelliteMap />
       <ConnectionSchemes />
       <Footer />
