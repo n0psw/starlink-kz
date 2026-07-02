@@ -65,7 +65,7 @@ const ConnectionSchemes = () => {
   const activeScheme = schemes[activeTab]
 
   return (
-    <section id="services" ref={ref} className="py-20 md:py-28 bg-[#f8fafc] border-t border-slate-100 relative overflow-hidden">
+    <section id="services" ref={ref} className="py-20 md:py-28 bg-[#050810] border-t border-white/5 relative overflow-hidden">
       {/* Decorative gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(14,116,144,0.05),transparent_70%)] pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -80,10 +80,10 @@ const ConnectionSchemes = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-5 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
               {t('services.title')}
             </h2>
-            <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed">
               {t('services.subtitle')}
             </p>
           </motion.div>
@@ -99,15 +99,15 @@ const ConnectionSchemes = () => {
                   transition={{ duration: 0.45, delay: index * 0.05 }}
                   className="w-full"
                 >
-                  <div className="flex items-start gap-4 p-5 bg-white border border-slate-200/50 rounded-2xl hover:shadow-lg hover:border-sky-500/30 transition-all duration-300 group w-full h-full">
-                    <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-600 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                  <div className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/[0.08] rounded-2xl hover:bg-white/[0.04] hover:border-sky-500/30 hover:shadow-[0_0_30px_-5px_rgba(14,165,233,0.15)] transition-all duration-300 group w-full h-full">
+                    <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500/10 text-sky-400 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
                       <Icon size={20} />
                     </div>
                     <div>
-                      <h3 className="mb-1 text-base font-bold text-slate-900 leading-snug">
+                      <h3 className="mb-1 text-base font-bold text-white leading-snug group-hover:text-sky-400 transition-colors">
                         {t(`services.items.${service.key}.title`)}
                       </h3>
-                      <p className="text-sm text-slate-500 leading-relaxed">
+                      <p className="text-sm text-slate-400 leading-relaxed">
                         {t(`services.items.${service.key}.description`)}
                       </p>
                     </div>
@@ -121,27 +121,27 @@ const ConnectionSchemes = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.2 }}
-            className="text-center text-sm sm:text-base text-slate-500 max-w-2xl mx-auto"
+            className="text-center text-sm sm:text-base text-slate-400 max-w-2xl mx-auto"
           >
             {t('services.customText')}{' '}
             <a
               href="https://wa.me/77007006613"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-600 font-semibold hover:text-sky-800 underline transition-colors"
+              className="text-sky-400 font-semibold hover:text-sky-300 underline transition-colors"
             >
               {t('services.customCta')}
             </a>
           </motion.p>
         </div>
 
-        <hr className="border-slate-200/60 my-16" />
+        <hr className="border-white/5 my-16" />
 
 
 
         {/* Dynamic Tab Switcher */}
         <div className="flex justify-center mb-10 md:mb-12">
-          <div className="inline-flex flex-wrap md:flex-nowrap gap-1.5 p-1.5 bg-slate-100/80 border border-slate-200/50 rounded-2xl md:rounded-full backdrop-blur-md shadow-inner w-full md:w-auto max-w-lg md:max-w-none">
+          <div className="inline-flex flex-wrap md:flex-nowrap gap-1.5 p-1.5 bg-white/[0.03] border border-white/[0.08] rounded-2xl md:rounded-full backdrop-blur-md w-full md:w-auto max-w-lg md:max-w-none">
             {schemes.map((scheme, idx) => (
               <button
                 key={idx}
@@ -150,8 +150,8 @@ const ConnectionSchemes = () => {
                   setIsZoomed(false)
                 }}
                 className={`relative px-5 py-2.5 rounded-xl md:rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 w-full md:w-auto text-center cursor-pointer ${activeTab === idx
-                    ? 'text-white bg-slate-900 shadow-md'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                    ? 'text-black bg-white shadow-md'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
                   }`}
               >
                 {scheme.tab}
@@ -161,31 +161,31 @@ const ConnectionSchemes = () => {
         </div>
 
         {/* Tab Content Panels */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white/70 backdrop-blur-md border border-slate-200/40 rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-xl shadow-slate-100/50 relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white/[0.02] backdrop-blur-md border border-white/[0.08] rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
 
           {/* Subtle gradient highlights inside card */}
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-sky-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
           {/* Left Column: Scheme Details */}
           <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight leading-tight">
                 {activeScheme.tab}
               </h3>
 
-              <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-6">
+              <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
                 {activeScheme.desc}
               </p>
 
-              <div className="bg-slate-50/80 border border-slate-100/80 rounded-2xl p-5 backdrop-blur-sm shadow-sm">
-                <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3.5">
+              <div className="bg-white/[0.02] border border-white/[0.05] rounded-2xl p-5 shadow-sm">
+                <span className="block text-xs font-bold uppercase tracking-wider mb-3.5" style={{ color: '#475569' }}>
                   {t('schemes.equipment')}
                 </span>
 
                 <ul className="space-y-2.5">
                   {activeScheme.eq.split(',').map((eqItem, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium">
-                      <span className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50">
+                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 font-medium">
+                      <span className="mt-0.5 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
                         <Check size={11} strokeWidth={3} />
                       </span>
                       <span>{eqItem.trim()}</span>
@@ -200,12 +200,12 @@ const ConnectionSchemes = () => {
                 href={`https://wa.me/77007006613?text=${encodeURIComponent(activeScheme.waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-slate-900 to-indigo-950 hover:from-slate-800 hover:to-indigo-900 text-white text-sm sm:text-base font-bold rounded-xl shadow-lg hover:shadow-xl hover:shadow-indigo-100/50 transition-all w-full sm:w-auto relative group overflow-hidden border border-indigo-900/10 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white hover:bg-slate-100 text-black text-sm sm:text-base font-bold rounded-xl shadow-lg transition-all w-full sm:w-auto relative group overflow-hidden cursor-pointer"
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Shimmer effect */}
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
                 <MessageCircle className="w-5 h-5 fill-current" />
                 <span className="tracking-wide">{t('schemes.cta')}</span>
               </motion.a>
@@ -216,7 +216,7 @@ const ConnectionSchemes = () => {
           <div className="lg:col-span-7">
             <div
               onClick={() => setIsZoomed(true)}
-              className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-2.5 shadow-md cursor-zoom-in group hover:shadow-xl hover:border-slate-300 transition-all duration-300 aspect-[3/2] flex items-center justify-center"
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/95 p-2.5 shadow-md cursor-zoom-in group hover:shadow-xl hover:border-sky-500/50 transition-all duration-300 aspect-[3/2] flex items-center justify-center"
             >
               <img
                 src={activeScheme.img}
