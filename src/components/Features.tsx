@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, KeyRound, LogIn, ExternalLink } from 'lucide-react'
 
 const Features = () => {
   const { t } = useTranslation()
@@ -229,6 +229,112 @@ const Features = () => {
           </button>
         </div>
       </motion.div>
+
+      {/* ── STARLINK ACCOUNT BLOCK ── */}
+      <div
+        className="relative mx-0 border-t border-b"
+        style={{
+          borderColor: 'rgba(255,255,255,0.05)',
+          background: 'rgba(14,165,233,0.025)',
+        }}
+      >
+        {/* subtle glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 120% at 50% 50%, rgba(14,165,233,0.06) 0%, transparent 70%)',
+          }}
+        />
+
+        <div className="container mx-auto px-8 lg:px-16 py-10 lg:py-12 relative z-10">
+          {/* Header row */}
+          <div className="flex items-start gap-3 mb-6">
+            <div
+              className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-0.5"
+              style={{ background: 'rgba(14,165,233,0.12)', border: '1px solid rgba(14,165,233,0.2)' }}
+            >
+              <KeyRound size={14} style={{ color: '#38bdf8' }} strokeWidth={2} />
+            </div>
+            <div>
+              <p
+                className="text-[11px] font-bold uppercase tracking-[0.18em] mb-1"
+                style={{ color: '#38bdf8' }}
+              >
+                Аккаунт Starlink
+              </p>
+              <p
+                className="text-[14px] leading-[1.65] max-w-[520px]"
+                style={{ color: '#475569' }}
+              >
+                Для активации оборудования и управления подпиской вам понадобится официальный аккаунт на{' '}
+                <span style={{ color: '#64748b' }}>starlink.com</span>.
+                {' '}Мы бесплатно поможем зарегистрироваться и активировать устройство.
+              </p>
+            </div>
+          </div>
+
+          {/* Links row */}
+          <div className="flex flex-wrap items-center gap-4 ml-11">
+            <a
+              href="https://starlink.com/auth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold transition-all group"
+              style={{
+                background: 'rgba(14,165,233,0.1)',
+                border: '1px solid rgba(14,165,233,0.2)',
+                color: '#38bdf8',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'rgba(14,165,233,0.18)'
+                e.currentTarget.style.borderColor = 'rgba(14,165,233,0.4)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(14,165,233,0.1)'
+                e.currentTarget.style.borderColor = 'rgba(14,165,233,0.2)'
+              }}
+            >
+              <LogIn size={12} strokeWidth={2.5} />
+              Войти в аккаунт
+              <ExternalLink size={10} className="opacity-50 group-hover:opacity-80 transition-opacity" strokeWidth={2.5} />
+            </a>
+
+            <a
+              href="https://starlink.com/auth/forgot-password"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[12px] font-medium transition-colors group"
+              style={{ color: '#475569' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#94a3b8')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#475569')}
+            >
+              <KeyRound size={11} strokeWidth={2} className="opacity-60" />
+              Забыли пароль?
+              <ExternalLink size={10} className="opacity-40 group-hover:opacity-70 transition-opacity" strokeWidth={2.5} />
+            </a>
+
+            <span
+              className="hidden sm:block w-px h-4 self-center"
+              style={{ background: 'rgba(255,255,255,0.07)' }}
+            />
+
+            <p className="text-[11px]" style={{ color: '#334155' }}>
+              Нужна помощь?{' '}
+              <a
+                href="https://wa.me/77007006613?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D1%81%20%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%BE%D0%BC%20Starlink."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors"
+                style={{ color: '#38bdf8' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#7dd3fc')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#38bdf8')}
+              >
+                Напишите нам в WhatsApp
+              </a>{' '}— поможем бесплатно.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* BOTTOM DIVIDER */}
       <div
