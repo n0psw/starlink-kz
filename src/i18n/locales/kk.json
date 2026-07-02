@@ -1,4 +1,30 @@
 {
+  "common": {
+    "order": "Тапсырыс беру",
+    "mbps": "Мбит/с",
+    "weight": "Салмағы",
+    "included": "Қамтылған",
+    "login": "Кіру",
+    "officialEquipment": "Ресми жабдық · Дилер кепілдігі"
+  },
+  "accountBlock": {
+    "label": "Starlink ақпайы",
+    "desc": "Жабдықты белсендіру және жазылымға басқару үшін сізге starlink.com сайтындағы ресми ақпай қажет. Тіркелуге және құрылғыны белсендіруге тегін көмектесеміз.",
+    "loginBtn": "Ақпайға кіру",
+    "forgotPassword": "Құпия сөзді ұмыттыңыз ба?",
+    "needHelp": "Көмек керек пе?",
+    "writeWhatsApp": "WhatsApp-қа жазыңыз",
+    "helpFree": "тегін көмектесеміз."
+  },
+  "orderOptionsExtras": {
+    "whyUs": "Неге біз",
+    "delivery": "Жеткізу",
+    "deliveryVal": "1 күн",
+    "warranty": "Кепілдік",
+    "warrantyVal": "3 жыл",
+    "support": "Қолдау"
+  },
+  "installationLabel": "Монтаж",
   "accountBanner": {
     "text": "Starlink ақпайыңыз бар ма? Құпия сөзді ұмыттыңыз ба?",
     "cta": "Кіру / Құпия сөзді қалпына келтіру"

@@ -1,4 +1,30 @@
 {
+  "common": {
+    "order": "Order",
+    "mbps": "Mbps",
+    "weight": "Weight",
+    "included": "Included",
+    "login": "Login",
+    "officialEquipment": "Official equipment · Dealer warranty"
+  },
+  "accountBlock": {
+    "label": "Starlink Account",
+    "desc": "To activate equipment and manage your subscription, you will need an official account at starlink.com. We will help you register and activate the device free of charge.",
+    "loginBtn": "Sign in to account",
+    "forgotPassword": "Forgot password?",
+    "needHelp": "Need help?",
+    "writeWhatsApp": "Write to us on WhatsApp",
+    "helpFree": "we'll help for free."
+  },
+  "orderOptionsExtras": {
+    "whyUs": "Why Us",
+    "delivery": "Delivery",
+    "deliveryVal": "1 day",
+    "warranty": "Warranty",
+    "warrantyVal": "3 years",
+    "support": "Support"
+  },
+  "installationLabel": "Installation",
   "accountBanner": {
     "text": "Already have a Starlink account? Forgot your password?",
     "cta": "Sign in / Reset password"

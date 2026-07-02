@@ -66,7 +66,7 @@ const Features = () => {
                 100+
               </div>
               <div className="text-[11px] font-medium uppercase tracking-[0.12em]" style={{ color: '#334155' }}>
-                Мбит/с
+                {t('common.mbps')}
               </div>
             </div>
             <div
@@ -81,7 +81,7 @@ const Features = () => {
                 1.1 кг
               </div>
               <div className="text-[11px] font-medium uppercase tracking-[0.12em]" style={{ color: '#334155' }}>
-                Вес
+                {t('common.weight')}
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ const Features = () => {
             onMouseEnter={e => (e.currentTarget.style.color = '#7dd3fc')}
             onMouseLeave={e => (e.currentTarget.style.color = '#38bdf8')}
           >
-            Заказать
+            {t('common.order')}
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
           </button>
         </div>
@@ -197,7 +197,7 @@ const Features = () => {
                 350+
               </div>
               <div className="text-[11px] font-medium uppercase tracking-[0.12em]" style={{ color: '#334155' }}>
-                Мбит/с
+                {t('common.mbps')}
               </div>
             </div>
             <div
@@ -212,7 +212,7 @@ const Features = () => {
                 4.8 кг
               </div>
               <div className="text-[11px] font-medium uppercase tracking-[0.12em]" style={{ color: '#334155' }}>
-                Вес
+                {t('common.weight')}
               </div>
             </div>
           </div>
@@ -224,7 +224,7 @@ const Features = () => {
             onMouseEnter={e => (e.currentTarget.style.color = '#7dd3fc')}
             onMouseLeave={e => (e.currentTarget.style.color = '#38bdf8')}
           >
-            Заказать
+            {t('common.order')}
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
           </button>
         </div>
@@ -260,15 +260,13 @@ const Features = () => {
                 className="text-[11px] font-bold uppercase tracking-[0.18em] mb-1"
                 style={{ color: '#38bdf8' }}
               >
-                Аккаунт Starlink
+                {t('accountBlock.label')}
               </p>
               <p
                 className="text-[14px] leading-[1.65] max-w-[520px]"
                 style={{ color: '#475569' }}
               >
-                Для активации оборудования и управления подпиской вам понадобится официальный аккаунт на{' '}
-                <span style={{ color: '#64748b' }}>starlink.com</span>.
-                {' '}Мы бесплатно поможем зарегистрироваться и активировать устройство.
+                {t('accountBlock.desc')}
               </p>
             </div>
           </div>
@@ -295,7 +293,7 @@ const Features = () => {
               }}
             >
               <LogIn size={12} strokeWidth={2.5} />
-              Войти в аккаунт
+              {t('accountBlock.loginBtn')}
               <ExternalLink size={10} className="opacity-50 group-hover:opacity-80 transition-opacity" strokeWidth={2.5} />
             </a>
 
@@ -309,7 +307,7 @@ const Features = () => {
               onMouseLeave={e => (e.currentTarget.style.color = '#475569')}
             >
               <KeyRound size={11} strokeWidth={2} className="opacity-60" />
-              Забыли пароль?
+              {t('accountBlock.forgotPassword')}
               <ExternalLink size={10} className="opacity-40 group-hover:opacity-70 transition-opacity" strokeWidth={2.5} />
             </a>
 
@@ -319,7 +317,7 @@ const Features = () => {
             />
 
             <p className="text-[11px]" style={{ color: '#334155' }}>
-              Нужна помощь?{' '}
+              {t('accountBlock.needHelp')}{' '}
               <a
                 href="https://wa.me/77007006613?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D1%81%20%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%BE%D0%BC%20Starlink."
                 target="_blank"
@@ -329,8 +327,8 @@ const Features = () => {
                 onMouseEnter={e => (e.currentTarget.style.color = '#7dd3fc')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#38bdf8')}
               >
-                Напишите нам в WhatsApp
-              </a>{' '}— поможем бесплатно.
+                {t('accountBlock.writeWhatsApp')}
+              </a>{' '}— {t('accountBlock.helpFree')}
             </p>
           </div>
         </div>

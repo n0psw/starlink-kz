@@ -8,9 +8,9 @@ const OrderOptions = () => {
   const { ref, isVisible } = useScrollAnimation(0.05)
 
   const stats = [
-    { number: '1 день', label: t('orderOptions.feature2Title') || 'Доставка' },
-    { number: '3 года', label: 'Гарантия' },
-    { number: '24/7', label: 'Поддержка' },
+    { number: t('orderOptionsExtras.deliveryVal'), label: t('orderOptionsExtras.delivery') },
+    { number: t('orderOptionsExtras.warrantyVal'), label: t('orderOptionsExtras.warranty') },
+    { number: '24/7', label: t('orderOptionsExtras.support') },
   ]
 
   return (
@@ -45,7 +45,7 @@ const OrderOptions = () => {
             className="text-[10px] font-bold uppercase tracking-[0.2em] mb-5 block"
             style={{ color: '#38bdf8' }}
           >
-            Почему мы
+            {t('orderOptionsExtras.whyUs')}
           </span>
           <h2
             className="font-bold leading-[1.0] tracking-[-0.04em] text-white mb-6"
@@ -121,7 +121,7 @@ const OrderOptions = () => {
                 className="text-[11px] font-bold uppercase tracking-[0.15em]"
                 style={{ color: '#1e3a5f' }}
               >
-                Включено
+                {t('common.included')}
               </span>
             </motion.div>
           ))}
@@ -152,7 +152,7 @@ const OrderOptions = () => {
           </motion.a>
 
           <p className="text-[12px]" style={{ color: '#334155' }}>
-            Официальное оборудование · Гарантия дилера
+            {t('common.officialEquipment')}
           </p>
         </motion.div>
       </div>

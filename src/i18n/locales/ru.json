@@ -1,4 +1,30 @@
 {
+  "common": {
+    "order": "Заказать",
+    "mbps": "Мбит/с",
+    "weight": "Вес",
+    "included": "Включено",
+    "login": "Вход",
+    "officialEquipment": "Официальное оборудование · Гарантия дилера"
+  },
+  "accountBlock": {
+    "label": "Аккаунт Starlink",
+    "desc": "Для активации оборудования и управления подпиской вам понадобится официальный аккаунт на starlink.com. Мы бесплатно поможем зарегистрироваться и активировать устройство.",
+    "loginBtn": "Войти в аккаунт",
+    "forgotPassword": "Забыли пароль?",
+    "needHelp": "Нужна помощь?",
+    "writeWhatsApp": "Напишите нам в WhatsApp",
+    "helpFree": "поможем бесплатно."
+  },
+  "orderOptionsExtras": {
+    "whyUs": "Почему мы",
+    "delivery": "Доставка",
+    "deliveryVal": "1 день",
+    "warranty": "Гарантия",
+    "warrantyVal": "3 года",
+    "support": "Поддержка"
+  },
+  "installationLabel": "Монтаж",
   "accountBanner": {
     "text": "Уже есть аккаунт Starlink? Забыли пароль?",
     "cta": "Войти / Сбросить пароль"

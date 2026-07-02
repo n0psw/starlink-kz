@@ -219,7 +219,7 @@ const Header = () => {
                 e.currentTarget.style.background = 'transparent'
               }}
             >
-              Вход
+              {t('common.login')}
             </a>
 
             {/* Language Selector */}
@@ -361,7 +361,7 @@ const Header = () => {
                   borderTop: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                Вход
+                {t('common.login')}
               </a>
             </div>
           </nav>

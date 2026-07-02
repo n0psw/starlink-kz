@@ -158,7 +158,7 @@ const Installation = () => {
             className="text-[10px] font-bold uppercase tracking-[0.2em] mb-5 block"
             style={{ color: '#38bdf8' }}
           >
-            Монтаж
+            {t('installationLabel')}
           </span>
           <h2
             className="font-bold leading-[1.0] tracking-[-0.04em] text-white mb-4"
