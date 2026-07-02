@@ -60,7 +60,10 @@
     "rightFooter1": "1 күннен бастап",
     "rightFooter2": "Бүкіл Қазақстан және ТМД елдері бойынша",
     "rightCta": "Кеңес алу",
-    "ctaHint": "WhatsApp-та 5 минутта жауап береміз · Тегін кеңес"
+    "ctaHint": "WhatsApp-та 5 минутта жауап береміз · Тегін кеңес",
+    "leftPointSpeedLabel": "Жылдамдық",
+    "leftPointCoverageLabel": "Қамту аймағы",
+    "leftPointInstallLabel": "Орнату"
   },
   "useCases": {
     "title": "Кімге сәйкес келеді",

@@ -188,9 +188,25 @@ const SatelliteMap = () => {
     <section
       id="satellite-map"
       ref={ref}
-      className="py-14 md:py-20"
-      style={{ background: 'var(--surface-1)' }}
+      className="py-16 md:py-24 relative overflow-hidden"
+      style={{ background: '#080d1a' }}
     >
+      {/* Divider */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent)',
+        }}
+      />
+
+      {/* Ambient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 50% 60% at 20% 50%, rgba(14,165,233,0.04) 0%, transparent 60%)',
+        }}
+      />
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -205,10 +221,13 @@ const SatelliteMap = () => {
 
           {/* Text + CTA */}
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+            <h2
+              className="text-2xl sm:text-3xl font-bold mb-3"
+              style={{ color: '#f1f5f9', letterSpacing: '-0.03em' }}
+            >
               {t('satelliteMap.title')}
             </h2>
-            <p className="text-slate-500 text-sm mb-6 leading-relaxed">
+            <p className="text-sm mb-8 leading-relaxed" style={{ color: '#64748b' }}>
               {t('satelliteMap.subtitle')}
             </p>
 
@@ -216,8 +235,18 @@ const SatelliteMap = () => {
               href={SATELLITE_MAP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-all duration-200"
               style={{ background: '#0ea5e9' }}
+              onMouseEnter={e => {
+                e.currentTarget.style.opacity = '0.85'
+                e.currentTarget.style.boxShadow = '0 8px 24px -6px rgba(14,165,233,0.5)'
+                e.currentTarget.style.transform = 'translateY(-1px)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.opacity = '1'
+                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
             >
               {t('satelliteMap.cta')}
               <ExternalLink className="w-4 h-4 opacity-70" />

@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  MessageCircle, 
-  ZoomIn, 
-  Check, 
-  X, 
-  SatelliteDish, 
-  Wifi, 
-  Network, 
-  Bus, 
-  Signal, 
-  Building2 
+import {
+  MessageCircle,
+  ZoomIn,
+  Check,
+  X,
+  SatelliteDish,
+  Wifi,
+  Network,
+  Bus,
+  Signal,
+  Building2
 } from 'lucide-react'
 
 const ConnectionSchemes = () => {
@@ -71,7 +71,7 @@ const ConnectionSchemes = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
-        
+
         {/* ─── Sub-section 1: Turnkey Services ─── */}
         <div className="mb-20">
           <motion.div
@@ -149,11 +149,10 @@ const ConnectionSchemes = () => {
                   setActiveTab(idx)
                   setIsZoomed(false)
                 }}
-                className={`relative px-5 py-2.5 rounded-xl md:rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 w-full md:w-auto text-center cursor-pointer ${
-                  activeTab === idx
+                className={`relative px-5 py-2.5 rounded-xl md:rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 w-full md:w-auto text-center cursor-pointer ${activeTab === idx
                     ? 'text-white bg-slate-900 shadow-md'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
-                }`}
+                  }`}
               >
                 {scheme.tab}
               </button>
@@ -163,7 +162,7 @@ const ConnectionSchemes = () => {
 
         {/* Tab Content Panels */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white/70 backdrop-blur-md border border-slate-200/40 rounded-[32px] p-6 sm:p-10 lg:p-12 shadow-xl shadow-slate-100/50 relative overflow-hidden">
-          
+
           {/* Subtle gradient highlights inside card */}
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -173,7 +172,7 @@ const ConnectionSchemes = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
                 {activeScheme.tab}
               </h3>
-              
+
               <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-6">
                 {activeScheme.desc}
               </p>
@@ -182,7 +181,7 @@ const ConnectionSchemes = () => {
                 <span className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-3.5">
                   {t('schemes.equipment')}
                 </span>
-                
+
                 <ul className="space-y-2.5">
                   {activeScheme.eq.split(',').map((eqItem, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium">
@@ -224,7 +223,7 @@ const ConnectionSchemes = () => {
                 alt={activeScheme.tab}
                 className="max-h-full max-w-full object-contain rounded-lg group-hover:scale-[1.015] transition-all duration-500"
               />
-              
+
               {/* Overlay with Zoom Indicator */}
               <div className="absolute inset-0 bg-slate-950/0 group-hover:bg-slate-950/20 transition-all duration-300 flex items-center justify-center pointer-events-none">
                 <span className="p-3 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 text-slate-800 flex items-center gap-2 text-xs font-bold border border-slate-200/80 pointer-events-none">

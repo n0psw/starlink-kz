@@ -1,27 +1,70 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { ArrowRight, Satellite, Wifi, Zap } from 'lucide-react'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react'
 import KazakhstanMap from './KazakhstanMap'
 
-// Generate star field once — outside component to avoid re-creation
-const generateStars = (count: number) =>
-  Array.from({ length: count }, (_, i) => ({
-    id: i,
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    size: Math.random() * 2 + 0.5,
-    duration: 3 + Math.random() * 5,
-    delay: Math.random() * 4,
-    opacity: 0.15 + Math.random() * 0.45,
-  }))
+// Count-up hook (StrictMode-safe)
+const useCountUp = (target: number, duration = 1800, delay = 600) => {
+  const [count, setCount] = useState(0)
 
-const STAR_DATA = generateStars(70)
+  useEffect(() => {
+    let animFrameId: number
+    const timeout = setTimeout(() => {
+      const t0 = performance.now()
+      const step = (now: number) => {
+        const p = Math.min((now - t0) / duration, 1)
+        setCount(Math.round((1 - Math.pow(1 - p, 3)) * target))
+        if (p < 1) animFrameId = requestAnimationFrame(step)
+      }
+      animFrameId = requestAnimationFrame(step)
+    }, delay)
+
+    return () => {
+      clearTimeout(timeout)
+      if (animFrameId) cancelAnimationFrame(animFrameId)
+    }
+  }, [target, duration, delay])
+
+  return count
+}
+
+// Animated star field — fewer stars on mobile
+const StarField = ({ mobile }: { mobile: boolean }) => {
+  const stars = useRef(
+    Array.from({ length: mobile ? 25 : 60 }, () => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 1.5 + 0.5,
+      opacity: Math.random() * 0.4 + 0.1,
+      duration: Math.random() * 4 + 3,
+      delay: Math.random() * 5,
+    }))
+  ).current
+
+  return (
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      {stars.map((s, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white"
+          style={{
+            left: `${s.x}%`,
+            top: `${s.y}%`,
+            width: s.size,
+            height: s.size,
+            opacity: s.opacity,
+            animation: `twinkle ${s.duration}s ${s.delay}s ease-in-out infinite`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
 const Hero = () => {
   const { t, i18n } = useTranslation()
   const [isMobile, setIsMobile] = useState(false)
-  const baseUrl = import.meta.env.BASE_URL || '/'
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -34,213 +77,229 @@ const Hero = () => {
     window.open('https://wa.me/77007006613', '_blank', 'noopener,noreferrer')
   }
 
-  const leftPoints = [
-    { icon: Zap, text: t('hero.leftPointSpeed') },
-    { icon: Satellite, text: t('hero.leftPointCoverage') },
-    { icon: Wifi, text: t('hero.leftPointInstall') },
-  ]
+  const scrollToNext = useCallback(() => {
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })
+  }, [])
+
+  const speed = useCountUp(350, 2000, 1200)
+  const coverage = useCountUp(100, 1600, 1400)
+  const install = useCountUp(1, 600, 1600)
+
+  const lang = i18n.language || 'ru'
+  const metricsInline =
+    lang === 'en'
+      ? [
+          { num: speed, suffix: ' Mbps', label: 'speed' },
+          { num: coverage, suffix: '%', label: 'coverage' },
+          { num: install, suffix: ' day', label: 'setup' },
+        ]
+      : lang === 'kk'
+        ? [
+            { num: speed, suffix: ' Мбит/с', label: 'жылдамдық' },
+            { num: coverage, suffix: '%', label: 'қамту' },
+            { num: install, suffix: ' күн', label: 'орнату' },
+          ]
+        : [
+            { num: speed, suffix: ' Мбит/с', label: 'скорость' },
+            { num: coverage, suffix: '%', label: 'покрытие' },
+            { num: install, suffix: ' день', label: 'монтаж' },
+          ]
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    visible: (d: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, delay: d, ease: [0.16, 1, 0.3, 1] },
+    }),
+  }
 
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] overflow-hidden"
+      className="relative min-h-[100svh] overflow-hidden flex flex-col"
       style={{
-        background: 'linear-gradient(160deg, #050810 0%, #0a1020 30%, #0c1428 55%, #081020 80%, #050810 100%)',
+        background: 'linear-gradient(180deg, #010306 0%, #020810 40%, #030a14 70%, #010306 100%)',
       }}
     >
-      {/* ─── Background Mountains Image ─── */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <img
-          src={`${baseUrl}bgmountains1-1280.jpg`}
-          srcSet={`${baseUrl}bgmountains1-768.jpg 768w, ${baseUrl}bgmountains1-1024.jpg 1024w, ${baseUrl}bgmountains1-1280.jpg 1280w, ${baseUrl}bgmountains1.jpg 1536w`}
-          sizes="100vw"
-          alt=""
-          className="h-full w-full object-cover object-center opacity-[0.38] mix-blend-overlay"
+      <StarField mobile={isMobile} />
+
+      {/* Ambient glows */}
+      <div
+        className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] pointer-events-none z-0"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(14,165,233,0.035) 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-[50%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] pointer-events-none z-0"
+        style={{
+          background: 'radial-gradient(ellipse, rgba(14,165,233,0.06) 0%, transparent 65%)',
+          filter: 'blur(60px)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Content */}
+      <div className="relative z-10 w-full flex-1 flex flex-col items-center pt-24 md:pt-36 pb-4 md:pb-6 px-4 sm:px-6">
+
+        {/* ─── Text Block ─── */}
+        <motion.h1
+          className="text-center text-[32px] sm:text-[44px] md:text-[60px] lg:text-[74px] xl:text-[88px] font-semibold leading-[1.06] tracking-[-0.035em] max-w-[880px]"
           style={{
-            filter: 'brightness(0.58) contrast(1.1)',
+            backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #ffffff 55%, rgba(255,255,255,0.45) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
           }}
-        />
-        {/* Overlay gradient to fade the image at the top/bottom */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, rgba(5,8,16,0.45) 0%, rgba(5,8,16,0.1) 30%, rgba(5,8,16,0.4) 70%, #050810 100%)',
-          }}
-        />
-      </div>
-
-      {/* ─── Starfield ─── */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        {STAR_DATA.map((star) => (
-          <div
-            key={star.id}
-            className="hero-star"
-            style={{
-              top: star.top,
-              left: star.left,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              opacity: star.opacity,
-              ['--twinkle-duration' as string]: `${star.duration}s`,
-              ['--twinkle-delay' as string]: `${star.delay}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* ─── Large ambient glow behind map ─── */}
-      <div
-        className="absolute top-[8%] right-[-8%] w-[65vw] h-[80vh] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(56,189,248,0.05) 0%, rgba(14,165,233,0.02) 40%, transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-[5%] left-[-5%] w-[35vw] h-[35vh] pointer-events-none rounded-full"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(14,165,233,0.04) 0%, transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* ─── Very subtle grid ─── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.02]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(56,189,248,0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(56,189,248,0.4) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* ─── Main content ─── */}
-      <div className="relative z-20 container mx-auto px-4 pb-16 pt-[110px] md:pb-24 md:pt-[150px] lg:pb-28 lg:pt-[180px] max-w-full lg:max-w-[1440px] xl:max-w-[1600px]">
-        <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.7fr] lg:gap-12 xl:gap-16">
-
-          {/* ─── LEFT COLUMN — Content ─── */}
-          <motion.div
-            className="pl-4 md:pl-12 lg:pl-24 xl:pl-36 2xl:pl-44 max-w-[440px] lg:max-w-[480px]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            {/* Badge */}
-            <motion.span
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/[0.07] px-4 py-1.5 text-[9.5px] font-semibold uppercase tracking-[0.18em] text-sky-400 md:mb-6 md:text-[10px]"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />
-              {t('hero.leftBadge')}
-            </motion.span>
-
-            {/* Headline */}
-            <h1
-              className="max-w-[540px] text-[28px] font-bold leading-[1.08] tracking-[-0.03em] text-white sm:text-[35px] md:text-[42px] lg:text-[48px]"
-              style={{
-                textShadow: '0 0 60px rgba(56,189,248,0.1)',
-              }}
-            >
-              {t('hero.title')}
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mt-4 max-w-[460px] text-[13px] leading-[1.7] text-slate-400 md:mt-5 md:text-[15px]">
-              {t('hero.subtitle')}
-            </p>
-
-            {/* Benefit bullets */}
-            <ul className="mt-7 space-y-3 md:mt-8">
-              {leftPoints.map((point, idx) => (
-                <motion.li
-                  key={idx}
-                  className="flex items-center gap-3 text-[12px] font-medium text-slate-300 md:text-[14px]"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.45, delay: 0.5 + idx * 0.1 }}
-                >
-                  <span className="inline-flex h-7 w-7 flex-none items-center justify-center rounded-lg bg-sky-500/[0.1] text-sky-400 ring-1 ring-sky-500/[0.15] md:h-8 md:w-8">
-                    <point.icon size={14} strokeWidth={2} />
-                  </span>
-                  <span>{point.text}</span>
-                </motion.li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <motion.div
-              className="mt-8 flex flex-col items-start gap-3 md:mt-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.85 }}
-            >
-              <motion.button
-                onClick={openWhatsApp}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[13.5px] font-bold text-white md:px-10 md:py-4 md:text-[15px]"
-                style={{
-                  background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 60%, #0369a1 100%)',
-                  boxShadow: '0 0 30px -5px rgba(14,165,233,0.35), 0 8px 20px -8px rgba(0,0,0,0.3)',
-                }}
-                whileHover={{
-                  scale: 1.04,
-                  boxShadow: '0 0 40px -4px rgba(14,165,233,0.5), 0 12px 28px -8px rgba(0,0,0,0.4)',
-                }}
-                whileTap={{ scale: 0.97 }}
-              >
-                {t('hero.cta')}
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-              </motion.button>
-
-              <p className="flex items-center gap-2 text-[11px] text-slate-500 md:text-[12px]">
-                <span className="inline-block h-1.5 w-1.5 flex-none rounded-full bg-emerald-500 animate-pulse" />
-                {t('hero.ctaHint')}
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* ─── RIGHT COLUMN — Map (no card wrapper) ─── */}
-          <motion.div
-            className="relative w-full lg:pt-0 lg:scale-125 xl:scale-135 origin-center lg:origin-right"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.25, ease: 'easeOut' }}
-          >
-            {/* Soft glow behind the map */}
-            <div
-              className="absolute inset-0 -inset-x-8 -inset-y-8 pointer-events-none"
-              style={{
-                background: 'radial-gradient(ellipse at 50% 45%, rgba(56,189,248,0.06) 0%, transparent 65%)',
-              }}
-              aria-hidden="true"
-            />
-
-            <KazakhstanMap language={i18n.language} isMobile={isMobile} />
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ─── Bottom gradient transition and wave divider ─── */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none z-10"
-        style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(5,8,16,0.85) 50%, #050810 100%)',
-        }}
-      />
-
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none overflow-hidden h-16 w-full">
-        <svg
-          className="absolute bottom-0 left-0 w-full h-16 text-[#f8fafc] fill-current"
-          viewBox="0 0 1440 64"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
+          custom={0}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
         >
-          <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" />
-        </svg>
+          {t('hero.title')}
+          <span style={{ WebkitTextFillColor: '#0ea5e9', fontWeight: 300 }}>.</span>
+        </motion.h1>
+
+        <motion.p
+          className="mt-3 md:mt-5 text-center max-w-[520px] text-[13px] sm:text-[14px] md:text-[17px] leading-relaxed font-light px-2"
+          style={{ color: '#6b7280' }}
+          custom={0.12}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          {t('hero.subtitle')}
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          className="mt-5 md:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5"
+          custom={0.24}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <motion.button
+            onClick={openWhatsApp}
+            className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 sm:py-3.5 text-[13px] font-medium text-black transition-all duration-300 hover:bg-slate-100 w-full sm:w-auto justify-center"
+            style={{ boxShadow: '0 2px 20px -4px rgba(255,255,255,0.12)' }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {t('hero.cta')}
+            <ArrowRight size={14} strokeWidth={2.2} />
+          </motion.button>
+
+          <button
+            onClick={() => document.getElementById('order-options')?.scrollIntoView({ behavior: 'smooth' })}
+            className="group inline-flex items-center gap-1 text-[13px] font-medium text-sky-400 hover:text-sky-300 transition-colors"
+          >
+            <span>{t('hero.ctaSecondary') || 'Узнать цены'}</span>
+            <ChevronRight size={14} className="transition-transform group-hover:translate-x-0.5" strokeWidth={2.5} />
+          </button>
+        </motion.div>
+
+        <motion.p
+          className="mt-2 sm:mt-3 flex items-center gap-2 text-[9px] sm:text-[10px]"
+          style={{ color: '#374151' }}
+          custom={0.32}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          <span className="inline-block h-1.5 w-1.5 flex-none rounded-full bg-emerald-500 animate-pulse" />
+          {t('hero.ctaHint')}
+        </motion.p>
+
+        {/* ─── MAP — The Hero Visual ─── */}
+        <motion.div
+          className="relative w-full flex-1 flex items-center justify-center mt-4 md:mt-8 min-h-[200px] sm:min-h-[260px] md:min-h-[340px]"
+          custom={0.35}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, scale: 0.92, y: 20 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              transition: { duration: 1.2, delay: 0.35, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          {/* Enhanced ambient glow behind map */}
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              background: 'radial-gradient(ellipse at 50% 50%, rgba(14,165,233,0.10) 0%, rgba(14,165,233,0.03) 40%, transparent 65%)',
+              filter: 'blur(50px)',
+              transform: 'scale(1.3)',
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10 w-full max-w-[1100px]">
+            <KazakhstanMap language={i18n.language} isMobile={isMobile} />
+          </div>
+        </motion.div>
+
+        {/* ─── Bottom Bar — inline metrics + scroll ─── */}
+        <motion.div
+          className="w-full max-w-[700px] mt-2 md:mt-6"
+          custom={0.6}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          {/* Inline metrics strip */}
+          <div
+            className="flex items-center justify-center gap-4 sm:gap-6 md:gap-10 py-3 sm:py-4 px-4 sm:px-6 rounded-2xl mx-auto"
+            style={{
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.05)',
+              backdropFilter: 'blur(12px)',
+            }}
+          >
+            {metricsInline.map((m, i) => (
+              <div key={i} className="flex items-center gap-2 sm:gap-4">
+                {i > 0 && (
+                  <div className="w-px h-5 sm:h-6 bg-white/[0.06] -ml-2 sm:-ml-3 md:-ml-5" />
+                )}
+                <div className="flex flex-col items-center">
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-[18px] sm:text-[24px] md:text-[30px] font-light text-white tracking-tight leading-none">
+                      {m.num}
+                    </span>
+                    <span className="text-[8px] sm:text-[10px] md:text-[11px] font-light text-slate-400">
+                      {m.suffix}
+                    </span>
+                  </div>
+                  <span className="text-[7px] sm:text-[9px] md:text-[10px] font-medium tracking-[0.14em] uppercase text-slate-600 mt-0.5 sm:mt-1">
+                    {m.label}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.button
+          onClick={scrollToNext}
+          className="mt-4 md:mt-6 mb-2 text-slate-700 hover:text-slate-400 transition-colors cursor-pointer"
+          custom={0.8}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          aria-label="Scroll down"
+        >
+          <ChevronDown
+            size={16}
+            strokeWidth={1.5}
+            style={{ animation: 'bounce-gentle 2.5s ease-in-out infinite' }}
+          />
+        </motion.button>
+
       </div>
     </section>
   )

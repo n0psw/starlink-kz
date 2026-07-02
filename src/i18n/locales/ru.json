@@ -60,7 +60,10 @@
     "rightFooter1": "От 1 дня",
     "rightFooter2": "По всему Казахстану и странах СНГ",
     "rightCta": "Получить консультацию",
-    "ctaHint": "Ответим в WhatsApp за 5 минут · Бесплатная консультация"
+    "ctaHint": "Ответим в WhatsApp за 5 минут · Бесплатная консультация",
+    "leftPointSpeedLabel": "Скорость",
+    "leftPointCoverageLabel": "Покрытие",
+    "leftPointInstallLabel": "Монтаж"
   },
   "useCases": {
     "title": "Кому подойдёт",

@@ -5,7 +5,7 @@ import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import ScrollProgress from './ScrollProgress'
 
 const WhatsAppIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor" />
   </svg>
 )
@@ -16,6 +16,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
+  const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const langRef = useRef<HTMLDivElement>(null)
 
@@ -31,6 +32,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
       const sections = ['hero', 'features', 'installation', 'satellite-map', 'services', 'footer']
       const scrollPosition = window.scrollY + 220
 
@@ -122,13 +124,22 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-[30px] md:top-[36px] left-0 right-0 z-50 bg-white/84 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.32)] w-full"
+      className="fixed top-[30px] md:top-[36px] left-0 right-0 z-50 w-full transition-all duration-300"
+      style={{
+        background: scrolled
+          ? 'rgba(5, 8, 16, 0.88)'
+          : 'rgba(5, 8, 16, 0.6)',
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+      }}
     >
       <ScrollProgress />
       <div className="container mx-auto px-3 md:px-4 py-1 md:py-2 lg:py-2.5 max-w-full">
         <div className="flex items-center justify-between relative">
           <div className="flex-1 hidden md:block"></div>
 
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-8 flex-1 justify-center">
             {navLinks.map((link) => (
               <a
@@ -138,22 +149,30 @@ const Header = () => {
                   e.preventDefault()
                   scrollToSection(link.id)
                 }}
-                className={`relative transition-colors whitespace-nowrap text-xs sm:text-sm lg:text-base pb-0.5 ${activeSection === link.id
-                    ? 'text-slate-900 font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-5 after:rounded-full after:bg-accent'
-                    : 'text-[var(--muted)] hover:text-[var(--text)]'
-                  }`}
+                className={`relative transition-colors whitespace-nowrap text-xs sm:text-sm lg:text-[13px] pb-0.5 ${
+                  activeSection === link.id
+                    ? 'font-semibold after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[1.5px] after:w-4 after:rounded-full after:bg-sky-400'
+                    : 'hover:opacity-100 opacity-60'
+                }`}
+                style={{
+                  color: activeSection === link.id ? '#f1f5f9' : '#94a3b8',
+                }}
               >
                 {t(`nav.${link.key}`)}
               </a>
             ))}
           </nav>
 
+          {/* Right side actions */}
           <div className="flex items-center gap-2 md:gap-3 flex-1 justify-end">
             <div className="hidden md:flex items-center gap-3 lg:gap-4">
               <div className="flex flex-col items-end text-[11px] lg:text-sm leading-tight">
                 <a
                   href="tel:+77007006613"
-                  className="font-semibold text-[var(--text)] hover:text-accent transition-colors"
+                  className="font-medium transition-colors"
+                  style={{ color: '#94a3b8' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#f1f5f9')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#94a3b8')}
                 >
                   +7 700 700 6613
                 </a>
@@ -162,49 +181,78 @@ const Header = () => {
                 href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center text-[var(--muted)] hover:text-accent transition-colors"
+                className="inline-flex items-center justify-center transition-opacity opacity-50 hover:opacity-90"
                 aria-label="2GIS"
               >
-                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5 opacity-70 hover:opacity-100 transition-opacity" />
+                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5" />
               </a>
             </div>
+
             <a
               href="https://wa.me/77007006613"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--muted)] hover:text-accent transition-colors hidden md:block"
+              className="transition-colors hidden md:flex items-center justify-center opacity-60 hover:opacity-100"
+              style={{ color: '#94a3b8' }}
               aria-label="WhatsApp"
             >
               <WhatsAppIcon />
             </a>
 
+            {/* Login button */}
             <a
               href={loginUrl}
-              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 border border-slate-300/80 hover:border-slate-400/80 text-slate-600 hover:text-slate-900 text-xs md:text-sm rounded-full transition-colors bg-white/70 hover:bg-white"
+              className="hidden md:inline-flex px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm rounded-full transition-all font-medium"
+              style={{
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: '#94a3b8',
+                background: 'transparent',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'
+                e.currentTarget.style.color = '#f1f5f9'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'
+                e.currentTarget.style.color = '#94a3b8'
+                e.currentTarget.style.background = 'transparent'
+              }}
             >
               Вход
             </a>
 
-            {/* Language Selector Dropdown */}
+            {/* Language Selector */}
             <div ref={langRef} className="relative z-50">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="inline-flex h-11 items-center justify-center gap-1.5 px-3 md:px-4 md:h-10 border border-slate-300/80 hover:border-slate-400/80 text-slate-800 text-xs sm:text-sm font-semibold rounded-full transition-all duration-300 bg-white/70 hover:bg-white shadow-sm active:scale-95 focus:outline-none"
+                className="inline-flex h-9 items-center justify-center gap-1.5 px-3 md:px-3.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 active:scale-95 focus:outline-none"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: '#94a3b8',
+                  background: 'transparent',
+                }}
                 aria-label="Select language"
                 aria-expanded={isLangOpen}
               >
-                <Globe className="w-4 h-4 text-slate-500" />
-                <span className="uppercase tracking-wider text-slate-700">{selectedLang.short}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
+                <Globe className="w-3.5 h-3.5 opacity-70" />
+                <span className="uppercase tracking-wider">{selectedLang.short}</span>
+                <ChevronDown className={`w-3 h-3 opacity-50 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown */}
               <div
-                className={`absolute right-0 mt-2 w-36 origin-top-right rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-xl p-1 shadow-lg transition-all duration-200 ${
-                  isLangOpen 
-                    ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto' 
+                className={`absolute right-0 mt-2 w-36 origin-top-right rounded-2xl p-1 transition-all duration-200 ${
+                  isLangOpen
+                    ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
                     : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
                 }`}
+                style={{
+                  background: 'rgba(10, 15, 30, 0.95)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 20px 40px -10px rgba(0,0,0,0.6)',
+                }}
               >
                 {languages.map((lang) => (
                   <button
@@ -215,36 +263,54 @@ const Header = () => {
                     }}
                     className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs sm:text-sm font-medium transition-colors ${
                       currentLanguage === lang.code
-                        ? 'bg-accent/10 text-accent font-semibold'
-                        : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                        ? 'text-sky-400'
+                        : 'hover:bg-white/5'
                     }`}
+                    style={{
+                      color: currentLanguage === lang.code ? '#38bdf8' : '#94a3b8',
+                    }}
                   >
                     <span>{lang.label}</span>
-                    <span className="text-[10px] text-slate-400 uppercase font-mono tracking-wider">{lang.short}</span>
+                    <span className="text-[10px] opacity-40 uppercase font-mono tracking-wider">{lang.short}</span>
                   </button>
                 ))}
               </div>
             </div>
 
+            {/* Mobile burger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/80 bg-white/75 text-slate-800"
+              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full transition-all"
+              style={{
+                border: '1px solid rgba(255,255,255,0.12)',
+                color: '#94a3b8',
+                background: 'transparent',
+              }}
               aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Nav */}
         {isMenuOpen && (
-          <nav id="mobile-nav" className="md:hidden mt-3 pb-3 border-t border-slate-200/80">
+          <nav
+            id="mobile-nav"
+            className="md:hidden mt-3 pb-3"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+          >
             <div className="flex flex-col gap-3 pt-3">
-              <div className="flex flex-col gap-2 pb-2 border-b border-slate-200/80 text-sm">
+              <div
+                className="flex flex-col gap-2 pb-2 text-sm"
+                style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+              >
                 <a
                   href="tel:+77007006613"
-                  className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center transition-colors"
+                  style={{ color: '#94a3b8' }}
                 >
                   +7 700 700 6613
                 </a>
@@ -252,10 +318,11 @@ const Header = () => {
                   href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="min-h-11 inline-flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center gap-2 transition-colors"
+                  style={{ color: '#94a3b8' }}
                   aria-label="2GIS"
                 >
-                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-70" />
+                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-50" />
                   <span>2GIS</span>
                 </a>
               </div>
@@ -267,7 +334,8 @@ const Header = () => {
                     e.preventDefault()
                     scrollToSection(link.id)
                   }}
-                  className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors"
+                  className="min-h-11 inline-flex items-center transition-colors"
+                  style={{ color: '#94a3b8' }}
                 >
                   {t(`nav.${link.key}`)}
                 </a>
@@ -276,14 +344,22 @@ const Header = () => {
                 href="https://wa.me/77007006613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-h-11 flex items-center gap-2 text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-slate-200/80"
+                className="min-h-11 flex items-center gap-2 transition-colors pt-2"
+                style={{
+                  color: '#94a3b8',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
               >
                 <WhatsAppIcon />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={loginUrl}
-                className="min-h-11 inline-flex items-center text-[var(--text)] hover:text-accent transition-colors pt-2 border-t border-slate-200/80"
+                className="min-h-11 inline-flex items-center transition-colors pt-2"
+                style={{
+                  color: '#94a3b8',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
               >
                 Вход
               </a>

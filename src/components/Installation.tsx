@@ -57,12 +57,16 @@ const VideoCard = ({ src, label, poster, isVisible, delay, index }: VideoCardPro
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay }}
-      className="group relative overflow-hidden rounded-2xl bg-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300"
+      className="group relative overflow-hidden rounded-2xl transition-all duration-300"
+      style={{
+        border: '1px solid rgba(255,255,255,0.07)',
+        background: 'rgba(255,255,255,0.02)',
+      }}
     >
       <div ref={wrapperRef} className="relative aspect-[9/16] w-full overflow-hidden">
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           poster={poster}
           muted
           loop
@@ -73,13 +77,23 @@ const VideoCard = ({ src, label, poster, isVisible, delay, index }: VideoCardPro
           <source src={src} type="video/mp4" />
         </video>
 
-        {/* Bottom label */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-4 py-4">
-          <span className="text-sm font-semibold text-white leading-tight">{label}</span>
+        {/* Bottom label gradient */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 px-4 py-4"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)' }}
+        >
+          <span className="text-sm font-medium text-white/90 leading-tight">{label}</span>
         </div>
 
         {/* Index badge */}
-        <div className="absolute top-3 left-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-xs font-bold text-slate-700 shadow-sm">
+        <div
+          className="absolute top-3 left-3 flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-semibold"
+          style={{
+            background: 'rgba(14,165,233,0.15)',
+            border: '1px solid rgba(14,165,233,0.3)',
+            color: '#38bdf8',
+          }}
+        >
           {index + 1}
         </div>
       </div>
@@ -120,19 +134,39 @@ const Installation = () => {
   }
 
   return (
-    <section id="installation" ref={ref} className="bg-[var(--surface-2)] py-10 md:py-14 lg:py-16">
-      <div className="container mx-auto px-4">
+    <section
+      id="installation"
+      ref={ref}
+      className="py-24 md:py-36 relative overflow-hidden"
+      style={{ background: '#060b14' }}
+    >
+      {/* Divider */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent)' }}
+      />
+
+      <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
-          className="mb-6 text-center md:mb-8"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 md:mb-20 max-w-5xl mx-auto"
         >
-          <h2 className="mb-2 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl">
+          <span
+            className="text-[10px] font-bold uppercase tracking-[0.2em] mb-5 block"
+            style={{ color: '#38bdf8' }}
+          >
+            Монтаж
+          </span>
+          <h2
+            className="font-bold leading-[1.0] tracking-[-0.04em] text-white mb-4"
+            style={{ fontSize: 'clamp(38px, 5.5vw, 72px)' }}
+          >
             {t('installation.title')}
           </h2>
-          <p className="mx-auto max-w-2xl text-sm text-[var(--muted)] md:text-base">
+          <p className="text-[15px] leading-[1.75]" style={{ color: '#475569' }}>
             {t('installation.subtitle')}
           </p>
         </motion.div>

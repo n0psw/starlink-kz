@@ -33,7 +33,14 @@ const ScrollToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 z-50 inline-flex h-11 w-11 items-center justify-center md:h-12 md:w-12 lg:h-14 lg:w-14 bg-white/92 text-[var(--text)] border border-slate-300/80 rounded-full shadow-[0_16px_30px_-18px_rgba(15,23,42,0.42)] transition-all hover:scale-110 hover:text-accent hover:border-accent/[0.40]"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 lg:bottom-8 lg:right-8 z-50 inline-flex h-11 w-11 items-center justify-center md:h-12 md:w-12 rounded-full transition-all hover:scale-110"
+          style={{
+            background: 'rgba(255,255,255,0.07)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            color: '#64748b',
+            backdropFilter: 'blur(12px)',
+            boxShadow: '0 8px 24px -6px rgba(0,0,0,0.4)',
+          }}
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />

@@ -23,15 +23,13 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-transparent overflow-x-hidden max-w-full">
+    <div className="min-h-screen overflow-x-hidden max-w-full" style={{ background: '#050810' }}>
       <TopBanner />
       <Header />
       <Hero />
+      <Features />
       <OrderOptions />
       <Installation />
-      {/* <Services /> */}
-      {/* <UseCases /> */}
-      <Features />
       <SatelliteMap />
       <ConnectionSchemes />
       <Footer />

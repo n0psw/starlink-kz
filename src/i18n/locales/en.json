@@ -60,7 +60,10 @@
     "rightFooter1": "From 1 day",
     "rightFooter2": "Across Kazakhstan and CIS",
     "rightCta": "Get Consultation",
-    "ctaHint": "We reply in WhatsApp in 5 minutes · Free consultation"
+    "ctaHint": "We reply in WhatsApp in 5 minutes · Free consultation",
+    "leftPointSpeedLabel": "Speed",
+    "leftPointCoverageLabel": "Coverage",
+    "leftPointInstallLabel": "Installation"
   },
   "useCases": {
     "title": "Who It's For",
