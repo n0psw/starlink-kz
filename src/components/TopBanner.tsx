@@ -14,7 +14,7 @@ const TopBanner = () => {
     >
       <div className="container mx-auto px-3 md:px-4 text-center">
         <a
-          href="https://starlink.com/residential?referral=RC-DF-13176434-89342-1"
+          href="https://starlink.com/residential?referral=RC-DF-13335051-41158-86"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[11px] sm:text-xs md:text-sm font-medium transition-colors inline-block leading-tight"
