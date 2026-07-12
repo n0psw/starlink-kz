@@ -71,6 +71,7 @@
     "testimonials": "Reviews",
     "pricing": "Pricing",
     "faq": "FAQ",
+    "support": "Support",
     "contact": "Contact"
   },
   "hero": {
@@ -390,5 +391,38 @@
     "eqTwoStory": "Starlink antenna on the roof, main Starlink V4 router, UTP cable, additional router",
     "eqBus": "Starlink Mini kit on the roof, sealed entry, MikroTik router (hAP ax³), passenger Wi-Fi devices",
     "cta": "Discuss this project in WhatsApp"
+  },
+  "support": {
+    "badge": "SUPPORT CENTER",
+    "title": "Need Help?",
+    "subtitle": "Answers to common questions and technical support from Starlink — all in one place",
+    "cta": "Go to Starlink Support Center",
+    "ctaHint": "You will be redirected to the official starlink.com website",
+    "categories": {
+      "account": {
+        "title": "Account",
+        "desc": "Account management, login, password reset and profile settings"
+      },
+      "setup": {
+        "title": "Setup",
+        "desc": "Equipment installation, first connection and service activation"
+      },
+      "connectivity": {
+        "title": "Connectivity",
+        "desc": "Wi-Fi network, internet speed, signal quality and coverage area"
+      },
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "desc": "Equipment issues, firmware updates and diagnostics"
+      },
+      "billing": {
+        "title": "Billing",
+        "desc": "Plans, invoices, payment methods and subscription management"
+      },
+      "faq": {
+        "title": "FAQ",
+        "desc": "Answers to the most common questions about Starlink service"
+      }
+    }
   }
 }

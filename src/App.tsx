@@ -7,6 +7,7 @@ import Features from './components/Features'
 import Installation from './components/Installation'
 import SatelliteMap from './components/SatelliteMap'
 import ConnectionSchemes from './components/ConnectionSchemes'
+import Support from './components/Support'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -32,6 +33,7 @@ function App() {
       <Installation />
       <SatelliteMap />
       <ConnectionSchemes />
+      <Support />
       <Footer />
       <ScrollToTop />
     </div>

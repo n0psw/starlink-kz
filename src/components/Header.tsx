@@ -33,7 +33,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      const sections = ['hero', 'features', 'installation', 'satellite-map', 'services', 'footer']
+      const sections = ['hero', 'features', 'installation', 'satellite-map', 'services', 'support', 'footer']
       const scrollPosition = window.scrollY + 220
 
       for (const section of sections) {
@@ -118,6 +118,7 @@ const Header = () => {
     { id: 'installation', key: 'installation' },
     { id: 'satellite-map', key: 'satelliteMap' },
     { id: 'services', key: 'services' },
+    { id: 'support', key: 'support' },
     { id: 'footer', key: 'contact' },
   ]
 

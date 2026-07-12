@@ -26,9 +26,10 @@ const GlobeCanvas = () => {
     const ctx = canvas.getContext('2d')!
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = canvas.offsetWidth * dpr
+      canvas.height = canvas.offsetHeight * dpr
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
     resize()
     window.addEventListener('resize', resize)
@@ -87,19 +88,21 @@ const GlobeCanvas = () => {
       ctx.beginPath()
       ctx.arc(cx, cy, 62, 0, Math.PI * 2)
       ctx.clip()
-      ctx.beginPath()
+      ctx.strokeStyle = 'rgba(56,189,248,0.08)'
+      ctx.lineWidth = 0.5
       for (let lat = -60; lat <= 60; lat += 30) {
         const r = 62 * Math.cos((lat * Math.PI) / 180)
         const y = cy + 62 * Math.sin((lat * Math.PI) / 180)
+        ctx.beginPath()
         ctx.arc(cx, y, r, 0, Math.PI * 2)
+        ctx.stroke()
       }
       for (let lng = 0; lng < 180; lng += 30) {
         const rad = (lng * Math.PI) / 180
+        ctx.beginPath()
         ctx.arc(cx, cy, 62, rad, rad + Math.PI)
+        ctx.stroke()
       }
-      ctx.strokeStyle = 'rgba(56,189,248,0.08)'
-      ctx.lineWidth = 0.5
-      ctx.stroke()
       ctx.restore()
 
       // Satellites
