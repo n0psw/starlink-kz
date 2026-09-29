@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useCountryTranslation } from '../hooks/useCountryTranslation'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
@@ -184,7 +184,7 @@ const GlobeCanvas = () => {
 }
 
 const SatelliteMap = () => {
-  const { t } = useTranslation()
+  const { tc: t } = useCountryTranslation()
   const { ref, isVisible } = useScrollAnimation()
 
   return (
