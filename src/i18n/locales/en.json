@@ -33,9 +33,9 @@
     "orderLink": "Order STARLINK for Home"
   },
   "orderOptions": {
-    "title": "Equipment in Stock in Kazakhstan",
+    "title": "Equipment in Stock in {{country}}",
     "subtitle": "Fast same-day express delivery from our branches",
-    "desc": "No more waiting weeks for international shipping. Original Starlink Mini and Starlink V4 kits are already custom cleared and ready in our warehouses in the largest cities of Kazakhstan. We will ship the device to your city on the day of order via InDrive or courier.",
+    "desc": "No more waiting weeks for international shipping. Original Starlink Mini and Starlink V4 kits are already customs cleared and ready for dispatch. We will ship the device to your city on the day of order via InDrive or courier.",
     "warehousesTitle": "Our Warehouses and Offices:",
     "warehouseAlmatyName": "Almaty",
     "warehouseAlmatyTime": "Delivery from 1 hour",
@@ -47,7 +47,7 @@
     "warehouseOskemenTime": "Delivery from 1 hour",
     "warehouseOskemenDesc": "Regional warehouse in East Kazakhstan Region. Self-pickup in the city center or courier delivery.",
     "feature1Title": "Fast Shipment",
-    "feature1Desc": "Equipment is already in warehouses in Kazakhstan and ready for pickup or dispatch on the day of order.",
+    "feature1Desc": "Equipment is already in stock and ready for pickup or dispatch on the day of order.",
     "feature2Title": "Convenient Delivery",
     "feature2Desc": "We will ship via InDrive or trusted courier services. Delivery within the city from 1 hour.",
     "feature3Title": "Turnkey Setup",
@@ -55,9 +55,9 @@
     "cta": "Order Express Delivery via WhatsApp",
     "inStock": "In Stock",
     "deliveryMethods": "Self-pickup / InDrive",
-    "badge": "Express Delivery Across Kazakhstan",
+    "badge": "Express Delivery Across {{country}}",
     "panelTitle": "Get Starlink Without Long Wait Times",
-    "panelDesc": "We purchase only official equipment directly, handle all custom clearance, and import to Kazakhstan. You only need to pick it up or receive the courier."
+    "panelDesc": "We purchase only official equipment directly, handle all customs clearance, and import to {{country}}. You only need to pick it up or receive the courier."
   },
   "nav": {
     "home": "Home",
@@ -78,10 +78,10 @@
     "title": "Satellite Internet Wherever You Are",
     "subtitle": "We connect your home, business, or remote site turnkey — from equipment selection to on-site setup",
     "cta": "Submit Request",
-    "ctaSecondary": "View Rates",
-    "leftBadge": "STARLINK IN KAZAKHSTAN AND CIS COUNTRIES",
+    "ctaSecondary": "View Equipment",
+    "leftBadge": "STARLINK IN {{country_upper}} AND CIS COUNTRIES",
     "leftPointSpeed": "Up to 350 Mbps without interruptions",
-    "leftPointCoverage": "Across Kazakhstan and CIS countries",
+    "leftPointCoverage": "Across the country and CIS",
     "leftPointInstall": "Connection from 1 day",
     "rightTitle": "What's Included in Connection",
     "rightLine1": "Equipment selection for your site",
@@ -89,7 +89,7 @@
     "rightLine3": "Signal and speed testing",
     "rightLine4": "Post-launch support",
     "rightFooter1": "From 1 day",
-    "rightFooter2": "Across Kazakhstan and CIS",
+    "rightFooter2": "Across the country and CIS",
     "rightCta": "Get Consultation",
     "ctaHint": "We reply in WhatsApp in 5 minutes · Free consultation",
     "leftPointSpeedLabel": "Speed",
@@ -269,13 +269,13 @@
   },
   "satelliteMap": {
     "liveBadge": "LIVE — REAL TIME",
-    "title": "Starlink Satellites Over Kazakhstan",
+    "title": "Starlink Satellites Over {{country}}",
     "subtitle": "Watch Starlink satellites moving in real time on an interactive 3D map.",
     "stat1Label": "Starlink satellites",
     "stat2Label": "orbital altitude",
     "stat3Label": "one orbit around Earth",
     "stat4Label": "signal latency",
-    "description": "Every satellite in orbit ensures even coverage across Kazakhstan. On the interactive 3D map you can see each satellite's position, trajectory, and orbital parameters.",
+    "description": "Every satellite in orbit ensures even coverage across the country. On the interactive 3D map you can see each satellite's position, trajectory, and orbital parameters.",
     "cta": "Open Live Satellite Map",
     "ctaNote": "Opens on satellitemap.space in a new tab"
   },
@@ -369,7 +369,7 @@
   "stats": {
     "title": "Our Statistics",
     "clients": "Happy Clients",
-    "locations": "Locations in Kazakhstan",
+    "locations": "Locations Nationwide",
     "speed": "Mbps Average Speed",
     "uptime": "% Uptime"
   },

@@ -1,0 +1,438 @@
+{
+  "common": {
+    "order": "Buyurtma berish",
+    "mbps": "Mbit/s",
+    "weight": "Og'irligi",
+    "included": "Kiritilgan",
+    "login": "Kirish",
+    "officialEquipment": "Rasmiy uskunalar · Diler kafolati"
+  },
+  "accountBlock": {
+    "label": "Starlink hisobi",
+    "desc": "Uskunani faollashtirish va obunani boshqarish uchun sizga starlink.com saytida rasmiy hisob kerak bo'ladi. Biz ro'yxatdan o'tish va qurilmani faollashtirishda bepul yordam beramiz.",
+    "loginBtn": "Hisobga kirish",
+    "forgotPassword": "Parolni unutdingizmi?",
+    "needHelp": "Yordam kerakmi?",
+    "writeWhatsApp": "Bizga WhatsApp orqali yozing",
+    "helpFree": "bepul yordam beramiz."
+  },
+  "orderOptionsExtras": {
+    "whyUs": "Nega biz",
+    "delivery": "Yetkazib berish",
+    "deliveryVal": "1 kun",
+    "warranty": "Kafolat",
+    "warrantyVal": "3 yil",
+    "support": "Qo'llab-quvvatlash"
+  },
+  "installationLabel": "O'rnatish",
+  "accountBanner": {
+    "text": "Starlink hisobingiz bormi? Parolni unutdingizmi?",
+    "cta": "Kirish / Parolni tiklash"
+  },
+  "topBanner": {
+    "orderLink": "Uy uchun STARLINK buyurtma berish"
+  },
+  "orderOptions": {
+    "title": "Uskunalar {{country_in}}da mavjud",
+    "subtitle": "Filiallarimizdan xuddi shu kuni tezkor yetkazib berish",
+    "desc": "Xalqaro yetkazib berishni haftalab kutishingiz shart emas. Asl Starlink Mini va Starlink V4 to'plamlari bojxonadan o'tgan va jo'natishga tayyor. Buyurtma qilingan kunda InDrive yoki kurer orqali qurilmani shahringizga jo'natamiz.",
+    "warehousesTitle": "Bizning omborlar va vakolatxonalar:",
+    "warehouseAlmatyName": "Toshkent",
+    "warehouseAlmatyTime": "1 soatdan boshlab yetkazib berish",
+    "warehouseAlmatyDesc": "Asosiy ombor. InDrive orqali tezkor yetkazib berish yoki shahar markazidan olib ketish.",
+    "warehouseAstanaName": "Samarqand",
+    "warehouseAstanaTime": "1 soatdan boshlab yetkazib berish",
+    "warehouseAstanaDesc": "Mintaqaviy ombor. Shahar bo'ylab tezkor yetkazib berish va viloyat bo'yicha tezkor jo'natish.",
+    "warehouseOskemenName": "Buxoro",
+    "warehouseOskemenTime": "1 soatdan boshlab yetkazib berish",
+    "warehouseOskemenDesc": "Mintaqaviy ombor. Shahar markazidan olib ketish yoki kurerlik yetkazib berish.",
+    "feature1Title": "Tezkor jo'natish",
+    "feature1Desc": "Uskunalar allaqachon omborda va buyurtma berilgan kunda berish yoki jo'natishga tayyor.",
+    "feature2Title": "Qulay yetkazib berish",
+    "feature2Desc": "InDrive yoki ishonchli kurerlik xizmatlari orqali jo'natamiz. Shahar bo'ylab 1 soatdan boshlab yetkazib berish.",
+    "feature3Title": "Kalit ostida sozlash",
+    "feature3Desc": "Hisobni ro'yxatdan o'tkazish, qurilmani faollashtirish va yuqori tezlikdagi internetni sozlashda bepul yordam beramiz.",
+    "cta": "WhatsApp orqali ekspress yetkazib berishni buyurtma qilish",
+    "inStock": "Mavjud",
+    "deliveryMethods": "Olib ketish / InDrive",
+    "badge": "{{country_by}} bo'ylab ekspress yetkazib berish",
+    "panelTitle": "Starlinkni uzoq kutmasdan oling",
+    "panelDesc": "Biz faqat rasmiy uskunalarni to'g'ridan-to'g'ri sotib olamiz, barcha bojxona masalalarini o'z zimmamizga olamiz va {{country}}ga olib kelamiz. Siz faqat uni olib ketishingiz yoki kurerni kutib olishingiz kerak."
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "useCases": "Kimga mos keladi",
+    "services": "Xizmatlar",
+    "benefits": "Afzalliklar",
+    "features": "Uskunalar",
+    "installation": "Keyslar",
+    "satelliteMap": "Xarita",
+    "setup": "Qo'llanma",
+    "testimonials": "Sharhlar",
+    "pricing": "Tariflar",
+    "faq": "FAQ",
+    "support": "Qo'llab-quvvatlash",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "title": "Aloqa yo'q joyda sun'iy yo'ldosh interneti",
+    "subtitle": "Uy, biznes yoki chekka ob'ektni kalit ostida ulaymiz — uskunani tanlashdan tortib joyida sozlashgacha",
+    "cta": "Ariza qoldirish",
+    "ctaSecondary": "Uskunalarni ko'rish",
+    "leftBadge": "STARLINK {{country_upper}} VA MDH DAVLATLARIDA",
+    "leftPointSpeed": "350 Mbit/s gacha uzilishsiz",
+    "leftPointCoverage": "Butun mamlakat va MDH bo'ylab",
+    "leftPointInstall": "1 kundan boshlab ulanish",
+    "rightTitle": "Ulanishga nimalar kiradi",
+    "rightLine1": "Ob'ektingiz uchun uskuna tanlash",
+    "rightLine2": "Joyida o'rnatish va sozlash",
+    "rightLine3": "Signal va tezlikni tekshirish",
+    "rightLine4": "Ishga tushirilgandan so'ng qo'llab-quvvatlash",
+    "rightFooter1": "1 kundan boshlab",
+    "rightFooter2": "Butun mamlakat va MDH bo'ylab",
+    "rightCta": "Konsultatsiya olish",
+    "ctaHint": "WhatsApp'da 5 daqiqada javob beramiz · Bepul konsultatsiya",
+    "leftPointSpeedLabel": "Tezlik",
+    "leftPointCoverageLabel": "Qamrov",
+    "leftPointInstallLabel": "O'rnatish"
+  },
+  "useCases": {
+    "title": "Kimga mos keladi",
+    "hunting": {
+      "title": "Ov va baliq ovlash",
+      "description": "Tsivilizatsiyadan uzoqda ishonchli internet — har qanday sharoitda yo'nalishni aniqlash, ob-havo ma'lumotlari va aloqa uchun."
+    },
+    "camping": {
+      "title": "Kemping va tabiatga chiqish",
+      "description": "Chodir oromgohida qulay sharoit yarating — STARLINK butun jamoa uchun musiqa, filmlar, aloqa va umumiy Wi-Fi uchun internet taqdim etadi."
+    },
+    "mountains": {
+      "title": "Tog'larga sayohat",
+      "description": "Tog'larda uzilishsiz aloqa — STARLINK har qanday sayohatda xavfsizlik va barqaror internetni ta'minlaydi."
+    },
+    "streaming": {
+      "title": "Tabiatda jonli efirlar va strimlar",
+      "description": "Strimlarni qotishlarsiz o'tkazing — blogerlar, jurnalistlar va kontent yaratuvchilar uchun barqaror signal."
+    },
+    "construction": {
+      "title": "Qurilish kompaniyalari",
+      "description": "Qurilish yoki vaxta shaharchasida internet — jamoa uchun tezkor o'rnatish va barqaror aloqa."
+    },
+    "farming": {
+      "title": "Fermerlar (dalalar, yaylovlar)",
+      "description": "Dalalarda jarayonlar, texnika va kameralarni nazorat qiling — STARLINK har qanday nuqtada internetga kirishni ta'minlaydi."
+    },
+    "events": {
+      "title": "Tabiatdagi tadbirlar",
+      "description": "Mehmonlar, xodimlar va to'lovlar uchun Wi-Fi tashkil qiling — qamrovsiz joylarda barqaror internet."
+    },
+    "tourism": {
+      "title": "Turistik agentliklar",
+      "description": "Mijozlarga turda internet taqdim eting — qulaylik va xavfsizlik uchun bonus sifatida."
+    },
+    "freelance": {
+      "title": "Frilanserlar va masofadan ishlash uchun ideal",
+      "description": "Masofadan ishlash va tabiatda hordiq chiqarishni uyg'unlashtiring: aloqada qoling, onlayn uchrashuvlar o'tkazing va loyihalarni gulxan atrofida ham yakunlang."
+    }
+  },
+  "benefits": {
+    "title": "Sizning afzalliklaringiz",
+    "simplicity": {
+      "title": "Ulanishning soddaligi va qulayligi",
+      "description": "O'rnatish atigi bir necha daqiqa davom etadi — mutaxassislarsiz, murakkab sozlashlarsiz. Yoqdingiz — va siz tarmoqdasiz."
+    },
+    "speed": {
+      "title": "Yuqori tezlik va barqarorlik",
+      "description": "Yuklab olish tezligi 250-350 Mbit/s gacha va yuklash 40 Mbit/s gacha, minimal kechikish bilan, hatto mamlakatning eng chekka burchaklarida ham."
+    },
+    "flexibility": {
+      "title": "Sotib olishning qulay shartlari",
+      "description": "Uskunalar doimiy foydalanilganda tezda o'zini oqlaydi. Shuningdek, kerak bo'lganda ijaraga olishning moslashuvchan variantlari mavjud."
+    },
+    "everywhere": {
+      "title": "Uyali aloqa yo'q joyda ham ishlaydi",
+      "description": "Tog'lar, dalalar, o'rmonlar — «signalsiz» hududlarni unuting. STARLINK to'g'ridan-to'g'ri sun'iy yo'ldoshlarga ulanadi."
+    },
+    "weather": {
+      "title": "Ob-havo sharoitlariga chidamli",
+      "description": "Sun'iy yo'ldosh tarelkasi qorni avtomatik eritadi, yomg'ir, shamol va loyga bardosh beradi. Yil davomida ishonchli aloqa."
+    },
+    "versatility": {
+      "title": "Foydalanishning ko'p qirraliligi",
+      "description": "Ishlash, onlayn konferensiyalar, strimlar, tadbirlar, ov, baliq ovlash va kemping uchun — STARLINK har qanday vazifaga mos keladi."
+    }
+  },
+  "features": {
+    "title": "Qo'shimcha afzalliklar",
+    "mini": {
+      "title": "STARLINK Mini",
+      "description": "Ryukzakka osongina sig'adigan ixcham, ko'chma to'plam yo'lda yuqori tezlikdagi internetni ta'minlaydi."
+    },
+    "v4": {
+      "title": "STARLINK V4",
+      "description": "Maksimal unumdorlikka ega statsionar foydalanish uchun standart uskunalar."
+    }
+  },
+  "setup": {
+    "title": "Internetdan deyarli darhol foydalanishni boshlang",
+    "description": "Barqaror ishlash uchun qurilmaga osmonning ochiq ko'rinishi kerak. STARLINK ilovasi o'rnatish uchun eng yaxshi joyni aniqlashga yordam beradi.",
+    "step1": "Ulang",
+    "step2": "Osmonga qarating",
+    "downloadAndroid": "Android uchun yuklab olish",
+    "downloadIOS": "IOS uchun yuklab olish"
+  },
+  "installation": {
+    "title": "Haqiqiy keyslar",
+    "subtitle": "Biz hammasini kalit ostida qilamiz — joy tanlashdan tortib internetni ishga tushirishgacha.",
+    "visit": {
+      "title": "Chiqish va joy tanlash",
+      "description": "Joylashuvni baholaymiz va o'rnatish uchun maqbul nuqtani tanlaymiz."
+    },
+    "mount": {
+      "title": "Professional o'rnatish",
+      "description": "Uskunani ishonchli mahkamlaymiz va kabelni ehtiyotkorlik bilan yotqizamiz."
+    },
+    "setup": {
+      "title": "Sozlash va test",
+      "description": "Ulaymiz, sozlaymiz va aloqa sifatini tekshiramiz."
+    },
+    "extra1": {
+      "title": "Ob'ektda signal diagnostikasi",
+      "description": "Signal darajasini tekshiramiz va yakuniy ishga tushirishdan oldin yuzaga kelishi mumkin bo'lgan shovqinlarni bartaraf etamiz."
+    },
+    "extra2": {
+      "title": "Wi-Fi qamrovini optimallashtirish",
+      "description": "Routerni va qamrov hududini ob'ektingiz rejasiga moslashtiramiz."
+    },
+    "extra3": {
+      "title": "Yakuniy tekshirish",
+      "description": "Tizimdan qanday foydalanishni ko'rsatamiz va ob'ektni to'liq ish holatida topshiramiz."
+    }
+  },
+  "services": {
+    "title": "Kalit ostida xizmatlar",
+    "subtitle": "Biz ishlarning to'liq tsiklini yopamiz: Starlinkni o'rnatishdan tortib tarmoq infratuzilmasi, transport va B2B vazifalarigacha.",
+    "showAll": "Barcha xizmatlarni ko'rsatish",
+    "hide": "Xizmatlarning bir qismini yashirish",
+    "customText": "Kerakli xizmatni topmadingizmi? Ob'ektingiz uchun 15 daqiqada shaxsiy yechim yig'amiz.",
+    "customCta": "Loyihani WhatsApp'da muhokama qilish",
+    "items": {
+      "installation": {
+        "title": "Starlink o'rnatish va faollashtirish",
+        "description": "Kalit ostida to'liq ishga tushirish: o'rnatish, sozlash, signal testi va tayyor yechimni topshirish."
+      },
+      "wifi": {
+        "title": "Uy va ofis uchun Wi-Fi tarmog'i",
+        "description": "Xonada barqaror qamrovni o'rnatamiz va ishchi qurilmalarni ulaymiz."
+      },
+      "mesh": {
+        "title": "2-3 qavatlar uchun Mesh Wi-Fi",
+        "description": "Katta maydonlarda aloqa uzilishlarisiz qamrovni kengaytiramiz."
+      },
+      "mobile": {
+        "title": "Transport uchun mobil Starlink",
+        "description": "Avtobuslar, maxsus texnika va mobil jamoalar uchun yo'lda barqaror aloqa yechimlari."
+      },
+      "b2b": {
+        "title": "Korporativ va B2B yechimlar",
+        "description": "Filiallar, omborlar, qurilish maydonchalari va har qanday miqyosdagi chekka ob'ektlar uchun tarmoqlar."
+      },
+      "ptp": {
+        "title": "Binolar o'rtasida PtP radio ko'prigi",
+        "description": "Uzoqdagi binolarni yagona tarmoqqa birlashtirish uchun nuqtadan-nuqtaga aloqani tashkil qilamiz."
+      },
+      "cameras": {
+        "title": "IP kameralarni ulash",
+        "description": "Videokuzatuvni tarmoqqa integratsiya qilamiz va so'rov bo'yicha masofaviy kirishni sozlaymiz."
+      },
+      "routers": {
+        "title": "Routerlar va retranslyatorlarni sozlash",
+        "description": "Tarmoq barqaror ishlashi uchun marshrutlash, Wi-Fi va roumingni optimallashtiramiz."
+      }
+    }
+  },
+  "equipment": {
+    "title": "Qaysi Starlinkni tanlash kerak?",
+    "subtitle": "Vazifangiz uchun to'g'ri uskunani toping",
+    "v4": {
+      "title": "Starlink V4",
+      "subtitle": "Uy va ofis uchun standart",
+      "desc": "Statsionar ob'ektlar: qishloq uylari, ofislar, kafelar va ishlab chiqarish bazalari uchun eng mashhur to'plam. Barqaror yuqori tezlik va 235 kv.m gacha Wi-Fi qamrovi.",
+      "idealFor": "Uchun ideal:",
+      "points": {
+        "home": "Shahar tashqarisidagi uylar va dalahovlilar",
+        "business": "Kichik biznes va ofislar",
+        "remote": "Chekka ob'ektlar"
+      }
+    },
+    "mini": {
+      "title": "Starlink Mini",
+      "subtitle": "Sayohatlar uchun portativ",
+      "desc": "O'rnatilgan Wi-Fi routeriga ega ixcham va yengil to'plam. O'zingiz bilan olib yurish oson, PowerBankdan ishlashi mumkin. Sayohatlar, ekspeditsiyalar va ko'chmanchi turmush tarzi uchun ideal.",
+      "idealFor": "Uchun ideal:",
+      "points": {
+        "travel": "Sayohatlar va kemping",
+        "auto": "Avtouylar va ekspeditsiyalar",
+        "backup": "Zaxira internet"
+      }
+    }
+  },
+  "starlinkInfo": {
+    "whatIsTitle": "Starlink nima?",
+    "whatIsDesc": "Starlink — SpaceX tomonidan yaratilgan sun'iy yo'ldosh interneti tizimi bo'lib, dunyoning istalgan nuqtasida keng polosali internetdan foydalanish imkonini beradi.",
+    "howWorksTitle": "U qanday ishlaydi?",
+    "howWorksDesc": "Past orbitadagi minglab sun'iy yo'ldoshlar er usti terminallari bilan bog'lanib, an'anaviy sun'iy yo'ldosh internetiga qaraganda ancha tezkor aloqa va past kechikishni ta'minlaydi."
+  },
+  "satelliteMap": {
+    "title": "Starlink sun'iy yo'ldoshlari qanday harakatlanadi",
+    "description": "Orbitadagi har bir sun'iy yo'ldosh butun mamlakat bo'ylab bir tekis qamrovni ta'minlaydi. Interaktiv 3D xaritada siz har bir sun'iy yo'ldoshning holatini, uning traektoriyasini va orbital parametrlarini ko'rishingiz mumkin.",
+    "cta": "Jonli sun'iy yo'ldosh xaritasini ochish",
+    "ctaNote": "satellitemap.space saytida yangi yorliqda ochiladi"
+  },
+  "coverage": {
+    "title": "Qamrov xaritasi",
+    "subtitle": "Rasmiy qamrov xaritasida joylashuvingizda STARLINK mavjudligini tekshiring.",
+    "cta": "Xaritani ochish",
+    "note": "Xarita Starlink saytida ochiladi."
+  },
+  "contact": {
+    "title": "Biz bilan bog'lanish",
+    "subtitle": "Starlink uskunasini sotib olish yoki ijaraga olish uchun ariza qoldiring",
+    "name": "Ism",
+    "phone": "Telefon",
+    "email": "Email",
+    "equipment": "Uskunalar",
+    "serviceType": "Xizmat turi",
+    "message": "Xabar",
+    "submit": "WhatsApp'ga yuborish",
+    "selectEquipment": "Uskunani tanlang",
+    "selectServiceType": "Xizmat turini tanlang",
+    "rental": "Ijara",
+    "purchase": "Sotib olish"
+  },
+  "footer": {
+    "contacts": "Aloqa",
+    "city": "Toshkent, Samarqand, Buxoro",
+    "copyright": "© 2026"
+  },
+  "testimonials": {
+    "title": "Starlink haqida sharhlar",
+    "subtitle": "Mijozlarimiz nima deydi"
+  },
+  "pricing": {
+    "title": "Tariflar va narxlar",
+    "subtitle": "Sotib olish yoki ijaraga olishning mos variantini tanlang",
+    "day": "kun",
+    "week": "hafta",
+    "month": "oy",
+    "mini": "Starlink Mini",
+    "v4": "Starlink V4",
+    "from": "dan",
+    "rental": "Ijara",
+    "purchase": "Sotib olish",
+    "contactUs": "Biz bilan bog'lanish"
+  },
+  "faq": {
+    "title": "Ko'p so'raladigan savollar",
+    "subtitle": "Mashhur savollarga javoblar"
+  },
+  "whyUs": {
+    "title": "Nega biz",
+    "subtitle": "Biz bilan ishlashning afzalliklari",
+    "experience": {
+      "title": "Tajriba",
+      "description": "Starlink uskunalari bilan ishlash bo'yicha ko'p yillik tajriba"
+    },
+    "support": {
+      "title": "24/7 qo'llab-quvvatlash",
+      "description": "Kechayu kunduz texnik qo'llab-quvvatlash"
+    },
+    "quality": {
+      "title": "Sifat",
+      "description": "Faqat original Starlink uskunalari"
+    },
+    "flexibility": {
+      "title": "Moslashuvchanlik",
+      "description": "Har bir mijoz uchun individual shartlar"
+    }
+  },
+  "guarantees": {
+    "title": "Kafolatlar va shartlar",
+    "subtitle": "Biz kafolatlaymiz",
+    "equipment": {
+      "title": "Sifatli uskunalar",
+      "description": "A'lo holatdagi faqat original Starlink uskunalari"
+    },
+    "setup": {
+      "title": "O'rnatishda yordam",
+      "description": "Uskunani sozlashda konsultatsiya va yordam"
+    },
+    "support": {
+      "title": "Texnik qo'llab-quvvatlash",
+      "description": "Muammolar yuzaga kelganda kechayu kunduz qo'llab-quvvatlash"
+    },
+    "refund": {
+      "title": "Pulni qaytarish",
+      "description": "Buyurtma bekor qilinganda pulni qaytarish imkoniyati"
+    }
+  },
+  "stats": {
+    "title": "Bizning statistika",
+    "clients": "Mamnun mijozlar",
+    "locations": "Mamlakat bo'ylab lokalizatsiyalar",
+    "speed": "Mbit/s o'rtacha tezlik",
+    "uptime": "% ish vaqti"
+  },
+  "schemes": {
+    "title": "Tayyor ulanish sxemalari",
+    "subtitle": "Turli vazifalar uchun tarmoqni tashkil etishning odatiy loyihalari: qishloq uylaridan tijorat ob'ektlarigacha",
+    "tab1": "5 ta uy uchun sxema",
+    "tab2": "Besh qavatli uy",
+    "tab3": "Ikki qavatli uy",
+    "tab4": "Avtobus uchun Starlink",
+    "desc1": "Bitta Starlink manbasidan 5 tagacha alohida uylarni birlashtirish uchun Tenda radioko'priklaridan foydalangan holda tarmoqni tashkil etish.",
+    "desc2": "Tarmoq kommutatori orqali besh qavatli turar-joy binosining barcha kvartiralariga tezyurar sun'iy yo'ldosh internetini tarqatish.",
+    "desc3": "Asosiy router va qo'shimcha retranslyator yordamida 200 m² maydonga ega ikki qavatli uyni qoplash sxemasi.",
+    "desc4": "Avtobus yo'lovchilari uchun yo'lda barqaror Wi-Fi internetini tashkil qilish uchun Starlink Mini-ni ulash.",
+    "zoom": "Sxemani kattalashtirish",
+    "equipment": "Foydalaniladigan uskunalar:",
+    "eqHouses": "Starlink antennasi, Starlink routeri, Tenda O6/O8 radioko'priklari, Tenda AC10 / AC1200 routerlari, LAN kabellari",
+    "eqFiveStory": "Tomdagi Starlink antennasi, Starlink routeri, gigabit tarmoq kommutatori, UTP Cat5e/Cat6 kabellari, kvartiralarda Wi-Fi routerlari",
+    "eqTwoStory": "Tomdagi Starlink antennasi, asosiy Starlink V4 routeri, UTP kabeli, qo'shimcha router",
+    "eqBus": "Tomdagi Starlink Mini to'plami, germetik kiritish, MikroTik (hAP ax³) routeri, yo'lovchi Wi-Fi qurilmalari",
+    "cta": "Ushbu loyihani WhatsApp'da muhokama qilish"
+  },
+  "support": {
+    "badge": "QO'LLAB-QUVVATLASH MARKAZI",
+    "title": "Yordam kerakmi?",
+    "subtitle": "Starlink'dan tez-tez so'raladigan savollarga javoblar va texnik yordam — barchasi bir joyda",
+    "cta": "Starlink qo'llab-quvvatlash markaziga o'tish",
+    "ctaHint": "Siz rasmiy starlink.com saytiga yo'naltirilasiz",
+    "categories": {
+      "account": {
+        "title": "Hisob",
+        "desc": "Hisobni boshqarish, kirish, parolni o'zgartirish va profil ma'lumotlari"
+      },
+      "setup": {
+        "title": "Sozlash",
+        "desc": "Uskunani o'rnatish, birinchi ulanish va xizmatni faollashtirish"
+      },
+      "connectivity": {
+        "title": "Ulanish",
+        "desc": "Wi-Fi tarmog'i, internet tezligi, signal sifati va qamrov zonasi"
+      },
+      "troubleshooting": {
+        "title": "Muammolarni bartaraf etish",
+        "desc": "Uskunalar bilan bog'liq muammolarni hal qilish, yangilanishlar va diagnostika"
+      },
+      "billing": {
+        "title": "To'lov",
+        "desc": "Tariflar, hisoblar, to'lov usullari va obunani boshqarish"
+      },
+      "faq": {
+        "title": "Ko'p so'raladigan savollar",
+        "desc": "Starlink xizmati haqidagi eng mashhur savollarga javoblar"
+      }
+    }
+  }
+}
