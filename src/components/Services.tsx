@@ -16,8 +16,10 @@ import {
   Wrench,
 } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useCountry } from '../config/CountryContext'
 
 const Services = () => {
+  const { config } = useCountry()
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
   const [showAll, setShowAll] = useState(false)
@@ -141,7 +143,7 @@ const Services = () => {
               {t('services.customText')}
             </p>
             <a
-              href="https://wa.me/77007006613"
+              href={`https://wa.me/${config.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-800"

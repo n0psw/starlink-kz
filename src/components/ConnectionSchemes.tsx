@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useCountry } from '../config/CountryContext'
 import {
   MessageCircle,
   ZoomIn,
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react'
 
 const ConnectionSchemes = () => {
+  const { config } = useCountry()
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation(0.05)
   const [activeTab, setActiveTab] = useState(0)
@@ -125,7 +127,7 @@ const ConnectionSchemes = () => {
           >
             {t('services.customText')}{' '}
             <a
-              href="https://wa.me/77007006613"
+              href={`https://wa.me/${config.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-400 font-semibold hover:text-sky-300 underline transition-colors"
@@ -197,7 +199,7 @@ const ConnectionSchemes = () => {
 
             <div className="pt-2">
               <motion.a
-                href={`https://wa.me/77007006613?text=${encodeURIComponent(activeScheme.waText)}`}
+                href={`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(activeScheme.waText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white hover:bg-slate-100 text-black text-sm sm:text-base font-bold rounded-xl shadow-lg transition-all w-full sm:w-auto relative group overflow-hidden cursor-pointer"

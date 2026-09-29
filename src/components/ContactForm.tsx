@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import toast, { Toaster } from 'react-hot-toast'
 import { Loader2 } from 'lucide-react'
+import { useCountry } from '../config/CountryContext'
 
 interface FormData {
   name: string
@@ -16,6 +17,7 @@ interface FormData {
 }
 
 const ContactForm = () => {
+  const { config } = useCountry()
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -45,7 +47,7 @@ const ContactForm = () => {
 📡 Оборудование: ${equipmentText}
 💬 Сообщение: ${data.message || 'Нет сообщения'}`
 
-      const whatsappUrl = `https://wa.me/77007006613?text=${encodeURIComponent(message)}`
+      const whatsappUrl = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`
       
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
       

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../hooks/useLanguage'
+import { useCountry } from '../config/CountryContext'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import ScrollProgress from './ScrollProgress'
 
@@ -20,11 +21,9 @@ const Header = () => {
   const headerRef = useRef<HTMLElement>(null)
   const langRef = useRef<HTMLDivElement>(null)
 
-  const languages = [
-    { code: 'ru', label: 'Русский', short: 'RU' },
-    { code: 'kk', label: 'Қазақша', short: 'KK' },
-    { code: 'en', label: 'English', short: 'EN' },
-  ]
+  const { config } = useCountry()
+
+  const languages = config.languages
   const selectedLang = languages.find((l) => l.code === currentLanguage) || languages[0]
   const loginUrl =
     'https://starlink.com/auth/login?ReturnUrl=https%3A%2F%2Fstarlink.com%2Fapi%2Fauth%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DauthRelyingPartyId%26redirect_uri%3Dhttps%253A%252F%252Fstarlink.com%252Fauth-rp%252Fauth%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520profile%26code_challenge%3DPYXN3CRQo0BlsM71ry2QakJDTIUYeNUuSec6OcKptgU%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639060383978383194.YzQ5YjAzMGUtNjlkZi00OWU2LThhMTYtYWJhNzdkOTEwYmU4MWVkMWRlN2QtMWYzZi00ZmU1LWJhM2EtNjkyOTcwNTM1ZmM5%26view%3Dcustomer%26sxLoginReturnUrl%3Dhttps%253A%252F%252Fstarlink.com%252Faccount%26state%3DCfDJ8BrmZteN5jdLoWYoVZAk1aSXBUaGSeAochtZ1iuv7fyXUyMA4CjlsIKSb3ZDUbW6vna0kLZ8r0mzFjkPLbH-dRsOURueX1HHnGiy3DxbRjcSD_7CsGPosFES-fdXLDDObAiLqhF3tMNftsLhcJYl5TT2Aq9w5nfuL-b16oE8bqrcjxT6S9u-mwEFtKB2h0ZErCHHngFBfDyhGDP3mnY1HNygR_MeKzbWwAgG9c1wav8xUtFupC3g5CZJSmYlL_HkgqZGTKNZpliFDPpslKzqz7PsM1GQ_rvuasoNH-UT98Gdw7PAEBQvUjG6u_qHalj8dWJByoueJtrUVz4LWGaGsV3HZPpMhjFxdZAt0V-UxQV4NVfxD4zT7CLUiAtrqOOUKwtKMgohJUTmPnWyzJ95A9yPpVoQrO5-YV784un-GLdMGaQSXyF76y-SIV1bV0MAxSo8WtSz5LDmZP5QeHt20DI%26x-client-SKU%3DID_NET9_0%26x-client-ver%3D8.0.1.0'
@@ -169,28 +168,30 @@ const Header = () => {
             <div className="hidden md:flex items-center gap-3 lg:gap-4">
               <div className="flex flex-col items-end text-[11px] lg:text-sm leading-tight">
                 <a
-                  href="tel:+77007006613"
+                  href={`tel:+${config.whatsapp}`}
                   className="font-medium transition-colors"
                   style={{ color: '#94a3b8' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#f1f5f9')}
                   onMouseLeave={e => (e.currentTarget.style.color = '#94a3b8')}
                 >
-                  +7 700 700 6613
+                  {config.phone}
                 </a>
               </div>
-              <a
-                href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center transition-opacity opacity-50 hover:opacity-90"
-                aria-label="2GIS"
-              >
-                <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5" />
-              </a>
+              {config.code === 'kz' && (
+                <a
+                  href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center transition-opacity opacity-50 hover:opacity-90"
+                  aria-label="2GIS"
+                >
+                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-5 w-5" />
+                </a>
+              )}
             </div>
 
             <a
-              href="https://wa.me/77007006613"
+              href={`https://wa.me/${config.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hidden md:flex items-center justify-center opacity-60 hover:opacity-100"
@@ -309,23 +310,25 @@ const Header = () => {
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
               >
                 <a
-                  href="tel:+77007006613"
+                  href={`tel:+${config.whatsapp}`}
                   className="min-h-11 inline-flex items-center transition-colors"
                   style={{ color: '#94a3b8' }}
                 >
-                  +7 700 700 6613
+                  {config.phone}
                 </a>
-                <a
-                  href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-h-11 inline-flex items-center gap-2 transition-colors"
-                  style={{ color: '#94a3b8' }}
-                  aria-label="2GIS"
-                >
-                  <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-50" />
-                  <span>2GIS</span>
-                </a>
+                {config.code === 'kz' && (
+                  <a
+                    href="https://2gis.kz/ust-kamenogorsk/firm/70000001095035295"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-h-11 inline-flex items-center gap-2 transition-colors"
+                    style={{ color: '#94a3b8' }}
+                    aria-label="2GIS"
+                  >
+                    <img src={`${baseUrl}2gis.svg`} alt="2GIS" className="h-4 w-4 opacity-50" />
+                    <span>2GIS</span>
+                  </a>
+                )}
               </div>
               {navLinks.map((link) => (
                 <a
@@ -342,7 +345,7 @@ const Header = () => {
                 </a>
               ))}
               <a
-                href="https://wa.me/77007006613"
+                href={`https://wa.me/${config.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="min-h-11 flex items-center gap-2 transition-colors pt-2"

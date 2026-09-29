@@ -1,8 +1,14 @@
-import { useTranslation } from 'react-i18next'
+import { useCountryTranslation } from '../hooks/useCountryTranslation'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react'
 import KazakhstanMap from './KazakhstanMap'
+import KyrgyzstanMap from './KyrgyzstanMap'
+import TajikistanMap from './TajikistanMap'
+import UzbekistanMap from './UzbekistanMap'
+import SatelliteAnimation from './SatelliteAnimation'
+
+
 
 // Count-up hook (StrictMode-safe)
 const useCountUp = (target: number, duration = 1800, delay = 600) => {
@@ -63,7 +69,7 @@ const StarField = ({ mobile }: { mobile: boolean }) => {
 }
 
 const Hero = () => {
-  const { t, i18n } = useTranslation()
+  const { tc: t, i18n, config } = useCountryTranslation()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -74,7 +80,7 @@ const Hero = () => {
   }, [])
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/77007006613', '_blank', 'noopener,noreferrer')
+    window.open(`https://wa.me/${config.whatsapp}`, '_blank', 'noopener,noreferrer')
   }
 
   const scrollToNext = useCallback(() => {
@@ -239,7 +245,15 @@ const Hero = () => {
             aria-hidden="true"
           />
           <div className="relative z-10 w-full max-w-[1100px]">
-            <KazakhstanMap language={i18n.language} isMobile={isMobile} />
+            {config.showMap
+              ? (
+                  config.code === 'kg' ? <KyrgyzstanMap language={i18n.language} isMobile={isMobile} /> :
+                  config.code === 'tj' ? <TajikistanMap language={i18n.language} isMobile={isMobile} /> :
+                  config.code === 'uz' ? <UzbekistanMap language={i18n.language} isMobile={isMobile} /> :
+                  <KazakhstanMap language={i18n.language} isMobile={isMobile} />
+                )
+              : <SatelliteAnimation />
+            }
           </div>
         </motion.div>
 

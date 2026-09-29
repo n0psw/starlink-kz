@@ -2,14 +2,16 @@ import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import { ArrowRight, KeyRound, LogIn, ExternalLink } from 'lucide-react'
+import { useCountry } from '../config/CountryContext'
 
 const Features = () => {
   const { t } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
+  const { config } = useCountry()
   const baseUrl = import.meta.env.BASE_URL || '/'
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/77007006613', '_blank', 'noopener,noreferrer')
+    window.open(`https://wa.me/${config.whatsapp}`, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -319,7 +321,7 @@ const Features = () => {
             <p className="text-[11px]" style={{ color: '#334155' }}>
               {t('accountBlock.needHelp')}{' '}
               <a
-                href="https://wa.me/77007006613?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D1%81%20%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%BE%D0%BC%20Starlink."
+                href={`https://wa.me/${config.whatsapp}?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D1%81%20%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%BE%D0%BC%20Starlink.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors"

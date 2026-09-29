@@ -1,10 +1,10 @@
-import { useTranslation } from 'react-i18next'
+import { useCountryTranslation } from '../hooks/useCountryTranslation'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
 const OrderOptions = () => {
-  const { t } = useTranslation()
+  const { tc: t, config } = useCountryTranslation()
   const { ref, isVisible } = useScrollAnimation(0.05)
 
   const stats = [
@@ -135,7 +135,7 @@ const OrderOptions = () => {
           className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
           <motion.a
-            href="https://wa.me/77007006613?text=Здравствуйте!%20Меня%20интересует%20Starlink.%20Есть%20ли%20в%20наличии%3F"
+            href={`https://wa.me/${config.whatsapp}?text=Здравствуйте!%20Меня%20интересует%20Starlink.%20Есть%20ли%20в%20наличии%3F`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-white text-[13px] font-semibold rounded-full relative group overflow-hidden"

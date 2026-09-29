@@ -1,13 +1,11 @@
-﻿import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion } from 'framer-motion'
 import { Star, Quote } from 'lucide-react'
+import { useCountry } from '../config/CountryContext'
 
-const Testimonials = () => {
-  const { t } = useTranslation()
-  const { ref, isVisible } = useScrollAnimation()
-
-  const testimonials = [
+const testimonialsByCountry: Record<string, { name: string; location: string; text: string; rating: number }[]> = {
+  kz: [
     {
       name: 'Асхат Н.',
       location: 'Алматы',
@@ -26,7 +24,75 @@ const Testimonials = () => {
       text: 'Использую для удаленной работы в полях. Никаких проблем, все работает отлично. Спасибо за качественный сервис!',
       rating: 5,
     },
-  ]
+  ],
+  kg: [
+    {
+      name: 'Азамат К.',
+      location: 'Бишкек',
+      text: 'Starlink — лучшее решение для интернета в горах Кыргызстана. Подключил за день, скорость отличная!',
+      rating: 5,
+    },
+    {
+      name: 'Айнура Б.',
+      location: 'Ош',
+      text: 'Использовали Starlink для мероприятия на Иссык-Куле. Стабильный Wi-Fi даже далеко от города. Очень довольны!',
+      rating: 5,
+    },
+    {
+      name: 'Нурбек Т.',
+      location: 'Каракол',
+      text: 'Для удалённой работы на природе — незаменимая вещь. Интернет работает стабильно, рекомендую!',
+      rating: 5,
+    },
+  ],
+  tj: [
+    {
+      name: 'Фирдавс А.',
+      location: 'Душанбе',
+      text: 'Starlink решил проблему интернета в нашем горном районе. Стабильная связь и высокая скорость!',
+      rating: 5,
+    },
+    {
+      name: 'Мадина Р.',
+      location: 'Худжанд',
+      text: 'Заказали для офиса в Худжанде. Доставили быстро, настроили за час. Отличный сервис!',
+      rating: 5,
+    },
+    {
+      name: 'Рустам И.',
+      location: 'Куляб',
+      text: 'Использую для удалённой работы. Интернет работает даже в самых отдалённых районах. Спасибо!',
+      rating: 5,
+    },
+  ],
+  uz: [
+    {
+      name: 'Шахзод М.',
+      location: 'Ташкент',
+      text: 'Starlink — это будущее интернета. Подключили быстро, скорость стабильная, рекомендую всем!',
+      rating: 5,
+    },
+    {
+      name: 'Дильноза К.',
+      location: 'Самарканд',
+      text: 'Заказали Starlink для загородного дома. Работает отлично, дети и гости всегда с интернетом!',
+      rating: 5,
+    },
+    {
+      name: 'Бахтиёр Р.',
+      location: 'Бухара',
+      text: 'Для бизнеса в отдалённых районах — лучшее решение. Стабильный интернет без перебоев!',
+      rating: 5,
+    },
+  ],
+}
+
+const Testimonials = () => {
+  const { t } = useTranslation()
+  const { ref, isVisible } = useScrollAnimation()
+  const { config } = useCountry()
+
+  const testimonials = testimonialsByCountry[config.code] || testimonialsByCountry.kz
 
   return (
     <section id="testimonials" ref={ref} className="py-12 md:py-16 lg:py-20 bg-white pt-20 md:pt-24 lg:pt-32">

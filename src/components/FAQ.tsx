@@ -3,16 +3,21 @@ import { useTranslation } from 'react-i18next'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { useCountry } from '../config/CountryContext'
 
 const FAQ = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { ref, isVisible } = useScrollAnimation()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const { config } = useCountry()
+
+  const lang = i18n.language || 'ru'
+  const countryName = config.name[lang] || config.name.ru
 
   const faqs = [
     {
       question: 'Как быстро можно получить оборудование?',
-      answer: 'Оборудование можно получить в день обращения. Мы доставляем по Алматы и можем организовать доставку в другие города Казахстана.',
+      answer: `Оборудование можно получить в день обращения. Мы доставляем по всей территории ${countryName}.`,
     },
     {
       question: 'Нужна ли помощь в установке?',
